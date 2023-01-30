@@ -1,0 +1,372 @@
+// @use "@material/theme" with (
+//   $primary: #9c27b0,
+//   $secondary: #76ff03,
+//   $background: #fff,
+  
+// );
+// @use "@material/shape" with (
+//   $small-component-radius: 32px,
+//   $medium-component-radius: 32px,
+//   $large-component-radius: 32px
+// );
+// @use "@material/button";
+// @use "@material/card";
+
+$mdc-theme-primary: #007CAD;
+$mdc-theme-secondary: #00CED1;
+$mdc-typography-font-family: unquote("Titillium Web, sans-serif");
+
+$small-component-radius: 32px;
+$medium-component-radius: 32px;
+$large-component-radius: 32px;
+
+$nomad-background-secondary: #e0e0e0;
+
+@use "@material/shape";
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap');
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/typography/mdc-typography";
+@import "@material/icon-button";
+@import "@material/top-app-bar/mdc-top-app-bar";
+
+:root {
+  --mdc-typography-button-font-weight: 700;
+  --mdc-theme-primary: #007CAD;
+  --mdc-theme-secondary: #00CED1;
+}
+
+.mdc-top-app-bar {
+  background-color: white;
+}
+
+a {
+  color: $mdc-theme-primary;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $mdc-theme-secondary;
+}
+
+.button {
+  @include shape.radius(32px);
+}
+
+.nomad-app-bar-button {
+  --mdc-theme-primary: #000000;
+}
+
+.mdc-list-item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.mdc-elevation--z2 {
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+}
+
+.nomad-fixed-width {
+  width: 1248px;
+  margin: auto;
+}
+
+// Some of the mdc classes have to stay explictly in the HTML because the mdc js is relying on it.
+header {
+  @extend .mdc-top-app-bar;
+  @extend .mdc-top-app-bar--fixed;
+
+  > div {
+    @extend .mdc-top-app-bar__row;
+    @extend .nomad-fixed-width;
+
+    height: 72px;
+
+    .title {
+      @extend .mdc-top-app-bar__section;
+      @extend .mdc-top-app-bar__section--align-start;
+    }
+
+    .menu-bar {
+      @extend .mdc-top-app-bar__section;
+      @extend .mdc-top-app-bar__section--align-end;
+
+      column-gap: 8px;
+
+      .menu-bar-item {
+        > button {
+          @extend .mdc-button;
+          @extend .nomad-app-bar-button;
+          @extend .button;
+
+          pointer-events: none;
+
+          padding-left: 12px;
+          .mdc-button__icon {
+            margin-right: 0;
+          }
+        }
+      
+        .menu {
+          @extend .mdc-elevation--z2;
+          @extend .mdc-menu;
+      
+          margin-top: 32px;
+          width: 200px;
+      
+          > ul {
+            > li {
+              @extend .mdc-list-item;
+              @extend .mdc-menu-item--selected;
+            }
+          }
+        }
+      }
+    }
+
+    button {
+      margin-left: 32px;
+      @extend .mdc-button; 
+    }
+  }
+}
+
+main {
+  @extend .nomad-fixed-width;
+}
+
+.nomad-section {
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+
+.nomad-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.nomad-with-title-description {
+  .title {
+    @extend .mdc-typography--headline4;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    margin-bottom: 32px;
+  }
+}
+
+.nomad-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  margin-top: 128px;
+  margin-bottom: 128px;
+
+  > div {
+    align-self: center;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  button {
+    @extend .mdc-button; 
+    @extend .button;
+    @extend .mdc-button--unelevated;
+  }
+}
+
+.nomad-statistics {  
+
+  @extend .nomad-section;
+  @extend .nomad-with-title-description;
+
+  .title {
+    margin-bottom: 32px;
+  }
+
+  .gallery {
+    @extend .nomad-grid-3;
+
+    .stat {
+      @extend .mdc-card;
+      @extend .mdc-card--outlined;
+      @extend .mdc-typography;
+
+      background-color: $nomad-background-secondary;
+
+      @include shape.radius(16px);
+      
+      justify-self: stretch;
+      text-align: center;    
+
+      >div {
+        @extend .mdc-card__content;  
+
+        padding: 16px;
+        font-size: 1.15em;      
+
+        span {
+          display: block;
+        }
+
+        span:first-child {
+          font-size: 1.8em;      
+          font-weight: bold;
+          text-transform: uppercase;
+          color: var(--mdc-theme-primary)
+        }
+      }
+    }
+  }
+}
+
+.nomad-features {  
+  @extend .mdc-typography;
+  @extend .nomad-section;
+  @extend .nomad-with-title-description;
+
+  .gallery {
+    @extend .nomad-grid-3;
+    gap: 64px;
+  
+    >div {
+      @extend .nomad-with-title-description;
+      .title {
+        @extend .mdc-typography--headline5;
+        font-weight: bold;
+      }
+      .material-icons { 
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+.nomad-fairmat-banner {
+  display: flex;
+  justify-content: center;
+
+  @extend .nomad-section;
+
+  > div {
+    max-width: 1024px;
+
+    @extend .mdc-card;
+    @extend .mdc-card--outlined;
+    @extend .mdc-typography;
+    @include shape.radius(16px);
+    background-color: $nomad-background-secondary;
+    padding: 64px;
+
+    --mdc-theme-primary: #FD331D;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 64px;
+
+    > div {
+      align-self: center;
+      flex-grow: 1;
+    }
+
+    button {
+      @extend .mdc-button--unelevated;
+      @extend .mdc-button; 
+      @extend .button;
+    }
+  }
+}
+
+.nomad-nomad-oasis {
+  @extend .mdc-typography;
+
+  margin-top: 96px;
+  margin-bottom: 96px;
+
+  @extend .nomad-with-title-description;
+
+  .gallery {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    > div {
+      width: 1024px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+    
+      > div {
+        @extend .mdc-card;
+        @extend .mdc-card--outlined;
+        @extend .mdc-typography;
+        @include shape.radius(16px);
+        background-color: $nomad-background-secondary;
+        padding: 32px;
+        
+        @extend .nomad-with-title-description;
+
+        .title {
+          @extend .mdc-typography--headline5;
+          font-weight: bold;
+        }
+
+        ul {
+          list-style-type: disc;
+          list-style-position: outside;
+          line-height: 1.6;
+
+          li {
+            margin-bottom: 16px;
+            list-style-image: url(assets/li.png);
+            font-size: 100%;
+            padding: 0;
+          }
+        }
+
+        button {
+          margin-top: 32px;
+          @extend .mdc-button; 
+          @extend .mdc-button--unelevated;
+          @extend .button;
+        }
+      }
+    }
+  }
+}
+
+.nomad-social-proof {
+  .title {
+    @extend .mdc-typography--headline4;
+    margin-bottom: 32px;
+  }
+
+  .banner {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+footer {
+  margin-top: 128px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  > div {
+    background-color: #02a6f2; color: white; padding-bottom: 96px; margin-top: -8px;
+  }
+}
