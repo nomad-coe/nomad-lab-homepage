@@ -27,3 +27,8 @@ Open the page in your browser: http://localhost:8080.
 To edit the project, we recommend vs studio code. The most important files are `src/index.html` and `styles.scss`.
 
 This project uses google's [web implementation](https://m2.material.io/develop/web) of material design 2. 
+ 
+# deploy and access the page
+
+Any change to the `main` brach, will trigger github actions to build and deploy the project. The
+deployed project is run as a github page here: https://nomad-coe.github.io/nomad-lab-homepage/.
