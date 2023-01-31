@@ -12,6 +12,9 @@
 // @use "@material/button";
 // @use "@material/card";
 
+$media-tablet: 1024px;
+$media-phone: 768px;
+
 $mdc-theme-primary: #007CAD;
 $mdc-theme-secondary: #00CED1;
 $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
@@ -40,8 +43,8 @@ $nomad-background-secondary: #e0e0e0;
   --mdc-theme-secondary: #00CED1;
 }
 
-.mdc-top-app-bar {
-  background-color: white;
+body {
+  @extend .mdc-typography;
 }
 
 a {
@@ -57,22 +60,130 @@ a:hover {
   @include shape.radius(32px);
 }
 
-.nomad-app-bar-button {
-  --mdc-theme-primary: #000000;
-}
-
-.mdc-list-item {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.mdc-elevation--z2 {
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
-}
-
 .nomad-fixed-width {
-  width: 1248px;
+  max-width: 1248px;
+  padding: 0 32px;
   margin: auto;
+}
+
+.nomad-section { 
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+
+.nomad-inset {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  
+  > div {
+    max-width: 1024px;
+  }
+}
+
+.nomad-content {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    @extend .mdc-typography--headline4;
+  }
+
+  .nomad-content .title {
+    @extend .mdc-typography--headline5;
+  }
+
+  .description {
+    margin-top: 8px;
+  }
+
+  .content {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .action {
+    margin-top: 24px;
+    button {
+      @extend .mdc-button; 
+      @extend .button;
+      @extend .mdc-button--unelevated;
+    }
+  }
+
+  .material-icons {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    line-height: 1.6;
+
+    li {
+      margin-bottom: 16px;
+      list-style-image: url(assets/li.png);
+      font-size: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.nomad-filled {
+  @extend .mdc-card;
+  @extend .mdc-card--outlined;
+  background-color: $nomad-background-secondary;
+  @include shape.radius(16px);
+  padding: 32px;
+}
+
+.nomad-content--filled {
+  @extend .nomad-filled;
+}
+
+.nomad-content--inset {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  
+  > div {
+    max-width: 1024px;
+  }
+}
+
+.nomad-gallery {
+  display: grid;
+  gap: 64px;
+}
+
+.nomad-gallery--2 {
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: $media-phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nomad-gallery--3 {
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: $media-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $media-phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nomad-gallery--filled {
+  gap: 24px;
+
+  > div {
+    @extend .nomad-filled;
+  }
 }
 
 // Some of the mdc classes have to stay explictly in the HTML because the mdc js is relying on it.
@@ -80,18 +191,40 @@ header {
   @extend .mdc-top-app-bar;
   @extend .mdc-top-app-bar--fixed;
 
+  background-color: white;
+  
+  .nomad-app-bar-button {
+    --mdc-theme-primary: #000000;
+  }
+  
+  .mdc-list-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  
+  .mdc-elevation--z2 {
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+  }
+
   > div {
-    @extend .mdc-top-app-bar__row;
+    @extend .mdc-top-app-bar__row;    
     @extend .nomad-fixed-width;
+    max-width: 1312px;
 
     height: 72px;
 
     .title {
       @extend .mdc-top-app-bar__section;
       @extend .mdc-top-app-bar__section--align-start;
+      padding-left: 0;
+      margin-left: -10px;
     }
 
     .menu-bar {
+      @media (max-width: $media-tablet) {
+        display: none;
+      }
+
       @extend .mdc-top-app-bar__section;
       @extend .mdc-top-app-bar__section--align-end;
 
@@ -131,42 +264,25 @@ header {
     button {
       margin-left: 32px;
       @extend .mdc-button; 
+      margin-right: -22px;
     }
   }
 }
 
 main {
-  @extend .nomad-fixed-width;
-}
-
-.nomad-section {
-  margin-top: 128px;
-  margin-bottom: 128px;
-}
-
-.nomad-grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-}
-
-.nomad-with-title-description {
-  .title {
-    @extend .mdc-typography--headline4;
-    margin-bottom: 8px;
-  }
-
-  .description {
-    margin-bottom: 32px;
+  > div {
+    @extend .nomad-fixed-width;
   }
 }
 
 .nomad-hero {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 64px;
-  margin-top: 128px;
-  margin-bottom: 128px;
+  @extend .nomad-section;
+  @extend .nomad-gallery;
+
+  grid-template-columns: 530px 1fr;
+  @media (max-width: $media-tablet) {
+    grid-template-columns: 1fr;
+  }
 
   > div {
     align-self: center;
@@ -174,199 +290,78 @@ main {
 
   img {
     width: 100%;
+    max-width: 600px;
   }
 
   button {
     @extend .mdc-button; 
     @extend .button;
     @extend .mdc-button--unelevated;
+
+    font-size: 1.25em;
+    padding: 1em 1.5em;
   }
 }
 
-.nomad-statistics {  
+.nomad-statistic {
+  padding: 0 !important;
+  justify-self: stretch;
+  text-align: center;    
 
-  @extend .nomad-section;
-  @extend .nomad-with-title-description;
+  > div {
+    padding: 16px;
+    font-size: 1.15em;      
 
-  .title {
-    margin-bottom: 32px;
-  }
-
-  .gallery {
-    @extend .nomad-grid-3;
-
-    .stat {
-      @extend .mdc-card;
-      @extend .mdc-card--outlined;
-      @extend .mdc-typography;
-
-      background-color: $nomad-background-secondary;
-
-      @include shape.radius(16px);
-      
-      justify-self: stretch;
-      text-align: center;    
-
-      >div {
-        @extend .mdc-card__content;  
-
-        padding: 16px;
-        font-size: 1.15em;      
-
-        span {
-          display: block;
-        }
-
-        span:first-child {
-          font-size: 1.8em;      
-          font-weight: bold;
-          text-transform: uppercase;
-          color: var(--mdc-theme-primary)
-        }
-      }
+    span {
+      display: block;
     }
-  }
-}
 
-.nomad-features {  
-  @extend .mdc-typography;
-  @extend .nomad-section;
-  @extend .nomad-with-title-description;
-
-  .gallery {
-    @extend .nomad-grid-3;
-    gap: 64px;
-  
-    >div {
-      @extend .nomad-with-title-description;
-      .title {
-        @extend .mdc-typography--headline5;
-        font-weight: bold;
-      }
-      .material-icons { 
-        font-size: 2em;
-      }
+    span:first-child {
+      font-size: 1.8em;      
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--mdc-theme-primary)
     }
   }
 }
 
 .nomad-fairmat-banner {
-  display: flex;
-  justify-content: center;
+  @extend .nomad-filled;
+  display: flex; 
+  flex-direction: row; 
+  align-items: flex-start; 
+  gap: 64px;
+  
+  --mdc-theme-primary: #FD331D;
 
-  @extend .nomad-section;
+  @media (max-width: $media-phone) {
+    flex-direction: column; 
+    gap: 32px;
+
+    > div:first-child {
+      order: 2;
+    }
+
+    > div:not(:first-child) {
+      order: 1;
+    }
+  }
+}
+
+footer { 
+  margin-top: 128px;
+  padding: 0 32px;
+  
+  background-color: var(--mdc-theme-primary); color: white; 
 
   > div {
-    max-width: 1024px;
-
-    @extend .mdc-card;
-    @extend .mdc-card--outlined;
-    @extend .mdc-typography;
-    @include shape.radius(16px);
-    background-color: $nomad-background-secondary;
-    padding: 64px;
-
-    --mdc-theme-primary: #FD331D;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 64px;
-
-    > div {
-      align-self: center;
-      flex-grow: 1;
-    }
-
-    button {
-      @extend .mdc-button--unelevated;
-      @extend .mdc-button; 
-      @extend .button;
-    }
+    margin-top: 128px;
+    padding: 32px 0 64px 0;
+    @extend .nomad-fixed-width
   }
-}
-
-.nomad-nomad-oasis {
-  @extend .mdc-typography;
-
-  margin-top: 96px;
-  margin-bottom: 96px;
-
-  @extend .nomad-with-title-description;
-
-  .gallery {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-
-    > div {
-      width: 1024px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 96px;
-    
-      > div {
-        @extend .mdc-card;
-        @extend .mdc-card--outlined;
-        @extend .mdc-typography;
-        @include shape.radius(16px);
-        background-color: $nomad-background-secondary;
-        padding: 32px;
-        
-        @extend .nomad-with-title-description;
-
-        .title {
-          @extend .mdc-typography--headline5;
-          font-weight: bold;
-        }
-
-        ul {
-          list-style-type: disc;
-          list-style-position: outside;
-          line-height: 1.6;
-
-          li {
-            margin-bottom: 16px;
-            list-style-image: url(assets/li.png);
-            font-size: 100%;
-            padding: 0;
-          }
-        }
-
-        button {
-          margin-top: 32px;
-          @extend .mdc-button; 
-          @extend .mdc-button--unelevated;
-          @extend .button;
-        }
-      }
-    }
-  }
-}
-
-.nomad-social-proof {
-  .title {
-    @extend .mdc-typography--headline4;
-    margin-bottom: 32px;
-  }
-
-  .banner {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-footer {
-  margin-top: 128px;
 
   ul {
     list-style-type: none;
     padding-left: 0;
-  }
-
-  > div {
-    background-color: #02a6f2; color: white; padding-bottom: 96px; margin-top: -8px;
   }
 }
