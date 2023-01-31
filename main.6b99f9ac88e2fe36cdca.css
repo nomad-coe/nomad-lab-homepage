@@ -5823,7 +5823,11 @@ a:hover {
 }
 .nomad-content .description {
   margin-top: 8px;
-  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .nomad-content .description {
+    margin-bottom: 8px;
+  }
 }
 .nomad-content .content {
   margin-top: 24px;
@@ -5845,6 +5849,7 @@ a:hover {
   margin-bottom: 8px;
 }
 .nomad-content ul {
+  margin-block: 0;
   list-style-type: disc;
   list-style-position: outside;
   line-height: 1.6;
@@ -5930,7 +5935,7 @@ header > div .title {
 header > div .menu-bar {
   column-gap: 8px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   header > div .menu-bar {
     display: none;
   }
@@ -5950,6 +5955,11 @@ header > div .menu-bar .menu-bar-item .menu {
 header > div button {
   margin-left: 32px;
   margin-right: -22px;
+}
+@media (max-width: 1024px) {
+  header > div button {
+    display: none;
+  }
 }
 
 .nomad-hero {
@@ -6041,4 +6051,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=main.8b1e32fe045742b774dc.css.map*/
+/*# sourceMappingURL=main.6b99f9ac88e2fe36cdca.css.map*/
