@@ -5561,7 +5561,7 @@ header .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded {
   align-self: flex-start;
 }
 
-.mdc-top-app-bar--fixed, header {
+.mdc-top-app-bar--fixed {
   transition: box-shadow 200ms linear;
 }
 
@@ -5823,11 +5823,10 @@ a:hover {
 }
 .nomad-content .description {
   margin-top: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .nomad-content .content {
   margin-top: 24px;
-  margin-bottom: 24px;
   flex-grow: 1;
 }
 .nomad-content .action {
@@ -5874,7 +5873,8 @@ a:hover {
 
 .nomad-gallery, .nomad-hero {
   display: grid;
-  gap: 64px;
+  column-gap: 64px;
+  row-gap: 24px;
 }
 
 .nomad-gallery--2 {
@@ -6028,9 +6028,17 @@ footer > div {
   margin-top: 128px;
   padding: 32px 0 64px 0;
 }
+footer > div > div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 48px;
+  row-gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
 footer ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-/*# sourceMappingURL=main.cd9c4facba1dcbe68894.css.map*/
+/*# sourceMappingURL=main.8b1e32fe045742b774dc.css.map*/
