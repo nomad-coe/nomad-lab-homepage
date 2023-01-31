@@ -1,29 +1,16 @@
-// @use "@material/theme" with (
-//   $primary: #9c27b0,
-//   $secondary: #76ff03,
-//   $background: #fff,
-  
-// );
-// @use "@material/shape" with (
-//   $small-component-radius: 32px,
-//   $medium-component-radius: 32px,
-//   $large-component-radius: 32px
-// );
-// @use "@material/button";
-// @use "@material/card";
-
 $media-tablet: 1024px;
 $media-phone: 768px;
-
-$mdc-theme-primary: #007CAD;
-$mdc-theme-secondary: #00CED1;
 $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
-$small-component-radius: 32px;
-$medium-component-radius: 32px;
-$large-component-radius: 32px;
-
-$nomad-background-secondary: #e0e0e0;
+$primary: #00629e;
+$secondary: #00696c;
+$primary-container: #cfe5ff;
+$secondary-container: #6ff6fb;
+$background: #ffffff;
+$outline: #72777f;
+$background-variation: #dee3eb; 
+$black: #1A1C1E;
+$on-primary-container: #001D34;
 
 @use "@material/shape";
 
@@ -36,11 +23,14 @@ $nomad-background-secondary: #e0e0e0;
 @import "@material/typography/mdc-typography";
 @import "@material/icon-button";
 @import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/elevation/mdc-elevation"; 
 
 :root {
   --mdc-typography-button-font-weight: 700;
-  --mdc-theme-primary: #007CAD;
-  --mdc-theme-secondary: #00CED1;
+  --mdc-theme-primary: #00629e;
+  --mdc-theme-secondary: #00696c;
+  background-color: $background;
+  color: $black;
 }
 
 body {
@@ -56,8 +46,35 @@ a:hover {
   color: $mdc-theme-secondary;
 }
 
-.button {
-  @include shape.radius(32px);
+@mixin button($outlined: false) {
+  @extend .mdc-button; 
+
+  @include shape.radius(32px);    
+  @extend .mdc-button--unelevated;
+}
+
+@mixin nomad-filled($highlight: false) {
+  @extend .mdc-card;
+  @extend .mdc-elevation--z2;
+  @include shape.radius(12px);
+
+  @if $highlight {
+    background-color: $primary-container;  
+  } 
+  @else {
+    background-color: $background-variation;  
+  }
+  padding: 32px;
+}
+
+@mixin nomad-cta {
+  @include button;
+
+  letter-spacing: normal;
+  text-transform: none;
+  height: 3em;
+  font-weight: 700;
+  padding: 0 1.75em;
 }
 
 .nomad-fixed-width {
@@ -95,29 +112,30 @@ a:hover {
 
   .description {
     margin-top: 8px;
+    @media (min-width: $media-phone) {
+      margin-bottom: 8px;
+    }
   }
 
   .content {
     margin-top: 24px;
-    margin-bottom: 24px;
     flex-grow: 1;
   }
 
   .action {
     margin-top: 24px;
     button {
-      @extend .mdc-button; 
-      @extend .button;
-      @extend .mdc-button--unelevated;
+      @include nomad-cta;      
     }
   }
 
-  .material-icons {
+  > .material-icons {
     font-size: 1.8em;
     margin-bottom: 8px;
   }
 
   ul {
+    margin-block: 0;
     list-style-type: disc;
     list-style-position: outside;
     line-height: 1.6;
@@ -131,16 +149,8 @@ a:hover {
   }
 }
 
-.nomad-filled {
-  @extend .mdc-card;
-  @extend .mdc-card--outlined;
-  background-color: $nomad-background-secondary;
-  @include shape.radius(16px);
-  padding: 32px;
-}
-
 .nomad-content--filled {
-  @extend .nomad-filled;
+  @include nomad-filled;
 }
 
 .nomad-content--inset {
@@ -155,7 +165,8 @@ a:hover {
 
 .nomad-gallery {
   display: grid;
-  gap: 64px;
+  column-gap: 64px;
+  row-gap: 24px;
 }
 
 .nomad-gallery--2 {
@@ -182,20 +193,14 @@ a:hover {
   gap: 24px;
 
   > div {
-    @extend .nomad-filled;
+    @include nomad-filled;
   }
 }
 
 // Some of the mdc classes have to stay explictly in the HTML because the mdc js is relying on it.
 header {
+  background-color: $background;
   @extend .mdc-top-app-bar;
-  @extend .mdc-top-app-bar--fixed;
-
-  background-color: white;
-  
-  .nomad-app-bar-button {
-    --mdc-theme-primary: #000000;
-  }
   
   .mdc-list-item {
     padding-top: 8px;
@@ -211,7 +216,7 @@ header {
     @extend .nomad-fixed-width;
     max-width: 1312px;
 
-    height: 72px;
+    height: 72px; 
 
     .title {
       @extend .mdc-top-app-bar__section;
@@ -221,7 +226,7 @@ header {
     }
 
     .menu-bar {
-      @media (max-width: $media-tablet) {
+      @media (max-width: $media-phone) {
         display: none;
       }
 
@@ -232,9 +237,8 @@ header {
 
       .menu-bar-item {
         > button {
-          @extend .mdc-button;
-          @extend .nomad-app-bar-button;
-          @extend .button;
+          --mdc-theme-primary: #000000;
+          @extend .mdc-button; 
 
           pointer-events: none;
 
@@ -262,9 +266,14 @@ header {
     }
 
     button {
-      margin-left: 32px;
+      @media (max-width: $media-tablet) {
+        display: none;
+      }
+
       @extend .mdc-button; 
-      margin-right: -22px;
+
+      margin-left: 32px;
+      margin-right: -22px;      
     }
   }
 }
@@ -294,12 +303,7 @@ main {
   }
 
   button {
-    @extend .mdc-button; 
-    @extend .button;
-    @extend .mdc-button--unelevated;
-
-    font-size: 1.25em;
-    padding: 1em 1.5em;
+    @include nomad-cta();
   }
 }
 
@@ -320,13 +324,13 @@ main {
       font-size: 1.8em;      
       font-weight: bold;
       text-transform: uppercase;
-      color: var(--mdc-theme-primary)
+      color: $primary;
     }
   }
 }
 
 .nomad-fairmat-banner {
-  @extend .nomad-filled;
+  @include nomad-filled;
   display: flex; 
   flex-direction: row; 
   align-items: flex-start; 
@@ -352,12 +356,21 @@ footer {
   margin-top: 128px;
   padding: 0 32px;
   
-  background-color: var(--mdc-theme-primary); color: white; 
+  background-color: $on-primary-container; color: $primary-container; 
 
   > div {
     margin-top: 128px;
     padding: 32px 0 64px 0;
-    @extend .nomad-fixed-width
+    @extend .nomad-fixed-width;
+
+    > div {
+      display: flex; 
+      flex-direction: row; 
+      column-gap: 48px;
+      row-gap: 24px; 
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
   }
 
   ul {

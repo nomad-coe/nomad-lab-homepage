@@ -4,7 +4,7 @@ import { MDCRipple } from '@material/ripple';
 import { MDCTopAppBar } from '@material/top-app-bar';
 import { MDCMenu } from '@material/menu';
 
-document.querySelectorAll('.nomad-button').forEach(button => {
+document.querySelectorAll('button').forEach(button => {
     new MDCRipple(button); 
 });
 

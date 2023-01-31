@@ -40,6 +40,7 @@
   "dependencies": {
     "@material/button": "^6.0.0",
     "@material/card": "^14.0.0",
+    "@material/elevation": "^14.0.0",
     "@material/icon-button": "^14.0.0",
     "@material/menu": "^14.0.0",
     "@material/ripple": "^6.0.0",
