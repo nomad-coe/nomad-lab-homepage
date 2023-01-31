@@ -5717,6 +5717,10 @@ a:hover {
 .nomad-content .action {
   margin-top: 24px;
 }
+.nomad-content .material-icons {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+}
 .nomad-content ul {
   list-style-type: disc;
   list-style-position: outside;
@@ -5894,4 +5898,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=main.91a362de14ab050297ee.css.map*/
+/*# sourceMappingURL=main.91741273693154f6482b.css.map*/
