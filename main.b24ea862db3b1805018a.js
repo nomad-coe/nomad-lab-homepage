@@ -8137,7 +8137,7 @@ var __webpack_exports__ = {};
 
 
 
-document.querySelectorAll('.nomad-button').forEach(function (button) {
+document.querySelectorAll('button').forEach(function (button) {
     new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
 });
 new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
@@ -8160,4 +8160,4 @@ registerMenuEvents('about-menu');
 
 /******/ })()
 ;
-//# sourceMappingURL=main.13678c7283ee74c98c24.js.map
+//# sourceMappingURL=main.b24ea862db3b1805018a.js.map

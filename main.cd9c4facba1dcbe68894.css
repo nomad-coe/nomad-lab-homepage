@@ -4536,20 +4536,7 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
   height: 36px;
 }
 
-.mdc-elevation-overlay {
-  position: absolute;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  /* @alternate */
-  opacity: var(--mdc-elevation-overlay-opacity, 0);
-  transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: #fff;
-  /* @alternate */
-  background-color: var(--mdc-elevation-overlay-color, #fff);
-}
-
-.mdc-card, .nomad-filled, .nomad-fairmat-banner, .nomad-gallery--filled > div, .nomad-content--filled {
+.mdc-card, .nomad-fairmat-banner, .nomad-gallery--filled > div, .nomad-content--filled {
   border-radius: 4px;
   /* @alternate */
   border-radius: var(--mdc-shape-medium, 4px);
@@ -4565,7 +4552,7 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
   box-sizing: border-box;
 }
 
-.mdc-card .mdc-elevation-overlay, .nomad-filled .mdc-elevation-overlay, .nomad-fairmat-banner .mdc-elevation-overlay, .nomad-gallery--filled > div .mdc-elevation-overlay, .nomad-content--filled .mdc-elevation-overlay {
+.mdc-card .mdc-elevation-overlay, .nomad-fairmat-banner .mdc-elevation-overlay, .nomad-gallery--filled > div .mdc-elevation-overlay, .nomad-content--filled .mdc-elevation-overlay {
   width: 100%;
   height: 100%;
   top: 0;
@@ -4573,7 +4560,7 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
   left: 0;
 }
 
-.mdc-card::after, .nomad-filled::after, .nomad-fairmat-banner::after, .nomad-gallery--filled > div::after, .nomad-content--filled::after {
+.mdc-card::after, .nomad-fairmat-banner::after, .nomad-gallery--filled > div::after, .nomad-content--filled::after {
   border-radius: 4px;
   /* @alternate */
   border-radius: var(--mdc-shape-medium, 4px);
@@ -4591,11 +4578,11 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
 }
 
 @media screen and (forced-colors: active) {
-  .mdc-card::after, .nomad-filled::after, .nomad-fairmat-banner::after, .nomad-gallery--filled > div::after, .nomad-content--filled::after {
+  .mdc-card::after, .nomad-fairmat-banner::after, .nomad-gallery--filled > div::after, .nomad-content--filled::after {
     border-color: CanvasText;
   }
 }
-.mdc-card--outlined, .nomad-filled, .nomad-fairmat-banner, .nomad-gallery--filled > div, .nomad-content--filled {
+.mdc-card--outlined {
   /* @alternate */
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   border-width: 1px;
@@ -4603,7 +4590,7 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
   border-color: #e0e0e0;
 }
 
-.mdc-card--outlined::after, .nomad-filled::after, .nomad-fairmat-banner::after, .nomad-gallery--filled > div::after, .nomad-content--filled::after {
+.mdc-card--outlined::after {
   border: none;
 }
 
@@ -5663,10 +5650,142 @@ header .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded {
     padding-top: 56px;
   }
 }
+.mdc-elevation--z0 {
+  /* @alternate */
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z1 {
+  /* @alternate */
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z2, .nomad-fairmat-banner, header > div .menu-bar .menu-bar-item .menu, .nomad-gallery--filled > div, .nomad-content--filled {
+  /* @alternate */
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z3 {
+  /* @alternate */
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z4 {
+  /* @alternate */
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z5 {
+  /* @alternate */
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z6 {
+  /* @alternate */
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z7 {
+  /* @alternate */
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z8 {
+  /* @alternate */
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z9 {
+  /* @alternate */
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z10 {
+  /* @alternate */
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z11 {
+  /* @alternate */
+  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z12 {
+  /* @alternate */
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z13 {
+  /* @alternate */
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z14 {
+  /* @alternate */
+  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z15 {
+  /* @alternate */
+  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z16 {
+  /* @alternate */
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z17 {
+  /* @alternate */
+  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z18 {
+  /* @alternate */
+  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z19 {
+  /* @alternate */
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z20 {
+  /* @alternate */
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z21 {
+  /* @alternate */
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z22 {
+  /* @alternate */
+  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z23 {
+  /* @alternate */
+  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation--z24 {
+  /* @alternate */
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mdc-elevation-transition {
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow;
+}
+
 :root {
   --mdc-typography-button-font-weight: 700;
-  --mdc-theme-primary: #007CAD;
-  --mdc-theme-secondary: #00CED1;
+  --mdc-theme-primary: #00629e;
+  --mdc-theme-secondary: #00696c;
+  background-color: #fcfcff;
+  color: #1A1C1E;
 }
 
 a {
@@ -5676,10 +5795,6 @@ a {
 
 a:hover {
   color: #018786;
-}
-
-.button, .nomad-hero button, header > div .menu-bar .menu-bar-item > button, .nomad-content .action button {
-  border-radius: 32px;
 }
 
 .nomad-fixed-width, footer > div, main > div, header > div {
@@ -5708,6 +5823,7 @@ a:hover {
 }
 .nomad-content .description {
   margin-top: 8px;
+  margin-bottom: 32px;
 }
 .nomad-content .content {
   margin-top: 24px;
@@ -5717,7 +5833,15 @@ a:hover {
 .nomad-content .action {
   margin-top: 24px;
 }
-.nomad-content .material-icons {
+.nomad-content .action button {
+  border-radius: 32px;
+  letter-spacing: normal;
+  text-transform: none;
+  height: 3em;
+  font-weight: 700;
+  padding: 0 1.75em;
+}
+.nomad-content > .material-icons {
   font-size: 1.8em;
   margin-bottom: 8px;
 }
@@ -5733,9 +5857,9 @@ a:hover {
   padding: 0;
 }
 
-.nomad-filled, .nomad-fairmat-banner, .nomad-gallery--filled > div, .nomad-content--filled {
-  background-color: #e0e0e0;
-  border-radius: 16px;
+.nomad-content--filled {
+  border-radius: 12px;
+  background-color: #dee3eb;
   padding: 32px;
 }
 
@@ -5779,17 +5903,20 @@ a:hover {
 .nomad-gallery--filled {
   gap: 24px;
 }
-header {
-  background-color: white;
+.nomad-gallery--filled > div {
+  border-radius: 12px;
+  background-color: #dee3eb;
+  padding: 32px;
 }
-header .nomad-app-bar-button, header > div .menu-bar .menu-bar-item > button {
-  --mdc-theme-primary: #000000;
+
+header {
+  background-color: #fcfcff;
 }
 header .mdc-list-item, header > div .menu-bar .menu-bar-item .menu > ul > li {
   padding-top: 8px;
   padding-bottom: 8px;
 }
-header .mdc-elevation--z2, header > div .menu-bar .menu-bar-item .menu {
+header .mdc-elevation--z2, header .nomad-fairmat-banner, header > div .menu-bar .menu-bar-item .menu, header .nomad-content--filled, header .nomad-gallery--filled > div {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
 }
 header > div {
@@ -5809,6 +5936,7 @@ header > div .menu-bar {
   }
 }
 header > div .menu-bar .menu-bar-item > button {
+  --mdc-theme-primary: #000000;
   pointer-events: none;
   padding-left: 12px;
 }
@@ -5840,8 +5968,12 @@ header > div button {
   max-width: 600px;
 }
 .nomad-hero button {
-  font-size: 1.25em;
-  padding: 1em 1.5em;
+  border-radius: 32px;
+  letter-spacing: normal;
+  text-transform: none;
+  height: 3em;
+  font-weight: 700;
+  padding: 0 1.75em;
 }
 
 .nomad-statistic {
@@ -5860,10 +5992,13 @@ header > div button {
   font-size: 1.8em;
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--mdc-theme-primary);
+  color: #00629e;
 }
 
 .nomad-fairmat-banner {
+  border-radius: 12px;
+  background-color: #dee3eb;
+  padding: 32px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -5886,8 +6021,8 @@ header > div button {
 footer {
   margin-top: 128px;
   padding: 0 32px;
-  background-color: var(--mdc-theme-primary);
-  color: white;
+  background-color: #001D34;
+  color: #cfe5ff;
 }
 footer > div {
   margin-top: 128px;
@@ -5898,4 +6033,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=main.91741273693154f6482b.css.map*/
+/*# sourceMappingURL=main.cd9c4facba1dcbe68894.css.map*/
