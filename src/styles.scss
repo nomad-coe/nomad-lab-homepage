@@ -11,6 +11,7 @@ $outline: #72777f;
 $background-variation: #dee3eb; 
 $black: #1A1C1E;
 $on-primary-container: #001D34;
+$white-on-primary: #F2FDFD;
 
 @use "@material/shape";
 
@@ -86,6 +87,42 @@ a:hover {
 .nomad-section { 
   margin-top: 128px;
   margin-bottom: 128px;
+
+  .section-title {
+    font-size: 2.5rem;
+    letter-spacing: -0.65px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: $black;
+  }
+
+  .section-subheading {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.8px;
+  }
+
+  .section-description {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 4rem;
+  }
+
+  .section-title--centered {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2em;
+    color: $primary;
+  }
 }
 
 .nomad-inset {
@@ -102,27 +139,27 @@ a:hover {
   display: flex;
   flex-direction: column;
 
-  .title {
-    @extend .mdc-typography--headline4;
-  }
-
-  .nomad-content .title {
+  .content-title {
     @extend .mdc-typography--headline5;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
   }
 
-  .description {
+  .content-description {
     margin-top: 8px;
+    font-size: 16px;
     @media (min-width: $media-phone) {
       margin-bottom: 8px;
     }
   }
 
-  .content {
+  .content-content {
     margin-top: 24px;
     flex-grow: 1;
   }
 
-  .action {
+  .content-action {
     margin-top: 24px;
     button {
       @include nomad-cta;      
@@ -136,6 +173,7 @@ a:hover {
 
   ul {
     margin-block: 0;
+    padding-left: 24px;
     list-style-type: disc;
     list-style-position: outside;
     line-height: 1.6;
@@ -297,6 +335,21 @@ main {
     align-self: center;
   }
 
+  .hero-title {
+    @extend .mdc-typography--headline3;
+    font-weight: 700;  // other font weight need to be installed, before being usable 
+    color: $primary;
+    line-height: 1.15em;
+    > span {
+      font-weight: 400;
+    }
+  }
+
+  .hero-description {
+    margin-top: 32px;
+    font-size: 1.5em; 
+  }
+
   img {
     width: 100%;
     max-width: 600px;
@@ -304,39 +357,64 @@ main {
 
   button {
     @include nomad-cta();
+    margin-top: 32px; 
   }
 }
 
 .nomad-statistic {
   padding: 0 !important;
+  background-color: $primary !important;  
   justify-self: stretch;
-  text-align: center;    
+  text-align: center;
 
   > div {
-    padding: 16px;
-    font-size: 1.15em;      
+    padding: 1.5em 2.5em 1.5em 2.5em;
+    font-size: 1.15em;    
+    color: $white-on-primary;
 
     span {
       display: block;
+      font-size: 2em;
+      font-weight: 700;  // other font weight need to be installed, before being usable 
     }
 
     span:first-child {
-      font-size: 1.8em;      
-      font-weight: bold;
+      font-size: 1.25em;
+      font-weight: 300;
       text-transform: uppercase;
-      color: $primary;
     }
   }
 }
 
-.nomad-fairmat-banner {
+.nomad-banner {
   @include nomad-filled;
   display: flex; 
   flex-direction: row; 
   align-items: flex-start; 
   gap: 64px;
-  
-  --mdc-theme-primary: #FD331D;
+
+  .banner-title {
+    @extend .mdc-typography--headline4;
+    font-weight: inherit;
+    line-height: 1.15em;
+  }
+
+  .banner-description {
+    font-size: 1.15em;
+    margin-top: 16px;
+  }
+
+  .action {
+    margin-top: 24px;
+    button {
+      @include nomad-cta;      
+    }
+  }
+
+  > .material-icons {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+  }
 
   @media (max-width: $media-phone) {
     flex-direction: column; 
@@ -350,6 +428,10 @@ main {
       order: 1;
     }
   }
+}
+
+.nomad-banner--fairmat {
+  --mdc-theme-primary: #FD331D;
 }
 
 footer { 
