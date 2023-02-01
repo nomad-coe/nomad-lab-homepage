@@ -5784,7 +5784,7 @@ header .mdc-top-app-bar__navigation-icon.mdc-ripple-upgraded {
   --mdc-typography-button-font-weight: 700;
   --mdc-theme-primary: #00629e;
   --mdc-theme-secondary: #00696c;
-  background-color: #fcfcff;
+  background-color: #ffffff;
   color: #1A1C1E;
 }
 
@@ -5915,7 +5915,7 @@ a:hover {
 }
 
 header {
-  background-color: #fcfcff;
+  background-color: #ffffff;
 }
 header .mdc-list-item, header > div .menu-bar .menu-bar-item .menu > ul > li {
   padding-top: 8px;
@@ -6051,4 +6051,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=main.6b99f9ac88e2fe36cdca.css.map*/
+/*# sourceMappingURL=main.1033d9c1b6281cc8607b.css.map*/
