@@ -13,6 +13,9 @@ $black: #1A1C1E;
 $on-primary-container: #001D34;
 $white-on-primary: #F2FDFD;
 
+$width: 1024px;
+$inset-width: $width - 128px;
+
 @use "@material/shape";
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap');
@@ -88,11 +91,12 @@ a:hover {
     background-color: $primary-container;
     color: red;
     font-size: 2em;
+    width: 100%;
   }
 }
 
 .nomad-fixed-width {
-  max-width: 1248px;
+  max-width: $width;
   padding: 0 32px;
   margin: auto;
 }
@@ -102,12 +106,13 @@ a:hover {
   margin-bottom: 128px;
 
   .section-title {
-    font-size: 2.5rem;
-    letter-spacing: -0.65px;
-    line-height: 1.2;
+    @extend .mdc-typography--headline4;
+    // font-size: 2.5rem;
+    // letter-spacing: -0.65px;
+    // line-height: 1.2;
     font-weight: 700;
-    text-align: left;
-    margin-bottom: 1.5rem;
+    // text-align: left;
+    margin-bottom: 0.25em;
     color: $black;
   }
 
@@ -116,25 +121,32 @@ a:hover {
     font-size: 1.25rem;
     font-weight: 600;
     color: $primary;
-    margin-bottom: 0.75rem;
+    // margin-bottom: 0.75rem;
     letter-spacing: 0.8px;
   }
 
   .section-description {
-    font-size: 1.5rem;
+    // font-size: 1.5em;
     line-height: 1.4;
     text-align: left;
-    margin-bottom: 4rem;
+    margin-bottom: 2em;
   }
 
   .section-title--centered {
     font-size: 1.5em;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     color: $primary;
+  }
+
+  .section-action {
+    margin-top: 24px;
+    button {
+      @include nomad-cta;
+    }
   }
 }
 
@@ -144,7 +156,7 @@ a:hover {
   flex-direction: row;
 
   > div {
-    max-width: 1024px;
+    max-width: $inset-width;
   }
 }
 
@@ -154,7 +166,6 @@ a:hover {
 
   .content-title {
     @extend .mdc-typography--headline5;
-    font-size: 24px;
     margin-bottom: 8px;
     font-weight: bold;
   }
@@ -265,7 +276,7 @@ header {
   > div {
     @extend .mdc-top-app-bar__row;
     @extend .nomad-fixed-width;
-    max-width: 1312px;
+    max-width: $width + 64px;
 
     height: 72px;
 
@@ -363,7 +374,7 @@ main {
 
   .hero-description {
     margin-top: 32px;
-    font-size: 1.5em;
+    // font-size: 1.5em;
   }
 
   img {
@@ -385,7 +396,6 @@ main {
 
   > div {
     padding: 1.5em 2.5em 1.5em 2.5em;
-    font-size: 1.15em;
     color: $white-on-primary;
 
     span {
@@ -395,7 +405,7 @@ main {
     }
 
     span:first-child {
-      font-size: 1.25em;
+      font-size: 1.15em;
       font-weight: 300;
       text-transform: uppercase;
     }

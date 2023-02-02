@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOMAD</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- don't forget to remove when deployed to production CMS -->
+    <meta name="robots" content="noindex">
+</head>
+
+<body style="margin: 0;">
+    <%= require('html-loader!./partials/header.html').default %>
+
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <div>
+            <!-- hero -->
+            <div class="nomad-hero">
+                <div>
+                    <div class="hero-title">
+                        <span>NOMAD Oasis</span><br/>
+                        Manage your research group's data.
+                    </div>
+                    <div class="hero-description">
+                        NOMAD Oasis let's you create your own NOMAD.
+                        Get an instant overview of all your groups data,
+                        increase productivity, and
+                        required research data management plans with easy.
+                    </div>
+                    <div>
+                        <button>
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Got to the installation documentation</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="nomad-img-placeholder">
+                    <div>Something about the distributed and integrative nature.</div>
+                </div>
+            </div>
+
+             <!-- features-->
+             <div class="nomad-section">
+                <div class="section-subheading">Features</div>
+                <div class="section-title">What is NOMAD Oasis?</div>
+                <div class="section-description">
+                    NOMAD Oasis let's you create your own NOMAD. Our public service
+                    and Oasis are based on the same software. With NOMAD Oasis you get
+                    all the NOMAD features while implementing
+                    your specific data-management needs and individual policies. You
+                    get an instant overview of all your group's data and can collaborate
+                    without compromising privacy.
+                </div>
+                <div class="content nomad-gallery nomad-gallery--3">
+                    <div class="nomad-content">
+                        <i class="material-icons">download</i>
+                        <div class="content-title">Easy to install</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">home</i>
+                        <div class="content-title">Run on your premises</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">cloud_done</i>
+                        <div class="content-title">Publish selected data</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">memory</i>
+                        <div class="content-title">Your own parsers</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">construction</i>
+                        <div class="content-title">Use your own tools</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">tune</i>
+                        <div class="content-title">Custom ELNs</div>
+                        <div class="content-description">
+                            <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <!-- use cases -->
+             <div class="nomad-section">
+                <div class="section-subheading">Use cases</div>
+                <div class="section-title">Why use NOMAD Oasis?</div>
+                <div class="section-description">
+                    There are many reasons to use NOMAD Oasis over the public NOMAD
+                    service. But, they are also connected: manage your data locally
+                    and publish selectively.
+                </div>
+                <div>
+                    <div class="nomad-gallery nomad-gallery--3" style="column-gap: 64px;">
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                Privacy
+                            </div>
+                            <div class="content-description">
+                                With NOMAD Oasis you control your own data space to
+                                implement your data management policies.
+                            </div>
+                            <div class="content-content">
+                                <ul>
+                                    <li>Manage and share data without publishing.</li>
+                                    <li>Run in your network/VPN.</li>
+                                    <li>Connect to your user management.</li>
+                                    <li>Only allow a whitelist of users.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                Many data
+                            </div>
+                            <div class="content-description">
+                                With NOMAD Oasis you use your own resources and
+                                manage as many data as you can.
+                            </div>
+                            <div class="content-content">
+                                <ul>
+                                    <li>Mount your storage solution into NOMAD.</li>
+                                    <li>Simple file-base backup.</li>
+                                    <li>You are only limited by your storage.</li>
+                                    <li>Publish selected data from your Oasis to NOMAD.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                Custom needs
+                            </div>
+                            <div class="content-description">
+                                In your Oasis, NOMAD can be extended and customized
+                                far beyond our public NOMAD service.
+                            </div>
+                            <div class="content-content">
+                                <ul>
+                                    <li>Add your schemas and ELNs including customized processing.</li>
+                                    <li>Add support for your file formats.</li>
+                                    <li>Add your own NORTH tools.</li>
+                                    <li>Use our API to integrate with other systems.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%= require('html-loader!./partials/fairmat-banner.html').default %>
+
+            <div class="nomad-section">
+                <div class="section-subheading">
+                    Installation
+                </div>
+                <div class="section-title">
+                    How to run NOMAD Oasis?
+                </div>
+                <div class="section-description">
+                    <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
+                </div>
+                <div class="nomad-inset">
+                    <div style="display: flex; flex-direction: column; gap: 2em;">
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                1. Choose your hardware
+                            </div>
+                            <div class="content-description">
+                                <%= htmlWebpackPlugin.options.lorem({count: 7, units: "sentences"}) %>
+                            </div>
+                        </div>
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                2. Configure your Oasis
+                            </div>
+                            <div class="content-description">
+                                <%= htmlWebpackPlugin.options.lorem({count: 7, units: "sentences"}) %>
+                            </div>
+                        </div>
+                        <div class="nomad-content">
+                            <div class="content-title">
+                                3. Easy to back-up
+                            </div>
+                            <div class="content-description">
+                                <%= htmlWebpackPlugin.options.lorem({count: 7, units: "sentences"}) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-action">
+                    <button>
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Got to the installation documentation</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%= require('html-loader!./partials/footer.html').default %>
+</body>
+
+</html>
