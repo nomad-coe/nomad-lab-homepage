@@ -6,9 +6,15 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const loremIpsum = require("lorem-ipsum").loremIpsum;
+
+const pages = ["index", "nomad"];
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: pages.reduce((config, page) => {
+    config[page] = `./src/${page}.ts`;
+    return config;
+  }, {}),
   mode: 'development',
   devtool: 'source-map',
   optimization: {
@@ -59,9 +65,6 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
     new ForkTsCheckerWebpackPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'src/assets', to: 'assets' }]
@@ -71,5 +74,17 @@ module.exports = {
       exclude: 'node_modules',
       context: 'src'
     })
-  ]
+  ].concat(
+    pages.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          inject: true,
+          title: 'test',
+          template: `./src/${page}.html`,
+          filename: `${page}.html`,
+          chunks: [page],
+          lorem: loremIpsum
+        })
+    )
+  )
 };

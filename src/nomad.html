@@ -22,13 +22,10 @@
                 <div>
                     <div class="hero-title">
                         <span>NOMAD</span><br/>
-                        Materials Science Data<br/>
-                        Organised and Shared
+                        A free service to publish and use materials science data.
                     </div>
                     <div class="hero-description">
-                        We make materials science data findable, accessible, interoperable, and re-usable (FAIR).
-                        For you, your group, and the community.
-                        Manage and share your data or explore the data others have published.
+                        <%= htmlWebpackPlugin.options.lorem({count: 2, units: "sentences"}) %>
                     </div>
                     <div>
                         <button>
@@ -38,42 +35,92 @@
                         </button>
                     </div>
                 </div>
-                <img src="./assets/nomad-hero.png"/>
+                <div class="nomad-img-placeholder">
+                    <div>Maybe a research cycle figure: publish, explore, analysis</div>
+                </div>
             </div>
 
-            <!-- statistics -->
-            <div class="nomad-section nomad-inset">
-                <div>
-                    <div class="section-title section-title--centered">used by thousands of materials scientist already</div>
-                    <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled">
-                        <div class="nomad-statistic">
-                            <div>
-                                <span>uploaded entries</span>
-                                <span>12.323.712</span>
-                            </div>
+             <!-- NOMAD features-->
+             <div class="nomad-section">
+                <div class="section-subheading">Features</div>
+                <div class="section-title">What can NOMAD do for you?</div>
+                <div class="section-description">
+                    You are looking for a place to share you data or use comprehensive data that others provide?
+                    You can use NOMAD to organise, analyse, share, and publish your materials science data, as well as explore, download,
+                    and analyse your colleagues data.
+                </div>
+                <div class="content nomad-gallery nomad-gallery--3">
+                    <div class="nomad-content">
+                        <i class="material-icons">link</i>
+                        <div class="content-title">Get a DOI</div>
+                        <div class="content-description">
+                            NOMAD allows you to publish and archive your data for free. Assign a DOI to uploaded datasets and reference
+                            your papers.
                         </div>
-                        <div class="nomad-statistic">
-                            <div>
-                                <span>covered materials</span>
-                                <span>3.523.792</span>
-                            </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">code</i>
+                        <div class="content-title">All data at a glance</div>
+                        <div class="content-description">
+                            NOMAD extracts structured, machine-actionable data from over 50 of formats and codes. See all Your
+                            data at a glance and have it prepared for analysis.
                         </div>
-                        <div class="nomad-statistic">
-                            <div>
-                                <span>uploaded raw files</span>
-                                <span>59.3 TB</span>
-                            </div>
+                    </div>
+                    <div class="nomad-content">
+                        <i class="material-icons">cloud_upload</i>
+                        <div class="content-title">Drap'n'Drop</div>
+                        <div class="content-description">
+                            NOMAD organises your files as you would on your hard-drive.
+                            Upload file-by-file or zip and upload whole directory structures.
+                        </div>
+                    </div>
+
+                    <div class="nomad-content">
+                        <i class="material-icons">construction_outlined</i>
+                        <div class="content-title">Ready to use Tools</div>
+                        <div class="content-description">
+                            Run Jupyter notebooks and other tools directly on NOMAD.
+                            Directly access your data and publish your analysis code.
+                            No installation required.
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <i class="material-icons">search</i>
+                        <div class="content-title">All materials science data, accessible</div>
+                        <div>The largest open materials science database in the world. Synchronised with others and growing every day.</div>
+                    </div> -->
+                    <div class="nomad-content">
+                        <i class="material-icons">shield_outlined</i>
+                        <div class="content-title">You Control Your Data</div>
+                        <div class="content-description">
+                            Not ready to publish? Organise data and collaborate in private first.
+                            Or, use your own NOMAD Oasis for even more privacy.
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <i class="material-icons">search</i>
+                        <div class="mdc-typography--headline5 title">Get recognized</div>
+                        <div>All data is published and usable under the Creative Commons 4.0 Attribution licence.</div>
+                    </div> -->
+                    <div class="nomad-content">
+                        <i class="material-icons">extension_outlined</i>
+                        <div class="content-title">Extendable</div>
+                        <div class="content-description">
+                            Add your own file formats.
+                            Create custom ELNs.
+                            Create exploration dashboards.
+                            Build and run more analysis tools.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PEA -->
-            <div class="nomad-section">
-                <div class="section-subheading">Use-cases</div>
-                <div class="section-title">Publish, explore, and analyse with a single platform.</div>
+             <!-- Getting started -->
+             <div class="nomad-section">
+                <div class="section-subheading">Video tutorials</div>
+                <div class="section-title">Getting started</div>
                 <div class="section-description">
-                    NOMAD covers the whole research cycle of shared data with a comprehensive suite of features.
+                    <%= htmlWebpackPlugin.options.lorem({count: 4, units: "sentences"}) %>
                 </div>
                 <div>
                     <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
@@ -82,35 +129,13 @@
                             <div class="content-title">
                                 Publish
                             </div>
-                            <div class="content-description">
-                                Enable your colleagues to re-use your data in
-                                a common and structured way.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        Auto-extract structured data from over 50 file formats.
-                                    </li>
-                                    <li>
-                                        Extend NOMAD's data structures and define
-                                        custom ELNs.
-                                    </li>
-                                    <li>
-                                        Drag and drop files into directory structures
-                                        that you define.
-                                    </li>
-                                    <!-- <li>
-                                        You control when uploaded data is published.
-                                    </li> -->
-                                    <li>
-                                        Get a DOI for your published data.
-                                    </li>
-                                </ul>
+                            <div class="content-description content-content">
+                                <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
                             </div>
                             <div class="content-action">
                                 <button>
                                     <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Add data</span>
+                                    <span class="mdc-button__label">Open tutorial</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                                 </button>
                             </div>
@@ -120,31 +145,13 @@
                             <div class="content-title">
                                 Explore
                             </div>
-                            <div class="content-description">
-                                Explore, access, and use shared data. One interface,
-                                one data format, and one license.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        Faceted search interface based domain specific metadata.
-                                    </li>
-                                    <li>
-                                        Preview and visualize data.
-                                    </li>
-                                    <li>
-                                        Use uploaded raw files or the structured
-                                        processed data.
-                                    </li>
-                                    <li>
-                                        All data under CC-BY-4.0.
-                                    </li>
-                                </ul>
+                            <div class="content-description content-content">
+                                <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
                             </div>
                             <div class="content-action">
                                 <button>
                                     <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Search NOMAD</span>
+                                    <span class="mdc-button__label">Open tutorial</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                                 </button>
                             </div>
@@ -152,32 +159,15 @@
                         <div class="nomad-content">
                             <i class="material-icons">code</i>
                             <div class="content-title">
-                                Analyse
+                                Using APIs
                             </div>
-                            <div class="content-description">
-                                programmatically access data, automatize your work,
-                                use machine learning.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        All functionality usable via APIs.
-                                    </li>
-                                    <li>
-                                        Machine-actionable unified data for millions of simulations and other data.
-                                    </li>
-                                    <li>
-                                        Ready-made tools directly run in your browser.
-                                    </li>
-                                    <li>
-                                        A comprehensive set of AI toolkit notebooks.
-                                    </li>
-                                </ul>
+                            <div class="content-description content-content">
+                                <%= htmlWebpackPlugin.options.lorem({count: 3, units: "sentences"}) %>
                             </div>
                             <div class="content-action">
                                 <button>
                                     <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to the AI Toolkit</span>
+                                    <span class="mdc-button__label">Open tutorial</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                                 </button>
                             </div>
@@ -271,16 +261,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- social proof-->
-            <section class="nomad-section">
-                <div class="section-title section-title--centered">
-                    NOMAD Oasis is used by research groups at:
-                </div>
-                <div style="text-align: center;">
-                    <img style="width: 100%;" src="./assets/nomad-oasis-users.png"/>
-                </div>
-            </section>
         </div>
     </main>
 

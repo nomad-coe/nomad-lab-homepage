@@ -46,6 +46,8 @@
     "@material/ripple": "^6.0.0",
     "@material/shape": "^14.0.0",
     "@material/top-app-bar": "^14.0.0",
-    "@material/typography": "^14.0.0"
+    "@material/typography": "^14.0.0",
+    "html-loader": "^4.2.0",
+    "lorem-ipsum": "^2.0.8"
   }
 }
