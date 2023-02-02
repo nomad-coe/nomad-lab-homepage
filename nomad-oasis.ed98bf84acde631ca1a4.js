@@ -7812,6 +7812,45 @@ var MDCTopAppBarFoundation = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/common.ts":
+/*!***********************!*\
+  !*** ./src/common.ts ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "registerComponents": () => (/* binding */ registerComponents)
+/* harmony export */ });
+/* harmony import */ var _material_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material/ripple */ "./node_modules/@material/ripple/component.js");
+/* harmony import */ var _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/top-app-bar */ "./node_modules/@material/top-app-bar/component.js");
+/* harmony import */ var _material_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/menu */ "./node_modules/@material/menu/component.js");
+
+
+
+var registerMenuEvents = function (id) {
+    var element = document.querySelector('#' + id);
+    var menu = new _material_menu__WEBPACK_IMPORTED_MODULE_0__.MDCMenu(element.querySelector('.menu'));
+    document.querySelector('#' + id).addEventListener('mouseenter', function () {
+        menu.open = true;
+    });
+    document.querySelector('#' + id).addEventListener('mouseleave', function () {
+        menu.open = false;
+    });
+};
+function registerComponents() {
+    document.querySelectorAll('button').forEach(function (button) {
+        new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
+    });
+    new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
+    registerMenuEvents('services-menu');
+    registerMenuEvents('documentation-menu');
+    registerMenuEvents('support-menu');
+    registerMenuEvents('about-menu');
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/tslib/tslib.es6.js":
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
@@ -8126,38 +8165,17 @@ function __classPrivateFieldIn(state, receiver) {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+/*!****************************!*\
+  !*** ./src/nomad-oasis.ts ***!
+  \****************************/
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
-/* harmony import */ var _material_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material/ripple */ "./node_modules/@material/ripple/component.js");
-/* harmony import */ var _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/top-app-bar */ "./node_modules/@material/top-app-bar/component.js");
-/* harmony import */ var _material_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material/menu */ "./node_modules/@material/menu/component.js");
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ "./src/common.ts");
 
 
-
-
-document.querySelectorAll('button').forEach(function (button) {
-    new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
-});
-new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
-var registerMenuEvents = function (id) {
-    var element = document.querySelector('#' + id);
-    var menu = new _material_menu__WEBPACK_IMPORTED_MODULE_3__.MDCMenu(element.querySelector('.menu'));
-    document.querySelector('#' + id).addEventListener('mouseenter', function () {
-        menu.open = true;
-    });
-    document.querySelector('#' + id).addEventListener('mouseleave', function () {
-        menu.open = false;
-    });
-};
-registerMenuEvents('services-menu');
-registerMenuEvents('documentation-menu');
-registerMenuEvents('support-menu');
-registerMenuEvents('about-menu');
+(0,_common__WEBPACK_IMPORTED_MODULE_1__.registerComponents)();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.b24ea862db3b1805018a.js.map
+//# sourceMappingURL=nomad-oasis.ed98bf84acde631ca1a4.js.map
