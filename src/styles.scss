@@ -2,16 +2,15 @@ $media-tablet: 1024px;
 $media-phone: 768px;
 $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
-$primary: #00629e;
-$secondary: #00696c;
-$primary-container: #cfe5ff;
-$secondary-container: #6ff6fb;
-$background: #ffffff;
-$outline: #72777f;
-$background-variation: #dee3eb;
-$black: #1A1C1E;
-$on-primary-container: #001D34;
-$white-on-primary: #F2FDFD;
+$primary: #007CAD;
+$primary-tint: rgb(179, 216, 230, 0.4);
+$primary-shade: #005779;
+
+$secondary: #384955;
+$secondary-tint: rgb(195, 200, 204, 0.4);
+
+$white: #FDFEFF;
+$black: #1D1D1D;
 
 $width: 1024px;
 $inset-width: $width - 128px;
@@ -31,9 +30,9 @@ $inset-width: $width - 128px;
 
 :root {
   --mdc-typography-button-font-weight: 700;
-  --mdc-theme-primary: #00629e;
-  --mdc-theme-secondary: #00696c;
-  background-color: $background;
+  --mdc-theme-primary: #007CAD;
+  --mdc-theme-secondary: #384955;
+  background-color: $white;
   color: $black;
 }
 
@@ -50,35 +49,49 @@ a:hover {
   color: $mdc-theme-secondary;
 }
 
-@mixin button($outlined: false) {
+@mixin button() {
   @extend .mdc-button;
-
   @include shape.radius(32px);
-  @extend .mdc-button--unelevated;
 }
 
-@mixin nomad-filled($highlight: false) {
+.nomad-filled {
   @extend .mdc-card;
-  @extend .mdc-elevation--z2;
+  @extend .mdc-elevation--z0;
   @include shape.radius(12px);
-
-  @if $highlight {
-    background-color: $primary-container;
-  }
-  @else {
-    background-color: $background-variation;
-  }
   padding: 32px;
+
+  // background-color: $white;
+  // @extend .mdc-card--outlined;
+
+  background-color: $primary-tint;
 }
 
-@mixin nomad-cta {
-  @include button;
+.nomad-filled--highlight {
+  @extend .mdc-elevation--z2;
+  background-color: $secondary-tint;
+}
 
+.nomad-button {
+  @include button;
   letter-spacing: normal;
   text-transform: none;
   height: 3em;
   font-weight: 700;
   padding: 0 1.75em;
+}
+
+.nomad-button--filled {
+  @extend .mdc-button--unelevated;
+}
+
+.nomad-icons--filled {
+  border-radius: 100%;
+  background-color: $primary;
+  color: $white;
+
+  width: min-content;
+  padding: 12px;
+  font-size: 32px;
 }
 
 .nomad-img-placeholder {
@@ -88,7 +101,7 @@ a:hover {
   div {
     margin: 16px;
     padding: 16px;
-    background-color: $primary-container;
+    background-color: $secondary-tint;
     color: red;
     font-size: 2em;
     width: 100%;
@@ -144,9 +157,6 @@ a:hover {
 
   .section-action {
     margin-top: 24px;
-    button {
-      @include nomad-cta;
-    }
   }
 }
 
@@ -168,6 +178,7 @@ a:hover {
     @extend .mdc-typography--headline5;
     margin-bottom: 8px;
     font-weight: bold;
+    text-align: center;
   }
 
   .content-description {
@@ -180,19 +191,26 @@ a:hover {
 
   .content-content {
     margin-top: 24px;
+  }
+
+  .content-grow {
     flex-grow: 1;
   }
 
   .content-action {
     margin-top: 24px;
-    button {
-      @include nomad-cta;
-    }
+    text-align: center;
   }
 
-  > .material-icons {
+  .material-icons {
     font-size: 1.8em;
     margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nomad-icons--filled {
+    margin-bottom: 16px;
   }
 
   ul {
@@ -212,7 +230,7 @@ a:hover {
 }
 
 .nomad-content--filled {
-  @include nomad-filled;
+  @extend .nomad-filled;
 }
 
 .nomad-content--inset {
@@ -251,17 +269,20 @@ a:hover {
   }
 }
 
+.nomad-gallery--dense {
+  gap: 24px;
+}
+
 .nomad-gallery--filled {
   gap: 24px;
-
   > div {
-    @include nomad-filled;
+    @extend .nomad-filled;
   }
 }
 
 // Some of the mdc classes have to stay explictly in the HTML because the mdc js is relying on it.
 header {
-  background-color: $background;
+  background-color: $white;
   @extend .mdc-top-app-bar;
 
   .mdc-list-item {
@@ -373,7 +394,7 @@ main {
   }
 
   .hero-description {
-    margin-top: 32px;
+    margin-top: 1em;
     // font-size: 1.5em;
   }
 
@@ -383,8 +404,9 @@ main {
   }
 
   button {
-    @include nomad-cta();
-    margin-top: 32px;
+    @extend .nomad-button;
+    @extend .nomad-button--filled;
+    margin-top: 3em;
   }
 }
 
@@ -396,7 +418,7 @@ main {
 
   > div {
     padding: 1.5em 2.5em 1.5em 2.5em;
-    color: $white-on-primary;
+    color: $white;
 
     span {
       display: block;
@@ -413,7 +435,8 @@ main {
 }
 
 .nomad-banner {
-  @include nomad-filled;
+  @extend .nomad-filled;
+  @extend .nomad-filled--highlight;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -421,19 +444,20 @@ main {
 
   .banner-title {
     @extend .mdc-typography--headline4;
-    font-weight: inherit;
+    font-weight: bold;
     line-height: 1.15em;
   }
 
   .banner-description {
-    font-size: 1.15em;
+    // font-size: 1.15em;
     margin-top: 16px;
   }
 
   .action {
     margin-top: 24px;
     button {
-      @include nomad-cta;
+      @extend .nomad-button;
+      @extend .nomad-button--filled;
     }
   }
 
@@ -464,7 +488,7 @@ footer {
   margin-top: 128px;
   padding: 0 32px;
 
-  background-color: $on-primary-container; color: $primary-container;
+  background-color: $primary-shade; color: $white;
 
   > div {
     margin-top: 128px;
