@@ -17,15 +17,13 @@ const registerMenuEvents = (id: string) => {
 }
 
 export function registerComponents() {
-    document.querySelectorAll('button').forEach(button => {
-        new MDCRipple(button);
-    });
+    // document.querySelectorAll('button').forEach(button => {
+    //     new MDCRipple(button);
+    // });
 
-    document.querySelectorAll('.mdc-icon-button').forEach(button => {
-        new MDCRipple(button);
-    })
-
-    new MDCTopAppBar(document.querySelector('.nomad-app-bar'));
+    // document.querySelectorAll('.mdc-icon-button').forEach(button => {
+    //     new MDCRipple(button);
+    // })
 
     registerMenuEvents('services-menu')
     registerMenuEvents('documentation-menu')
@@ -57,4 +55,6 @@ export function registerComponents() {
     document.body.addEventListener('MDCDrawer:closed', () => {
         (mainContentEl.querySelector('input, button') as HTMLElement).focus();
     });
+
+    new MDCTopAppBar(document.querySelector('.nomad-app-bar'));
 }
