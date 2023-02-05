@@ -18,15 +18,17 @@ $inset-width: $width - 128px;
 @use "@material/shape";
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap');
-@import "@material/list/mdc-list";
 @import "@material/menu-surface/mdc-menu-surface";
+@import "@material/list/mdc-list";
 @import "@material/menu/mdc-menu";
 @import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
 @import "@material/typography/mdc-typography";
-@import "@material/icon-button";
+@import "@material/icon-button/mdc-icon-button";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/elevation/mdc-elevation";
+@import "@material/list/mdc-list";
+@import "@material/drawer/mdc-drawer";
 
 :root {
   --mdc-typography-button-font-weight: 700;
@@ -38,6 +40,12 @@ $inset-width: $width - 128px;
 
 body {
   @extend .mdc-typography;
+}
+
+aside {
+  @media (min-width: $media-phone) {
+    display: none;
+  }
 }
 
 a {
@@ -111,6 +119,9 @@ a:hover {
 .nomad-fixed-width {
   max-width: $width;
   padding: 0 32px;
+  @media (max-width: $media-phone) {
+    padding: 0 16px;
+  }
   margin: auto;
 }
 
@@ -247,6 +258,10 @@ a:hover {
   display: grid;
   column-gap: 64px;
   row-gap: 24px;
+
+  @media (max-width: $media-phone) {
+    row-gap: 48px;
+  }
 }
 
 .nomad-gallery--2 {
@@ -270,13 +285,50 @@ a:hover {
 }
 
 .nomad-gallery--dense {
-  gap: 24px;
+  column-gap: 24px;
 }
 
 .nomad-gallery--filled {
   gap: 24px;
+  row-gap: 24px;
   > div {
     @extend .nomad-filled;
+  }
+}
+
+aside {
+  img {
+    width: 50%;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    margin-left: -16px;
+  }
+  .mdc-list {
+    font-size: 1.25em;
+    line-height: 1.5em;
+  }
+  a {
+    color: $black;
+  }
+  .mdc-list-group__subheader {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 24px;
+  }
+}
+
+.mdc-top-app-bar--fixed {
+  .mdc-top-app-bar__title {
+    display: none;
+  }
+}
+
+.mdc-top-app-bar--fixed-scrolled {
+  .mdc-top-app-bar__title {
+    @media (max-width: $media-phone) {
+      display: inherit;
+    }
   }
 }
 
@@ -299,13 +351,37 @@ header {
     @extend .nomad-fixed-width;
     max-width: $width + 64px;
 
-    height: 72px;
+    @media (min-width: $media-phone) {
+      height: 72px;
+    }
 
     .title {
       @extend .mdc-top-app-bar__section;
       @extend .mdc-top-app-bar__section--align-start;
       padding-left: 0;
       margin-left: -10px;
+
+      .mdc-top-app-bar__title {
+        color: $primary;
+        padding: 0;
+        font-weight: bold;
+      }
+
+      a {
+        @media (max-width: $media-phone) {
+          display: none;
+        }
+        img {
+          height: 72px;
+        }
+      }
+
+      button {
+        @media (min-width: $media-phone) {
+          display: none;
+        }
+        margin: inherit;
+      }
     }
 
     .menu-bar {
@@ -373,6 +449,10 @@ main {
 .nomad-hero {
   @extend .nomad-section;
   @extend .nomad-gallery;
+
+  @media (max-width: $media-phone) {
+    margin-top: 32px;
+  }
 
   grid-template-columns: 530px 1fr;
   @media (max-width: $media-tablet) {
