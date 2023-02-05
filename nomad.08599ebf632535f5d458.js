@@ -590,6 +590,926 @@ function estimateScrollWidth(element) {
 
 /***/ }),
 
+/***/ "./node_modules/@material/drawer/component.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@material/drawer/component.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MDCDrawer": () => (/* binding */ MDCDrawer)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _material_base_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material/base/component */ "./node_modules/@material/drawer/node_modules/@material/base/component.js");
+/* harmony import */ var _material_dom_focus_trap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/dom/focus-trap */ "./node_modules/@material/drawer/node_modules/@material/dom/focus-trap.js");
+/* harmony import */ var _material_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material/list/component */ "./node_modules/@material/list/component.js");
+/* harmony import */ var _dismissible_foundation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dismissible/foundation */ "./node_modules/@material/drawer/dismissible/foundation.js");
+/* harmony import */ var _modal_foundation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modal/foundation */ "./node_modules/@material/drawer/modal/foundation.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util */ "./node_modules/@material/drawer/util.js");
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+
+
+var cssClasses = _dismissible_foundation__WEBPACK_IMPORTED_MODULE_0__.MDCDismissibleDrawerFoundation.cssClasses, strings = _dismissible_foundation__WEBPACK_IMPORTED_MODULE_0__.MDCDismissibleDrawerFoundation.strings;
+/**
+ * @events `MDCDrawer:closed {}` Emits when the navigation drawer has closed.
+ * @events `MDCDrawer:opened {}` Emits when the navigation drawer has opened.
+ */
+var MDCDrawer = /** @class */ (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__extends)(MDCDrawer, _super);
+    function MDCDrawer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MDCDrawer.attachTo = function (root) {
+        return new MDCDrawer(root);
+    };
+    Object.defineProperty(MDCDrawer.prototype, "open", {
+        /**
+         * @return boolean Proxies to the foundation's `open`/`close` methods.
+         * Also returns true if drawer is in the open position.
+         */
+        get: function () {
+            return this.foundation.isOpen();
+        },
+        /**
+         * Toggles the drawer open and closed.
+         */
+        set: function (isOpen) {
+            if (isOpen) {
+                this.foundation.open();
+            }
+            else {
+                this.foundation.close();
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCDrawer.prototype, "list", {
+        // initialSyncWithDOM()
+        get: function () {
+            return this.innerList;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    MDCDrawer.prototype.initialize = function (focusTrapFactory, listFactory) {
+        if (focusTrapFactory === void 0) { focusTrapFactory = function (el) { return new _material_dom_focus_trap__WEBPACK_IMPORTED_MODULE_2__.FocusTrap(el); }; }
+        if (listFactory === void 0) { listFactory = function (el) { return new _material_list_component__WEBPACK_IMPORTED_MODULE_3__.MDCList(el); }; }
+        var listEl = this.root.querySelector(strings.LIST_SELECTOR);
+        if (listEl) {
+            this.innerList = listFactory(listEl);
+            this.innerList.wrapFocus = true;
+        }
+        this.focusTrapFactory = focusTrapFactory;
+    };
+    MDCDrawer.prototype.initialSyncWithDOM = function () {
+        var _this = this;
+        var MODAL = cssClasses.MODAL;
+        var SCRIM_SELECTOR = strings.SCRIM_SELECTOR;
+        this.scrim = this.root.parentNode
+            .querySelector(SCRIM_SELECTOR);
+        if (this.scrim && this.root.classList.contains(MODAL)) {
+            this.handleScrimClick = function () {
+                return _this.foundation.handleScrimClick();
+            };
+            this.scrim.addEventListener('click', this.handleScrimClick);
+            this.focusTrap = _util__WEBPACK_IMPORTED_MODULE_4__.createFocusTrapInstance(this.root, this.focusTrapFactory);
+        }
+        this.handleKeydown = function (evt) {
+            _this.foundation.handleKeydown(evt);
+        };
+        this.handleTransitionEnd = function (evt) {
+            _this.foundation.handleTransitionEnd(evt);
+        };
+        this.listen('keydown', this.handleKeydown);
+        this.listen('transitionend', this.handleTransitionEnd);
+    };
+    MDCDrawer.prototype.destroy = function () {
+        this.unlisten('keydown', this.handleKeydown);
+        this.unlisten('transitionend', this.handleTransitionEnd);
+        if (this.innerList) {
+            this.innerList.destroy();
+        }
+        var MODAL = cssClasses.MODAL;
+        if (this.scrim && this.handleScrimClick &&
+            this.root.classList.contains(MODAL)) {
+            this.scrim.removeEventListener('click', this.handleScrimClick);
+            // Ensure drawer is closed to hide scrim and release focus
+            this.open = false;
+        }
+    };
+    MDCDrawer.prototype.getDefaultFoundation = function () {
+        var _this = this;
+        // DO NOT INLINE this variable. For backward compatibility, foundations take
+        // a Partial<MDCFooAdapter>. To ensure we don't accidentally omit any
+        // methods, we need a separate, strongly typed adapter variable.
+        // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
+        var adapter = {
+            addClass: function (className) {
+                _this.root.classList.add(className);
+            },
+            removeClass: function (className) {
+                _this.root.classList.remove(className);
+            },
+            hasClass: function (className) { return _this.root.classList.contains(className); },
+            elementHasClass: function (element, className) {
+                return element.classList.contains(className);
+            },
+            saveFocus: function () {
+                _this.previousFocus = document.activeElement;
+            },
+            restoreFocus: function () {
+                var previousFocus = _this.previousFocus;
+                if (previousFocus && previousFocus.focus &&
+                    _this.root.contains(document.activeElement)) {
+                    previousFocus.focus();
+                }
+            },
+            focusActiveNavigationItem: function () {
+                var activeNavItemEl = _this.root.querySelector(strings.LIST_ITEM_ACTIVATED_SELECTOR);
+                if (activeNavItemEl) {
+                    activeNavItemEl.focus();
+                }
+            },
+            notifyClose: function () {
+                _this.emit(strings.CLOSE_EVENT, {}, true /* shouldBubble */);
+            },
+            notifyOpen: function () {
+                _this.emit(strings.OPEN_EVENT, {}, true /* shouldBubble */);
+            },
+            trapFocus: function () {
+                _this.focusTrap.trapFocus();
+            },
+            releaseFocus: function () {
+                _this.focusTrap.releaseFocus();
+            },
+        };
+        // tslint:enable:object-literal-sort-keys
+        var DISMISSIBLE = cssClasses.DISMISSIBLE, MODAL = cssClasses.MODAL;
+        if (this.root.classList.contains(DISMISSIBLE)) {
+            return new _dismissible_foundation__WEBPACK_IMPORTED_MODULE_0__.MDCDismissibleDrawerFoundation(adapter);
+        }
+        else if (this.root.classList.contains(MODAL)) {
+            return new _modal_foundation__WEBPACK_IMPORTED_MODULE_5__.MDCModalDrawerFoundation(adapter);
+        }
+        else {
+            throw new Error("MDCDrawer: Failed to instantiate component. Supported variants are " + DISMISSIBLE + " and " + MODAL + ".");
+        }
+    };
+    return MDCDrawer;
+}(_material_base_component__WEBPACK_IMPORTED_MODULE_6__.MDCComponent));
+
+//# sourceMappingURL=component.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/constants.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@material/drawer/constants.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cssClasses": () => (/* binding */ cssClasses),
+/* harmony export */   "strings": () => (/* binding */ strings)
+/* harmony export */ });
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var cssClasses = {
+    ANIMATE: 'mdc-drawer--animate',
+    CLOSING: 'mdc-drawer--closing',
+    DISMISSIBLE: 'mdc-drawer--dismissible',
+    MODAL: 'mdc-drawer--modal',
+    OPEN: 'mdc-drawer--open',
+    OPENING: 'mdc-drawer--opening',
+    ROOT: 'mdc-drawer',
+};
+var strings = {
+    APP_CONTENT_SELECTOR: '.mdc-drawer-app-content',
+    CLOSE_EVENT: 'MDCDrawer:closed',
+    OPEN_EVENT: 'MDCDrawer:opened',
+    SCRIM_SELECTOR: '.mdc-drawer-scrim',
+    LIST_SELECTOR: '.mdc-list,.mdc-deprecated-list',
+    LIST_ITEM_ACTIVATED_SELECTOR: '.mdc-list-item--activated,.mdc-deprecated-list-item--activated',
+};
+
+//# sourceMappingURL=constants.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/dismissible/foundation.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material/drawer/dismissible/foundation.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MDCDismissibleDrawerFoundation": () => (/* binding */ MDCDismissibleDrawerFoundation)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _material_base_foundation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/base/foundation */ "./node_modules/@material/drawer/node_modules/@material/base/foundation.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./node_modules/@material/drawer/constants.js");
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+var MDCDismissibleDrawerFoundation = /** @class */ (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__extends)(MDCDismissibleDrawerFoundation, _super);
+    function MDCDismissibleDrawerFoundation(adapter) {
+        var _this = _super.call(this, (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__assign)((0,tslib__WEBPACK_IMPORTED_MODULE_0__.__assign)({}, MDCDismissibleDrawerFoundation.defaultAdapter), adapter)) || this;
+        _this.animationFrame = 0;
+        _this.animationTimer = 0;
+        return _this;
+    }
+    Object.defineProperty(MDCDismissibleDrawerFoundation, "strings", {
+        get: function () {
+            return _constants__WEBPACK_IMPORTED_MODULE_1__.strings;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCDismissibleDrawerFoundation, "cssClasses", {
+        get: function () {
+            return _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCDismissibleDrawerFoundation, "defaultAdapter", {
+        get: function () {
+            // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
+            return {
+                addClass: function () { return undefined; },
+                removeClass: function () { return undefined; },
+                hasClass: function () { return false; },
+                elementHasClass: function () { return false; },
+                notifyClose: function () { return undefined; },
+                notifyOpen: function () { return undefined; },
+                saveFocus: function () { return undefined; },
+                restoreFocus: function () { return undefined; },
+                focusActiveNavigationItem: function () { return undefined; },
+                trapFocus: function () { return undefined; },
+                releaseFocus: function () { return undefined; },
+            };
+            // tslint:enable:object-literal-sort-keys
+        },
+        enumerable: false,
+        configurable: true
+    });
+    MDCDismissibleDrawerFoundation.prototype.destroy = function () {
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+        }
+        if (this.animationTimer) {
+            clearTimeout(this.animationTimer);
+        }
+    };
+    /**
+     * Opens the drawer from the closed state.
+     */
+    MDCDismissibleDrawerFoundation.prototype.open = function () {
+        var _this = this;
+        if (this.isOpen() || this.isOpening() || this.isClosing()) {
+            return;
+        }
+        this.adapter.addClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPEN);
+        this.adapter.addClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.ANIMATE);
+        // Wait a frame once display is no longer "none", to establish basis for animation
+        this.runNextAnimationFrame(function () {
+            _this.adapter.addClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPENING);
+        });
+        this.adapter.saveFocus();
+    };
+    /**
+     * Closes the drawer from the open state.
+     */
+    MDCDismissibleDrawerFoundation.prototype.close = function () {
+        if (!this.isOpen() || this.isOpening() || this.isClosing()) {
+            return;
+        }
+        this.adapter.addClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.CLOSING);
+    };
+    /**
+     * Returns true if the drawer is in the open position.
+     * @return true if drawer is in open state.
+     */
+    MDCDismissibleDrawerFoundation.prototype.isOpen = function () {
+        return this.adapter.hasClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPEN);
+    };
+    /**
+     * Returns true if the drawer is animating open.
+     * @return true if drawer is animating open.
+     */
+    MDCDismissibleDrawerFoundation.prototype.isOpening = function () {
+        return this.adapter.hasClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPENING) ||
+            this.adapter.hasClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.ANIMATE);
+    };
+    /**
+     * Returns true if the drawer is animating closed.
+     * @return true if drawer is animating closed.
+     */
+    MDCDismissibleDrawerFoundation.prototype.isClosing = function () {
+        return this.adapter.hasClass(_constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.CLOSING);
+    };
+    /**
+     * Keydown handler to close drawer when key is escape.
+     */
+    MDCDismissibleDrawerFoundation.prototype.handleKeydown = function (evt) {
+        var keyCode = evt.keyCode, key = evt.key;
+        var isEscape = key === 'Escape' || keyCode === 27;
+        if (isEscape) {
+            this.close();
+        }
+    };
+    /**
+     * Handles the `transitionend` event when the drawer finishes opening/closing.
+     */
+    MDCDismissibleDrawerFoundation.prototype.handleTransitionEnd = function (evt) {
+        var OPENING = _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPENING, CLOSING = _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.CLOSING, OPEN = _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.OPEN, ANIMATE = _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.ANIMATE, ROOT = _constants__WEBPACK_IMPORTED_MODULE_1__.cssClasses.ROOT;
+        // In Edge, transitionend on ripple pseudo-elements yields a target without classList, so check for Element first.
+        var isRootElement = this.isElement(evt.target) &&
+            this.adapter.elementHasClass(evt.target, ROOT);
+        if (!isRootElement) {
+            return;
+        }
+        if (this.isClosing()) {
+            this.adapter.removeClass(OPEN);
+            this.closed();
+            this.adapter.restoreFocus();
+            this.adapter.notifyClose();
+        }
+        else {
+            this.adapter.focusActiveNavigationItem();
+            this.opened();
+            this.adapter.notifyOpen();
+        }
+        this.adapter.removeClass(ANIMATE);
+        this.adapter.removeClass(OPENING);
+        this.adapter.removeClass(CLOSING);
+    };
+    /**
+     * Extension point for when drawer finishes open animation.
+     */
+    MDCDismissibleDrawerFoundation.prototype.opened = function () { }; // tslint:disable-line:no-empty
+    /**
+     * Extension point for when drawer finishes close animation.
+     */
+    MDCDismissibleDrawerFoundation.prototype.closed = function () { }; // tslint:disable-line:no-empty
+    /**
+     * Runs the given logic on the next animation frame, using setTimeout to factor in Firefox reflow behavior.
+     */
+    MDCDismissibleDrawerFoundation.prototype.runNextAnimationFrame = function (callback) {
+        var _this = this;
+        cancelAnimationFrame(this.animationFrame);
+        this.animationFrame = requestAnimationFrame(function () {
+            _this.animationFrame = 0;
+            clearTimeout(_this.animationTimer);
+            _this.animationTimer = setTimeout(callback, 0);
+        });
+    };
+    MDCDismissibleDrawerFoundation.prototype.isElement = function (element) {
+        // In Edge, transitionend on ripple pseudo-elements yields a target without classList.
+        return Boolean(element.classList);
+    };
+    return MDCDismissibleDrawerFoundation;
+}(_material_base_foundation__WEBPACK_IMPORTED_MODULE_2__.MDCFoundation));
+
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (MDCDismissibleDrawerFoundation);
+//# sourceMappingURL=foundation.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/modal/foundation.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material/drawer/modal/foundation.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MDCModalDrawerFoundation": () => (/* binding */ MDCModalDrawerFoundation)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _dismissible_foundation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dismissible/foundation */ "./node_modules/@material/drawer/dismissible/foundation.js");
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+/* istanbul ignore next: subclass is not a branch statement */
+var MDCModalDrawerFoundation = /** @class */ (function (_super) {
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__extends)(MDCModalDrawerFoundation, _super);
+    function MDCModalDrawerFoundation() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * Handles click event on scrim.
+     */
+    MDCModalDrawerFoundation.prototype.handleScrimClick = function () {
+        this.close();
+    };
+    /**
+     * Called when drawer finishes open animation.
+     */
+    MDCModalDrawerFoundation.prototype.opened = function () {
+        this.adapter.trapFocus();
+    };
+    /**
+     * Called when drawer finishes close animation.
+     */
+    MDCModalDrawerFoundation.prototype.closed = function () {
+        this.adapter.releaseFocus();
+    };
+    return MDCModalDrawerFoundation;
+}(_dismissible_foundation__WEBPACK_IMPORTED_MODULE_1__.MDCDismissibleDrawerFoundation));
+
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (MDCModalDrawerFoundation);
+//# sourceMappingURL=foundation.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/node_modules/@material/base/component.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@material/drawer/node_modules/@material/base/component.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MDCComponent": () => (/* binding */ MDCComponent)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _foundation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation */ "./node_modules/@material/drawer/node_modules/@material/base/foundation.js");
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+var MDCComponent = /** @class */ (function () {
+    function MDCComponent(root, foundation) {
+        var args = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            args[_i - 2] = arguments[_i];
+        }
+        this.root = root;
+        this.initialize.apply(this, (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__spreadArray)([], (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__read)(args)));
+        // Note that we initialize foundation here and not within the constructor's
+        // default param so that this.root is defined and can be used within the
+        // foundation class.
+        this.foundation =
+            foundation === undefined ? this.getDefaultFoundation() : foundation;
+        this.foundation.init();
+        this.initialSyncWithDOM();
+    }
+    MDCComponent.attachTo = function (root) {
+        // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
+        // returns an instantiated component with its root set to that element. Also note that in the cases of
+        // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
+        // from getDefaultFoundation().
+        return new MDCComponent(root, new _foundation__WEBPACK_IMPORTED_MODULE_1__.MDCFoundation({}));
+    };
+    /* istanbul ignore next: method param only exists for typing purposes; it does not need to be unit tested */
+    MDCComponent.prototype.initialize = function () {
+        var _args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            _args[_i] = arguments[_i];
+        }
+        // Subclasses can override this to do any additional setup work that would be considered part of a
+        // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+        // initialized. Any additional arguments besides root and foundation will be passed in here.
+    };
+    MDCComponent.prototype.getDefaultFoundation = function () {
+        // Subclasses must override this method to return a properly configured foundation class for the
+        // component.
+        throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' +
+            'foundation class');
+    };
+    MDCComponent.prototype.initialSyncWithDOM = function () {
+        // Subclasses should override this method if they need to perform work to synchronize with a host DOM
+        // object. An example of this would be a form control wrapper that needs to synchronize its internal state
+        // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
+        // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
+    };
+    MDCComponent.prototype.destroy = function () {
+        // Subclasses may implement this method to release any resources / deregister any listeners they have
+        // attached. An example of this might be deregistering a resize event from the window object.
+        this.foundation.destroy();
+    };
+    MDCComponent.prototype.listen = function (evtType, handler, options) {
+        this.root.addEventListener(evtType, handler, options);
+    };
+    MDCComponent.prototype.unlisten = function (evtType, handler, options) {
+        this.root.removeEventListener(evtType, handler, options);
+    };
+    /**
+     * Fires a cross-browser-compatible custom event from the component root of the given type, with the given data.
+     */
+    MDCComponent.prototype.emit = function (evtType, evtData, shouldBubble) {
+        if (shouldBubble === void 0) { shouldBubble = false; }
+        var evt;
+        if (typeof CustomEvent === 'function') {
+            evt = new CustomEvent(evtType, {
+                bubbles: shouldBubble,
+                detail: evtData,
+            });
+        }
+        else {
+            evt = document.createEvent('CustomEvent');
+            evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+        }
+        this.root.dispatchEvent(evt);
+    };
+    return MDCComponent;
+}());
+
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (MDCComponent);
+//# sourceMappingURL=component.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/node_modules/@material/base/foundation.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@material/drawer/node_modules/@material/base/foundation.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MDCFoundation": () => (/* binding */ MDCFoundation)
+/* harmony export */ });
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var MDCFoundation = /** @class */ (function () {
+    function MDCFoundation(adapter) {
+        if (adapter === void 0) { adapter = {}; }
+        this.adapter = adapter;
+    }
+    Object.defineProperty(MDCFoundation, "cssClasses", {
+        get: function () {
+            // Classes extending MDCFoundation should implement this method to return an object which exports every
+            // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
+            return {};
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCFoundation, "strings", {
+        get: function () {
+            // Classes extending MDCFoundation should implement this method to return an object which exports all
+            // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
+            return {};
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCFoundation, "numbers", {
+        get: function () {
+            // Classes extending MDCFoundation should implement this method to return an object which exports all
+            // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
+            return {};
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(MDCFoundation, "defaultAdapter", {
+        get: function () {
+            // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
+            // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
+            // validation.
+            return {};
+        },
+        enumerable: false,
+        configurable: true
+    });
+    MDCFoundation.prototype.init = function () {
+        // Subclasses should override this method to perform initialization routines (registering events, etc.)
+    };
+    MDCFoundation.prototype.destroy = function () {
+        // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
+    };
+    return MDCFoundation;
+}());
+
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+/* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (MDCFoundation);
+//# sourceMappingURL=foundation.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/node_modules/@material/dom/focus-trap.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@material/drawer/node_modules/@material/dom/focus-trap.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FocusTrap": () => (/* binding */ FocusTrap)
+/* harmony export */ });
+/**
+ * @license
+ * Copyright 2020 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var FOCUS_SENTINEL_CLASS = 'mdc-dom-focus-sentinel';
+/**
+ * Utility to trap focus in a given root element, e.g. for modal components such
+ * as dialogs. The root should have at least one focusable child element,
+ * for setting initial focus when trapping focus.
+ * Also tracks the previously focused element, and restores focus to that
+ * element when releasing focus.
+ */
+var FocusTrap = /** @class */ (function () {
+    function FocusTrap(root, options) {
+        if (options === void 0) { options = {}; }
+        this.root = root;
+        this.options = options;
+        // Previously focused element before trapping focus.
+        this.elFocusedBeforeTrapFocus = null;
+    }
+    /**
+     * Traps focus in `root`. Also focuses on either `initialFocusEl` if set;
+     * otherwises sets initial focus to the first focusable child element.
+     */
+    FocusTrap.prototype.trapFocus = function () {
+        var focusableEls = this.getFocusableElements(this.root);
+        if (focusableEls.length === 0) {
+            throw new Error('FocusTrap: Element must have at least one focusable child.');
+        }
+        this.elFocusedBeforeTrapFocus =
+            document.activeElement instanceof HTMLElement ? document.activeElement :
+                null;
+        this.wrapTabFocus(this.root);
+        if (!this.options.skipInitialFocus) {
+            this.focusInitialElement(focusableEls, this.options.initialFocusEl);
+        }
+    };
+    /**
+     * Releases focus from `root`. Also restores focus to the previously focused
+     * element.
+     */
+    FocusTrap.prototype.releaseFocus = function () {
+        [].slice.call(this.root.querySelectorAll("." + FOCUS_SENTINEL_CLASS))
+            .forEach(function (sentinelEl) {
+            sentinelEl.parentElement.removeChild(sentinelEl);
+        });
+        if (!this.options.skipRestoreFocus && this.elFocusedBeforeTrapFocus) {
+            this.elFocusedBeforeTrapFocus.focus();
+        }
+    };
+    /**
+     * Wraps tab focus within `el` by adding two hidden sentinel divs which are
+     * used to mark the beginning and the end of the tabbable region. When
+     * focused, these sentinel elements redirect focus to the first/last
+     * children elements of the tabbable region, ensuring that focus is trapped
+     * within that region.
+     */
+    FocusTrap.prototype.wrapTabFocus = function (el) {
+        var _this = this;
+        var sentinelStart = this.createSentinel();
+        var sentinelEnd = this.createSentinel();
+        sentinelStart.addEventListener('focus', function () {
+            var focusableEls = _this.getFocusableElements(el);
+            if (focusableEls.length > 0) {
+                focusableEls[focusableEls.length - 1].focus();
+            }
+        });
+        sentinelEnd.addEventListener('focus', function () {
+            var focusableEls = _this.getFocusableElements(el);
+            if (focusableEls.length > 0) {
+                focusableEls[0].focus();
+            }
+        });
+        el.insertBefore(sentinelStart, el.children[0]);
+        el.appendChild(sentinelEnd);
+    };
+    /**
+     * Focuses on `initialFocusEl` if defined and a child of the root element.
+     * Otherwise, focuses on the first focusable child element of the root.
+     */
+    FocusTrap.prototype.focusInitialElement = function (focusableEls, initialFocusEl) {
+        var focusIndex = 0;
+        if (initialFocusEl) {
+            focusIndex = Math.max(focusableEls.indexOf(initialFocusEl), 0);
+        }
+        focusableEls[focusIndex].focus();
+    };
+    FocusTrap.prototype.getFocusableElements = function (root) {
+        var focusableEls = [].slice.call(root.querySelectorAll('[autofocus], [tabindex], a, input, textarea, select, button'));
+        return focusableEls.filter(function (el) {
+            var isDisabledOrHidden = el.getAttribute('aria-disabled') === 'true' ||
+                el.getAttribute('disabled') != null ||
+                el.getAttribute('hidden') != null ||
+                el.getAttribute('aria-hidden') === 'true';
+            var isTabbableAndVisible = el.tabIndex >= 0 &&
+                el.getBoundingClientRect().width > 0 &&
+                !el.classList.contains(FOCUS_SENTINEL_CLASS) && !isDisabledOrHidden;
+            var isProgrammaticallyHidden = false;
+            if (isTabbableAndVisible) {
+                var style = getComputedStyle(el);
+                isProgrammaticallyHidden =
+                    style.display === 'none' || style.visibility === 'hidden';
+            }
+            return isTabbableAndVisible && !isProgrammaticallyHidden;
+        });
+    };
+    FocusTrap.prototype.createSentinel = function () {
+        var sentinel = document.createElement('div');
+        sentinel.setAttribute('tabindex', '0');
+        // Don't announce in screen readers.
+        sentinel.setAttribute('aria-hidden', 'true');
+        sentinel.classList.add(FOCUS_SENTINEL_CLASS);
+        return sentinel;
+    };
+    return FocusTrap;
+}());
+
+//# sourceMappingURL=focus-trap.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@material/drawer/util.js":
+/*!***********************************************!*\
+  !*** ./node_modules/@material/drawer/util.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createFocusTrapInstance": () => (/* binding */ createFocusTrapInstance)
+/* harmony export */ });
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+function createFocusTrapInstance(surfaceEl, focusTrapFactory) {
+    return focusTrapFactory(surfaceEl, {
+        // Component handles focusing on active nav item.
+        skipInitialFocus: true,
+    });
+}
+//# sourceMappingURL=util.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@material/list/component.js":
 /*!**************************************************!*\
   !*** ./node_modules/@material/list/component.js ***!
@@ -7824,6 +8744,10 @@ var MDCTopAppBarFoundation = /** @class */ (function (_super) {
 /* harmony import */ var _material_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material/ripple */ "./node_modules/@material/ripple/component.js");
 /* harmony import */ var _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/top-app-bar */ "./node_modules/@material/top-app-bar/component.js");
 /* harmony import */ var _material_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/menu */ "./node_modules/@material/menu/component.js");
+/* harmony import */ var _material_drawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material/drawer */ "./node_modules/@material/drawer/component.js");
+/* harmony import */ var _material_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material/list */ "./node_modules/@material/list/component.js");
+
+
 
 
 
@@ -7841,11 +8765,33 @@ function registerComponents() {
     document.querySelectorAll('button').forEach(function (button) {
         new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
     });
+    document.querySelectorAll('.mdc-icon-button').forEach(function (button) {
+        new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
+    });
     new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_2__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
     registerMenuEvents('services-menu');
     registerMenuEvents('documentation-menu');
     registerMenuEvents('support-menu');
     registerMenuEvents('about-menu');
+    var listEl = document.querySelector('.mdc-drawer .mdc-list-item');
+    var mainContentEl = document.querySelector('main');
+    var drawer = _material_drawer__WEBPACK_IMPORTED_MODULE_3__.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+    var navButton = document.querySelector('.nomad-nav-button');
+    navButton.addEventListener('click', function () {
+        drawer.open = true;
+    });
+    listEl.addEventListener('click', function () {
+        drawer.open = false;
+    });
+    document.querySelectorAll('.mdc-list').forEach(function (listElement) {
+        new _material_list__WEBPACK_IMPORTED_MODULE_4__.MDCList(listElement);
+    });
+    mainContentEl.addEventListener('click', function () {
+        drawer.open = false;
+    });
+    document.body.addEventListener('MDCDrawer:closed', function () {
+        mainContentEl.querySelector('input, button').focus();
+    });
 }
 
 
@@ -8178,4 +9124,4 @@ var __webpack_exports__ = {};
 
 /******/ })()
 ;
-//# sourceMappingURL=nomad.a82b3af8897a24290373.js.map
+//# sourceMappingURL=nomad.08599ebf632535f5d458.js.map
