@@ -10396,6 +10396,9 @@ a:hover {
   font-weight: 700;
   padding: 0 1.75em;
 }
+.nomad-button .mdc-button__ripple, .nomad-banner .action button .mdc-button__ripple, .nomad-hero button .mdc-button__ripple {
+  border-radius: 32px;
+}
 
 .nomad-icons--filled {
   border-radius: 100%;
@@ -10673,8 +10676,14 @@ header > div .menu-bar .menu-bar-item .menu > ul > li a {
   color: #1D1D1D;
 }
 header > div button {
+  border-radius: 32px;
   margin-left: 32px;
-  margin-right: -22px;
+  margin-right: -32px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+header > div button .mdc-button__ripple {
+  border-radius: 32px;
 }
 @media (max-width: 1024px) {
   header > div button {
@@ -10798,4 +10807,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.713df7acb45396195634.css.map*/
+/*# sourceMappingURL=index.1bda44428f6265621c67.css.map*/
