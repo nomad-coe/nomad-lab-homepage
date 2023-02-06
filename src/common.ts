@@ -16,6 +16,20 @@ const registerMenuEvents = (id: string) => {
     })
 }
 
+const registerAccordions = () => {
+    document.querySelectorAll('.nomad-accordion .accordion-title').forEach(titleElement => {
+        titleElement.addEventListener("click", function() {
+            this.classList.toggle("accordion-title--active");
+            const contentElement = this.nextElementSibling;
+            if (contentElement.style.maxHeight) {
+                contentElement.style.maxHeight = null;
+            } else {
+                contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+            }
+        });
+    });
+}
+
 export function registerComponents() {
     document.querySelectorAll('button').forEach(button => {
         new MDCRipple(button);
@@ -57,4 +71,6 @@ export function registerComponents() {
     });
 
     new MDCTopAppBar(document.querySelector('.nomad-app-bar'));
+
+    registerAccordions();
 }
