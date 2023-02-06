@@ -60,6 +60,10 @@ a:hover {
 @mixin button() {
   @extend .mdc-button;
   @include shape.radius(32px);
+
+  .mdc-button__ripple {
+    border-radius: 32px;
+  }
 }
 
 .nomad-filled {
@@ -428,6 +432,8 @@ header {
     }
 
     button {
+      @include button;
+
       @media (max-width: $media-tablet) {
         display: none;
       }
@@ -435,7 +441,9 @@ header {
       @extend .mdc-button;
 
       margin-left: 32px;
-      margin-right: -22px;
+      margin-right: -32px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }

@@ -17,13 +17,13 @@ const registerMenuEvents = (id: string) => {
 }
 
 export function registerComponents() {
-    // document.querySelectorAll('button').forEach(button => {
-    //     new MDCRipple(button);
-    // });
+    document.querySelectorAll('button').forEach(button => {
+        new MDCRipple(button);
+    });
 
-    // document.querySelectorAll('.mdc-icon-button').forEach(button => {
-    //     new MDCRipple(button);
-    // })
+    document.querySelectorAll('.mdc-icon-button').forEach(button => {
+        new MDCRipple(button);
+    })
 
     registerMenuEvents('services-menu')
     registerMenuEvents('documentation-menu')
