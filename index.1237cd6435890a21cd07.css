@@ -5075,7 +5075,7 @@ header > div .menu-bar .menu-bar-item > button .mdc-button__ripple::after,
   text-transform: var(--mdc-typography-headline4-text-transform, inherit);
 }
 
-.mdc-typography--headline5, .nomad-content .content-title {
+.mdc-typography--headline5, .nomad-content .content-title, .nomad-faqs > div:nth-child(odd) {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: Titillium Web, sans-serif;
@@ -10423,6 +10423,52 @@ a:hover {
   width: 100%;
 }
 
+.nomad-faqs {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  column-gap: 3em;
+}
+@media (max-width: 768px) {
+  .nomad-faqs {
+    grid-template-columns: 1fr;
+  }
+  .nomad-faqs > div:nth-child(odd) {
+    margin-top: 1em;
+  }
+}
+@media (min-width: 768px) {
+  .nomad-faqs > div:nth-child(even) {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  }
+}
+.nomad-faqs > div:nth-child(odd) {
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+.nomad-faqs .nomad-accordion {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+}
+.nomad-faqs .nomad-accordion:last-child {
+  border-bottom: none;
+}
+
+.nomad-accordion .accordion-title {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.75em 0em;
+}
+.nomad-accordion .accordion-title--active {
+  font-weight: bold;
+}
+.nomad-accordion .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.nomad-accordion .accordion-content > div {
+  padding-bottom: 1em;
+}
+
 .nomad-fixed-width, footer > div, main > div, header > div {
   max-width: 1024px;
   padding: 0 32px;
@@ -10807,4 +10853,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=nomad.1bda44428f6265621c67.css.map*/
+/*# sourceMappingURL=index.1237cd6435890a21cd07.css.map*/

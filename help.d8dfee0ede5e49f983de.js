@@ -8761,6 +8761,20 @@ var registerMenuEvents = function (id) {
         menu.open = false;
     });
 };
+var registerAccordions = function () {
+    document.querySelectorAll('.nomad-accordion .accordion-title').forEach(function (titleElement) {
+        titleElement.addEventListener("click", function () {
+            this.classList.toggle("accordion-title--active");
+            var contentElement = this.nextElementSibling;
+            if (contentElement.style.maxHeight) {
+                contentElement.style.maxHeight = null;
+            }
+            else {
+                contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+            }
+        });
+    });
+};
 function registerComponents() {
     document.querySelectorAll('button').forEach(function (button) {
         new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
@@ -8792,6 +8806,7 @@ function registerComponents() {
         mainContentEl.querySelector('input, button').focus();
     });
     new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_4__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
+    registerAccordions();
 }
 
 
@@ -9111,9 +9126,9 @@ function __classPrivateFieldIn(state, receiver) {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/nomad.ts ***!
-  \**********************/
+/*!*********************!*\
+  !*** ./src/help.ts ***!
+  \*********************/
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
 /* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ "./src/common.ts");
 
@@ -9124,4 +9139,4 @@ var __webpack_exports__ = {};
 
 /******/ })()
 ;
-//# sourceMappingURL=nomad.faa6e0f669450bdf293a.js.map
+//# sourceMappingURL=help.d8dfee0ede5e49f983de.js.map
