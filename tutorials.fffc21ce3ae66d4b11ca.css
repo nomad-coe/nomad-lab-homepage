@@ -10363,6 +10363,11 @@ header > div .menu-bar .menu-bar-item .menu > ul > li:not(.mdc-list-item--disabl
   color: #1D1D1D;
 }
 
+body {
+  font-size: 16px;
+  line-height: 26px;
+}
+
 @media (min-width: 768px) {
   aside {
     display: none;
@@ -10381,11 +10386,11 @@ a:hover {
 .nomad-filled, .nomad-banner, .nomad-gallery--filled > div, .nomad-content--filled {
   border-radius: 12px;
   padding: 32px;
-  background-color: rgba(179, 216, 230, 0.4);
+  background-color: #E1F6FA;
 }
 
 .nomad-filled--highlight, .nomad-banner {
-  background-color: rgba(195, 200, 204, 0.4);
+  background-color: #EAF0F5;
 }
 
 .nomad-button, .nomad-banner .action button, .nomad-hero button {
@@ -10417,7 +10422,7 @@ a:hover {
 .nomad-img-placeholder div {
   margin: 16px;
   padding: 16px;
-  background-color: rgba(195, 200, 204, 0.4);
+  background-color: #EAF0F5;
   color: red;
   font-size: 2em;
   width: 100%;
@@ -10481,8 +10486,8 @@ a:hover {
 }
 
 .nomad-section, .nomad-hero {
-  margin-top: 128px;
-  margin-bottom: 128px;
+  margin-top: 96px;
+  margin-bottom: 96px;
 }
 .nomad-section .section-title, .nomad-hero .section-title {
   font-weight: 700;
@@ -10497,7 +10502,6 @@ a:hover {
   letter-spacing: 0.8px;
 }
 .nomad-section .section-description, .nomad-hero .section-description {
-  line-height: 1.4;
   text-align: left;
   margin-bottom: 2em;
 }
@@ -10743,6 +10747,7 @@ header > div button .mdc-button__ripple {
 
 .nomad-hero {
   grid-template-columns: 530px 1fr;
+  margin-top: 120px !important;
 }
 @media (max-width: 768px) {
   .nomad-hero {
@@ -10759,11 +10764,15 @@ header > div button .mdc-button__ripple {
 }
 .nomad-hero .hero-title {
   font-weight: 700;
-  color: #007CAD;
+  color: #1D1D1D;
   line-height: 1.15em;
 }
 .nomad-hero .hero-title > span {
   font-weight: 400;
+}
+.nomad-hero .hero-title .brandname {
+  font-weight: 600;
+  color: #007CAD;
 }
 .nomad-hero .hero-description {
   margin-top: 1em;
@@ -10861,4 +10870,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=nomad.f9ac657458d994cde27f.css.map*/
+/*# sourceMappingURL=tutorials.fffc21ce3ae66d4b11ca.css.map*/
