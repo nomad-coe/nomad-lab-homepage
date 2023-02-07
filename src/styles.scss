@@ -16,6 +16,10 @@ $width: 1024px;
 $inset-width: $width - 128px;
 
 @use "@material/shape";
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use "@material/ripple";
+
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap');
 @import "@material/menu-surface/mdc-menu-surface";
@@ -59,10 +63,14 @@ a:hover {
 
 @mixin button() {
   @extend .mdc-button;
-  @include shape.radius(32px);
+  @include shape.radius(24px);
+  min-width: 88px;
+  min-height: 36px;
 
   .mdc-button__ripple {
-    border-radius: 32px;
+    border-radius: 24px;
+
+
   }
 }
 
@@ -86,10 +94,11 @@ a:hover {
 .nomad-button {
   @include button;
   letter-spacing: normal;
-  text-transform: none;
-  height: 3em;
+  text-transform: uppercase;
+  min-width: 88px;
+  min-height: 36px;
   font-weight: 700;
-  padding: 0 1.75em;
+  padding: 0.75rem 1.75rem;
 }
 
 .nomad-button--filled {
@@ -101,7 +110,6 @@ a:hover {
   background-color: $primary;
   color: $white;
 
-  width: min-content;
   padding: 12px;
   font-size: 32px;
 }
@@ -130,8 +138,8 @@ a:hover {
 }
 
 .nomad-section {
-  margin-top: 128px;
-  margin-bottom: 128px;
+  margin-top: 96px;
+  margin-bottom: 96px;
 
   .section-title {
     @extend .mdc-typography--headline4;
@@ -154,8 +162,8 @@ a:hover {
   }
 
   .section-description {
-    // font-size: 1.5em;
-    line-height: 1.4;
+    font-size: 1.25rem;
+    line-height: 1.6;
     text-align: left;
     margin-bottom: 2em;
   }
@@ -205,7 +213,8 @@ a:hover {
   }
 
   .content-content {
-    margin-top: 24px;
+    margin: 20px auto;
+
   }
 
   .content-grow {
@@ -354,6 +363,7 @@ header {
     @extend .mdc-top-app-bar__row;
     @extend .nomad-fixed-width;
     max-width: $width + 64px;
+    margin: 1rem auto;
 
     @media (min-width: $media-phone) {
       height: 72px;
@@ -467,8 +477,11 @@ main {
     grid-template-columns: 1fr;
   }
 
+  margin-top: 120px !important;
+
   > div {
     align-self: center;
+
   }
 
   .hero-title {
@@ -479,11 +492,17 @@ main {
     > span {
       font-weight: 400;
     }
+
+    .brandname {
+      font-weight: 600;
+      color: #384955;
+      //color: $mdc-theme-secondary;
+    }
   }
 
   .hero-description {
     margin-top: 1em;
-    // font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   img {
@@ -597,4 +616,10 @@ footer {
     list-style-type: none;
     padding-left: 0;
   }
+}
+
+.test {
+background-color:#FD331D;
+padding: 12px 16px;
+font-size: 20px;
 }
