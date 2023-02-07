@@ -523,6 +523,8 @@ main {
   @extend .nomad-section;
   @extend .nomad-gallery;
 
+  margin-top: 144px;
+
   @media (max-width: $media-phone) {
     margin-top: 32px;
   }
@@ -531,8 +533,6 @@ main {
   @media (max-width: $media-tablet) {
     grid-template-columns: 1fr;
   }
-
-  margin-top: 120px !important;
 
   > div {
     align-self: center;
