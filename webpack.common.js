@@ -8,7 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const loremIpsum = require("lorem-ipsum").loremIpsum;
 
-const pages = ["index", "nomad", "nomad-oasis", "help"];
+const pages = ["index", "nomad", "nomad-oasis", "help", "tutorials", "installations", "source-code"];
 
 module.exports = {
   entry: pages.reduce((config, page) => {

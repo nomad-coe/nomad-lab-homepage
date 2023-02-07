@@ -284,16 +284,25 @@ a:hover {
 
   ul {
     margin-block: 0;
-    padding-left: 24px;
+    padding-left: 0;
     list-style-type: disc;
     list-style-position: outside;
     line-height: 1.6;
 
     li {
-      margin-bottom: 16px;
-      list-style-image: url(assets/li.png);
-      font-size: 100%;
-      padding: 0;
+      // margin-bottom: 16px;
+      // list-style-image: url(assets/li-cube.svg);
+      // font-size: 100%;
+      // padding: 0;
+
+      margin: 0;
+      margin-top: 1em;
+      padding: 0 0 0 2em;
+      list-style: none;
+      background-image: url("assets/li-cube.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 1em;
     }
   }
 }
@@ -597,8 +606,15 @@ main {
 
   .action {
     margin-top: 24px;
+    margin-left: -24px;
     button {
       @extend .nomad-button;
+    }
+  }
+
+  .action--filled {
+    margin-left: 0;
+    button {
       @extend .nomad-button--filled;
     }
   }
