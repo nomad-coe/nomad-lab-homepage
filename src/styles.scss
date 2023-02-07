@@ -3,11 +3,11 @@ $media-phone: 768px;
 $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
 $primary: #007CAD;
-$primary-tint: rgb(179, 216, 230, 0.4);
+$primary-bg: #E1F6FA;
 $primary-shade: #005779;
 
 $secondary: #384955;
-$secondary-tint: rgb(195, 200, 204, 0.4);
+$secondary-bg: #EAF0F5;
 
 $white: #FDFEFF;
 $black: #1D1D1D;
@@ -40,6 +40,8 @@ $inset-width: $width - 128px;
 
 body {
   @extend .mdc-typography;
+  font-size: 16px;
+  line-height: 26px;
 }
 
 aside {
@@ -75,12 +77,12 @@ a:hover {
   // background-color: $white;
   // @extend .mdc-card--outlined;
 
-  background-color: $primary-tint;
+  background-color: $primary-bg;
 }
 
 .nomad-filled--highlight {
   @extend .mdc-elevation--z2;
-  background-color: $secondary-tint;
+  background-color: $secondary-bg;
 }
 
 .nomad-button {
@@ -113,7 +115,7 @@ a:hover {
   div {
     margin: 16px;
     padding: 16px;
-    background-color: $secondary-tint;
+    background-color: $secondary-bg;
     color: red;
     font-size: 2em;
     width: 100%;
@@ -184,8 +186,8 @@ a:hover {
 }
 
 .nomad-section {
-  margin-top: 128px;
-  margin-bottom: 128px;
+  margin-top: 96px;
+  margin-bottom: 96px;
 
   .section-title {
     @extend .mdc-typography--headline4;
@@ -208,8 +210,8 @@ a:hover {
   }
 
   .section-description {
-    // font-size: 1.5em;
-    line-height: 1.4;
+    // font-size: 1.25rem;
+    // line-height: 1.6;
     text-align: left;
     margin-bottom: 2em;
   }
@@ -530,6 +532,8 @@ main {
     grid-template-columns: 1fr;
   }
 
+  margin-top: 120px !important;
+
   > div {
     align-self: center;
   }
@@ -537,16 +541,21 @@ main {
   .hero-title {
     @extend .mdc-typography--headline3;
     font-weight: 700;  // other font weight need to be installed, before being usable
-    color: $primary;
+    color: $black;
     line-height: 1.15em;
     > span {
       font-weight: 400;
+    }
+
+    .brandname {
+      font-weight: 600;
+      color: $primary;
     }
   }
 
   .hero-description {
     margin-top: 1em;
-    // font-size: 1.5em;
+    // font-size: 1.5rem;
   }
 
   img {
