@@ -10746,8 +10746,8 @@ header > div button .mdc-button__ripple {
 }
 
 .nomad-hero {
+  margin-top: 144px;
   grid-template-columns: 530px 1fr;
-  margin-top: 120px !important;
 }
 @media (max-width: 768px) {
   .nomad-hero {
@@ -10870,4 +10870,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=nomad-oasis.fffc21ce3ae66d4b11ca.css.map*/
+/*# sourceMappingURL=help.f866c8ffa1c418e8eaf1.css.map*/
