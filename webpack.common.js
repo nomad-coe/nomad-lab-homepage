@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const fs = require('fs');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -8,17 +10,19 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const loremIpsum = require("lorem-ipsum").loremIpsum;
 
-const pages = [
-  "index", "nomad", "nomad-oasis",
-  "help", "tutorials",
-  "installations", "source-code",
-  "projects"];
+const files = glob.sync('./src/!(_)*.html')
+const pages = files.filter(file => !file.endsWith('.part.html')).map(file => file.substring(6, file.length - 5))
+const partials = files.filter(file => file.endsWith('.part.html')).map(file => file.substring(6, file.length - 10))
+
+const partialsDict = partials.reduce((result, partial) => {
+  result[partial] = fs.readFileSync(`./src/${partial}.part.html`, { encoding: 'utf-8' })
+  return result;
+}, {})
 
 module.exports = {
-  entry: pages.reduce((config, page) => {
-    config[page] = `./src/${page}.ts`;
-    return config;
-  }, {}),
+  entry: {
+    index: './src/index.ts'
+  },
   mode: 'development',
   devtool: 'source-map',
   optimization: {
@@ -84,10 +88,14 @@ module.exports = {
         new HtmlWebpackPlugin({
           inject: true,
           title: 'test',
-          template: `./src/${page}.html`,
+          page: page,
+          template: `./src/_template.html`,
+          variables: {
+            ...partialsDict,
+            lorem: loremIpsum
+          },
           filename: `${page}.html`,
-          chunks: [page],
-          lorem: loremIpsum
+          chunks: ['index']
         })
     )
   )

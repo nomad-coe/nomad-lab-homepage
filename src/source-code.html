@@ -1,219 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- NOMAD is open source-->
+<div class="nomad-section">
+    <div class="section-title" style="text-align: center;">NOMAD is Open Source</div>
+    <div class="section-description" style="text-align: center; margin-bottom: 3em;">
+        NOMAD is an open project with many ways to support and contribute further
+        developments.
+    </div>
+    <div class="section-content nomad-gallery nomad-gallery--3">
+        <div class="nomad-content">
+            <i class="material-icons">verified</i>
+            <div class="content-title">Apache 2.0</div>
+            <div class="content-description">
+                We use a permissive license so that you can use
+                NOMAD everywhere and for all purposes.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">forum</i>
+            <div class="content-title">Discuss</div>
+            <div class="content-description">
+                Openly discuss problems and opportunities and participate
+                in the design of a future NOMAD.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">edit</i>
+            <div class="content-title">Contribute</div>
+            <div class="content-description">
+                Contribute bug-fixes, features, and extensions via
+                standard Open Source workflows.
+            </div>
+        </div>
+        <!-- <div class="nomad-content">
+            <i class="material-icons">extension</i>
+            <div class="content-title">Ecosystem</div>
+            <div class="content-description">
+                Open Source helps us to build a community that creates
+                a living ecosystem of NOMAD extensions.
+            </div>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOMAD</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <div class="nomad-content">
+            <i class="material-icons">check</i>
+            <div class="content-title">Build on open software</div>
+            <div class="content-description">
+                All key components of NOMAD are build on top of
+                established and continuesly developed libraries and
+                technology.
+            </div>
+        </div> -->
+    </div>
+    <div style="margin: 2em; display: flex; flex-direction: row; column-gap: 1em; justify-content: center;">
+        <a href="https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat">
+            <button class="nomad-button nomad-button--filled">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Go to the NOMAD forum</span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+            </button>
+        </a>
+        <a href="https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=NOMAD-LAB">
+            <button class="nomad-button nomad-button--filled">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Open an issue at GitHub</span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+            </button>
+        </a>
+    </div>
+</div>
 
-    <!-- don't forget to remove when deployed to production CMS -->
-    <meta name="robots" content="noindex">
-</head>
-
-<body style="margin: 0;">
-    <%= require('html-loader!./header.html').default %>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
-        <div>
-            <!-- NOMAD is open source-->
-            <div class="nomad-section">
-                <div class="section-title" style="text-align: center;">NOMAD is Open Source</div>
-                <div class="section-description" style="text-align: center; margin-bottom: 3em;">
-                    NOMAD is an open project with many ways to support and contribute further
-                    developments.
+<!-- repository -->
+<div class="nomad-section">
+    <div class="section-title" style="text-align: center;">Source code repositories</div>
+    <div class="section-description" style="text-align: center;">
+        The NOMAD software consists of many parts and is maintained in
+        several source code repositories.
+    </div>
+    <div class="section-content">
+        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">vpn_lock</i>
+                <div class="content-title">
+                    GitLab@MPCDF
                 </div>
-                <div class="section-content nomad-gallery nomad-gallery--3">
-                    <div class="nomad-content">
-                        <i class="material-icons">verified</i>
-                        <div class="content-title">Apache 2.0</div>
-                        <div class="content-description">
-                            We use a permissive license so that you can use
-                            NOMAD everywhere and for all purposes.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">forum</i>
-                        <div class="content-title">Discuss</div>
-                        <div class="content-description">
-                            Openly discuss problems and opportunities and participate
-                            in the design of a future NOMAD.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">edit</i>
-                        <div class="content-title">Contribute</div>
-                        <div class="content-description">
-                            Contribute bug-fixes, features, and extensions via
-                            standard Open Source workflows.
-                        </div>
-                    </div>
-                    <!-- <div class="nomad-content">
-                        <i class="material-icons">extension</i>
-                        <div class="content-title">Ecosystem</div>
-                        <div class="content-description">
-                            Open Source helps us to build a community that creates
-                            a living ecosystem of NOMAD extensions.
-                        </div>
-                    </div>
-
-                    <div class="nomad-content">
-                        <i class="material-icons">check</i>
-                        <div class="content-title">Build on open software</div>
-                        <div class="content-description">
-                            All key components of NOMAD are build on top of
-                            established and continuesly developed libraries and
-                            technology.
-                        </div>
-                    </div> -->
+                <div class="content-description content-grow">
+                    The main git repository is a GitLab project
+                    called <i>nomad-fair</i> and is hosted in MPCDFs
+                    GitLab instance. This is used by the
+                    FAIRmat and NOMAD team members.
                 </div>
-                <div style="margin: 2em; display: flex; flex-direction: row; column-gap: 1em; justify-content: center;">
-                    <a href="https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat">
-                        <button class="nomad-button nomad-button--filled">
+                <div class="content-content">
+                    <ul>
+                        <li>
+                            For official team members.
+                        </li>
+                        <li>
+                            Openly readable.
+                        </li>
+                        <li>
+                            Runs all CI/CD pipelines.
+                        </li>
+                        <li>
+                            Hosts released software.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">
+                        <button class="nomad-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Go to the NOMAD forum</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
-                    </a>
-                    <a href="https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=NOMAD-LAB">
-                        <button class="nomad-button nomad-button--filled">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open an issue at GitHub</span>
+                            <span class="mdc-button__label">Main repo at MPCDF</span>
                             <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                         </button>
                     </a>
                 </div>
             </div>
 
-            <!-- repository -->
-            <div class="nomad-section">
-                <div class="section-title" style="text-align: center;">Source code repositories</div>
-                <div class="section-description" style="text-align: center;">
-                    The NOMAD software consists of many parts and is maintained in
-                    several source code repositories.
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">public</i>
+                <div class="content-title">
+                    GitHub
                 </div>
-                <div class="section-content">
-                    <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">vpn_lock</i>
-                            <div class="content-title">
-                                GitLab@MPCDF
-                            </div>
-                            <div class="content-description content-grow">
-                                The main git repository is a GitLab project
-                                called <i>nomad-fair</i> and is hosted in MPCDFs
-                                GitLab instance. This is used by the
-                                FAIRmat and NOMAD team members.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        For official team members.
-                                    </li>
-                                    <li>
-                                        Openly readable.
-                                    </li>
-                                    <li>
-                                        Runs all CI/CD pipelines.
-                                    </li>
-                                    <li>
-                                        Hosts released software.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">
-                                    <button class="nomad-button">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">Main repo at MPCDF</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
+                <div class="content-description  content-grow">
+                    This is a public version of the main repository
+                    hosted at GitHub. It contains the latest develop
+                    branch. This is aimed at the wider community.
+                </div>
+                <div class="content-content">
+                    <ul>
+                        <li>
+                            For every one.
+                        </li>
+                        <li>
+                            Create your own forks.
+                        </li>
+                        <li>
+                            Create issues and pull requests.
+                        </li>
+                        <li>
+                            Leave a star.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://github.com/nomad-coe/nomad">
+                        <button class="nomad-button">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Main repo at GitHub</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
+                </div>
+            </div>
 
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">public</i>
-                            <div class="content-title">
-                                GitHub
-                            </div>
-                            <div class="content-description  content-grow">
-                                This is a public version of the main repository
-                                hosted at GitHub. It contains the latest develop
-                                branch. This is aimed at the wider community.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        For every one.
-                                    </li>
-                                    <li>
-                                        Create your own forks.
-                                    </li>
-                                    <li>
-                                        Create issues and pull requests.
-                                    </li>
-                                    <li>
-                                        Leave a star.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://github.com/nomad-coe/nomad">
-                                    <button class="nomad-button">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">Main repo at GitHub</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">public</i>
-                            <div class="content-title">
-                                Parsers at GitHub
-                            </div>
-                            <div class="content-description content-grow">
-                                Some components, especially all the parsers,
-                                are mainted in seperate git projects. Those
-                                are all publically hosted at GitHub in
-                                the <i>nomace-coe</i> GitHub organisation.
-                            </div>
-                            <div class="content-content">
-                                <ul>
-                                    <li>
-                                        For parser related problems.
-                                    </li>
-                                    <li>
-                                        Room for future plug-ins.
-                                    </li>
-                                    <li>
-                                        Other related software.
-                                    </li>
-                                    <li>
-                                        For NOMAD and NOMAD CoE.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://github.com/nomad-coe">
-                                    <button class="nomad-button">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">The <i>nomad-coe</i> organisation</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">public</i>
+                <div class="content-title">
+                    Parsers at GitHub
+                </div>
+                <div class="content-description content-grow">
+                    Some components, especially all the parsers,
+                    are mainted in seperate git projects. Those
+                    are all publically hosted at GitHub in
+                    the <i>nomace-coe</i> GitHub organisation.
+                </div>
+                <div class="content-content">
+                    <ul>
+                        <li>
+                            For parser related problems.
+                        </li>
+                        <li>
+                            Room for future plug-ins.
+                        </li>
+                        <li>
+                            Other related software.
+                        </li>
+                        <li>
+                            For NOMAD and NOMAD CoE.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://github.com/nomad-coe">
+                        <button class="nomad-button">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">The <i>nomad-coe</i> organisation</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
-    </main>
-
-    <%= require('html-loader!./footer.html').default %>
-</body>
-
-</html>
+    </div>
+</div>

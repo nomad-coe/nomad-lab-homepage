@@ -1,365 +1,339 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOMAD</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- don't forget to remove when deployed to production CMS -->
-    <meta name="robots" content="noindex">
-</head>
-
-<body style="margin: 0;">
-    <%= require('html-loader!./header.html').default %>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
-        <div>
-            <!-- help channels -->
-            <div class="nomad-inset">
-                <div class="nomad-section">
-                    <div class="section-title" style="text-align: center;">How can we help you?</div>
-                    <div class="section-description" style="text-align: center;">
-                        There are different ways to reach out for help. Pick a channel to get help
-                        from us or our community.
+<!-- help channels -->
+<div class="nomad-inset">
+    <div class="nomad-section">
+        <div class="section-title" style="text-align: center;">How can we help you?</div>
+        <div class="section-description" style="text-align: center;">
+            There are different ways to reach out for help. Pick a channel to get help
+            from us or our community.
+        </div>
+        <div class="section-content">
+            <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
+                <div class="nomad-content">
+                    <i class="material-icons nomad-icons--filled">forum</i>
+                    <div class="content-title">
+                        Forum
                     </div>
-                    <div class="section-content">
-                        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
-                            <div class="nomad-content">
-                                <i class="material-icons nomad-icons--filled">forum</i>
-                                <div class="content-title">
-                                    Forum
-                                </div>
-                                <div class="content-description content-grow">
-                                    NOMAD hosts a forum on <i>matsci.org</i> together with
-                                    many other materials science projects. NOMAD developers
-                                    and users will be able to help you here.
-                                </div>
-                                <div class="content-action">
-                                    <button class="nomad-button" href="https://matsci.org">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">Visit our forum</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="nomad-content">
-                                <i class="material-icons nomad-icons--filled">bug_report</i>
-                                <div class="content-title">
-                                    Open an Issue
-                                </div>
-                                <div class="content-description content-grow">
-                                    You can open an issue on NOMAD's main GitHub project.
-                                    This way, we can track your problem and start implementing
-                                    a solution.
-                                </div>
-                                <div class="content-action">
-                                    <button class="nomad-button" href="https://matsci.org">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">NOMAD at GitHub</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="nomad-content">
-                                <i class="material-icons nomad-icons--filled">description</i>
-                                <div class="content-title">
-                                    Documentation
-                                </div>
-                                <div class="content-description content-grow">
-                                    The NOMAD documentation is a rich resource that explains
-                                    many aspects of NOMAD in great detail and provides
-                                    valuable how tos on advanced topics.
-                                </div>
-                                <div class="content-action">
-                                    <button class="nomad-button" href="https://matsci.org">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">Open the docs</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="content-description content-grow">
+                        NOMAD hosts a forum on <i>matsci.org</i> together with
+                        many other materials science projects. NOMAD developers
+                        and users will be able to help you here.
+                    </div>
+                    <div class="content-action">
+                        <button class="nomad-button" href="https://matsci.org">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Visit our forum</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            <!-- FAQs -->
-            <div class="nomad-section" style="margin-top: 0;">
-                <div class="section-title">FAQs</div>
-                <div class="section-description">
-                    We compiled answers to the most frequently asked questions.
-                </div>
-                <div class="section-content nomad-faqs">
-                    <div>General</div>
-                    <div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <div><%= htmlWebpackPlugin.options.lorem() %></div>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="nomad-content">
+                    <i class="material-icons nomad-icons--filled">bug_report</i>
+                    <div class="content-title">
+                        Open an Issue
                     </div>
-                    <div>Uploading data</div>
-                    <div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                What steps are necessary to publish data and reference it
-                                in a paper or share it otherwise?
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <ul>
-                                        <li>upload your data</li>
-                                        <li>publish your data</li>
-                                        <li>create a dataset and assign a DOI</li>
-                                        <li>cite your data using a DOI or share URLs for datasets or individual entries</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                Do I need to prepare my data before I upload?
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    You need to create a file archive that contains all the input and output files you want to provide. You can either
-                                    create a .zip (recommended) or .tar(.gz) file. Ideally, the input and output files of different code runs are in
-                                    separate sub-directories. Otherwise, you can use any directory structure you want and also include additional files
-                                    for each code run, including notes or other related artifacts.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="content-description content-grow">
+                        You can open an issue on NOMAD's main GitHub project.
+                        This way, we can track your problem and start implementing
+                        a solution.
                     </div>
-                    <div>Publishing and DOIs</div>
-                    <div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>API</div>
-                    <div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nomad-accordion">
-                            <div class="accordion-title">
-                                <%= htmlWebpackPlugin.options.lorem() %>
-                            </div>
-                            <div class="accordion-content">
-                                <div>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 4}) %>
-                                    </p>
-                                    <p>
-                                        <%= htmlWebpackPlugin.options.lorem({count: 5}) %>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="content-action">
+                        <button class="nomad-button" href="https://matsci.org">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">NOMAD at GitHub</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            <!-- Contact -->
-            <div class="nomad-section nomad-inset">
-                <div class="nomad-banner">
-                    <div>
-                        <div class="banner-title">
-                            Contact us
-                        </div>
-                        <div class="banner-description">
-                            If the forum, issue system, documentation, or FAQ are
-                            not approriate for your problem, feel free to contact us
-                            via email. We will resond as soon as possible.
-                        </div>
-                        <div class="action">
-                            <a href="mailto:support@nomad-lab.eu">
-                                <button>
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Email support&nbsp;</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">mail</i>
-                                </button>
-                            </a>
-                        </div>
+                <div class="nomad-content">
+                    <i class="material-icons nomad-icons--filled">description</i>
+                    <div class="content-title">
+                        Documentation
+                    </div>
+                    <div class="content-description content-grow">
+                        The NOMAD documentation is a rich resource that explains
+                        many aspects of NOMAD in great detail and provides
+                        valuable how tos on advanced topics.
+                    </div>
+                    <div class="content-action">
+                        <button class="nomad-button" href="https://matsci.org">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Open the docs</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 
-    <%= require('html-loader!./footer.html').default %>
-</body>
+<!-- FAQs -->
+<div class="nomad-section" style="margin-top: 0;">
+    <div class="section-title">FAQs</div>
+    <div class="section-description">
+        We compiled answers to the most frequently asked questions.
+    </div>
+    <div class="section-content nomad-faqs">
+        <div>General</div>
+        <div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <div><%= lorem() %></div>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>Uploading data</div>
+        <div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    What steps are necessary to publish data and reference it
+                    in a paper or share it otherwise?
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <ul>
+                            <li>upload your data</li>
+                            <li>publish your data</li>
+                            <li>create a dataset and assign a DOI</li>
+                            <li>cite your data using a DOI or share URLs for datasets or individual entries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    Do I need to prepare my data before I upload?
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        You need to create a file archive that contains all the input and output files you want to provide. You can either
+                        create a .zip (recommended) or .tar(.gz) file. Ideally, the input and output files of different code runs are in
+                        separate sub-directories. Otherwise, you can use any directory structure you want and also include additional files
+                        for each code run, including notes or other related artifacts.
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>Publishing and DOIs</div>
+        <div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>API</div>
+        <div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="nomad-accordion">
+                <div class="accordion-title">
+                    <%= lorem() %>
+                </div>
+                <div class="accordion-content">
+                    <div>
+                        <p>
+                            <%= lorem({count: 4}) %>
+                        </p>
+                        <p>
+                            <%= lorem({count: 5}) %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-</html>
+<!-- Contact -->
+<div class="nomad-section nomad-inset">
+    <div class="nomad-banner">
+        <div>
+            <div class="banner-title">
+                Contact us
+            </div>
+            <div class="banner-description">
+                If the forum, issue system, documentation, or FAQ are
+                not approriate for your problem, feel free to contact us
+                via email. We will resond as soon as possible.
+            </div>
+            <div class="action">
+                <a href="mailto:support@nomad-lab.eu">
+                    <button>
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Email support&nbsp;</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">mail</i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

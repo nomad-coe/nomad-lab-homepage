@@ -22,10 +22,13 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
+    "ejs-compiled-loader": "^3.1.0",
     "eslint": "^8.31.0",
     "eslint-webpack-plugin": "^3.2.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
+    "glob": "^8.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "lorem-ipsum": "^2.0.8",
     "mini-css-extract-plugin": "^2.7.2",
     "sass": "^1.25.0",
     "sass-loader": "^13.2.0",
@@ -47,8 +50,6 @@
     "@material/ripple": "^6.0.0",
     "@material/shape": "^14.0.0",
     "@material/top-app-bar": "^14.0.0",
-    "@material/typography": "^14.0.0",
-    "html-loader": "^4.2.0",
-    "lorem-ipsum": "^2.0.8"
+    "@material/typography": "^14.0.0"
   }
 }

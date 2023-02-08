@@ -252,6 +252,10 @@ a:hover {
   display: flex;
   flex-direction: column;
 
+  img {
+    height: 6em; margin: auto; margin-bottom: 2em;
+  }
+
   .content-title {
     @extend .mdc-typography--headline5;
     margin-bottom: 8px;

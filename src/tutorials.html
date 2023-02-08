@@ -1,191 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Getting started -->
+<%- video_tutorials %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOMAD</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- don't forget to remove when deployed to production CMS -->
-    <meta name="robots" content="noindex">
-</head>
-
-<body style="margin: 0;">
-    <%= require('html-loader!./header.html').default %>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
+<!-- More video -->
+<div class="nomad-section nomad-inset">
+    <div class="nomad-banner">
         <div>
-            <!-- Getting started -->
-            <%= require('html-loader!./video-tutorials.html').default %>
+            <div class="banner-title">
+                Tutorials and Events
+            </div>
+            <div class="banner-description">
+                We conduct regular a regular online tutorial series and
+                more events in FAIRmat. Watch longer form videos from
+                past event or register for up-coming events.
+            </div>
+            <div class="action">
+                <a href="https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat">
+                    <button>
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to the tutorial series</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                    </button>
+                </a>
+                <a href="https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=NOMAD-LAB">
+                    <button>
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Look at the upcoming events</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <!-- More video -->
-            <div class="nomad-section nomad-inset">
-                <div class="nomad-banner">
-                    <div>
-                        <div class="banner-title">
-                            Tutorials and Events
-                        </div>
-                        <div class="banner-description">
-                            We conduct regular a regular online tutorial series and
-                            more events in FAIRmat. Watch longer form videos from
-                            past event or register for up-coming events.
-                        </div>
-                        <div class="action">
-                            <a href="https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat">
-                                <button>
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to the tutorial series</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button>
-                            </a>
-                            <a href="https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=NOMAD-LAB">
-                                <button>
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Look at the upcoming events</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+<!-- Oasis -->
+<div class="nomad-section">
+    <div class="section-subheading">Step-by-step</div>
+    <div class="section-title">Oasis</div>
+    <div class="section-description">
+        These step-by-step instructions guide you from installing an Oasis
+        to the first customization steps. Learn how to create custom schemas
+        that are the basis for your specific data and learn how to create
+        ELNs.
+    </div>
+    <div>
+        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">install_desktop</i>
+                <div class="content-title">
+                    Installation
+                </div>
+                <div class="content-description content-content content-grow">
+                    Instructions to install NOMAD Oasis. From the most
+                    basic installation to first customization options.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
                 </div>
             </div>
-
-            <!-- Oasis -->
-            <div class="nomad-section">
-                <div class="section-subheading">Step-by-step</div>
-                <div class="section-title">Oasis</div>
-                <div class="section-description">
-                    These step-by-step instructions guide you from installing an Oasis
-                    to the first customization steps. Learn how to create custom schemas
-                    that are the basis for your specific data and learn how to create
-                    ELNs.
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">tune</i>
+                <div class="content-title">
+                    Custom schema
                 </div>
-                <div>
-                    <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">install_desktop</i>
-                            <div class="content-title">
-                                Installation
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Instructions to install NOMAD Oasis. From the most
-                                basic installation to first customization options.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">tune</i>
-                            <div class="content-title">
-                                Custom schema
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Learn what schemas and how to write custom schemas in
-                                NOMAD's schema format based on a simple example.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">edit</i>
-                            <div class="content-title">
-                                ELNs
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Take the schema from the schema tutorial and learn how
-                                to annotate it to create custom forms and create basic ELNs.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content-description content-content content-grow">
+                    Learn what schemas and how to write custom schemas in
+                    NOMAD's schema format based on a simple example.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
                 </div>
             </div>
-
-            <!-- Development -->
-            <div class="nomad-section">
-                <div class="section-subheading">Step-by-step</div>
-                <div class="section-title">Develop NOMAD</div>
-                <div class="section-description">
-                    These step-by-step guides from our documentation will help you
-                    to install a NOMAD Oasis and custom create schemas and ELNs.
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">edit</i>
+                <div class="content-title">
+                    ELNs
                 </div>
-                <div>
-                    <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">terminal</i>
-                            <div class="content-title">
-                                Getting started
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Learn how to clone our sources, install all the
-                                dependenceis, and necessary components to run NOMAD
-                                as a developer.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">extension</i>
-                            <div class="content-title">
-                                Parsers
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Learn how to write and run a new parser for NOMAD.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <i class="material-icons nomad-icons--filled">code</i>
-                            <div class="content-title">
-                                Python package
-                            </div>
-                            <div class="content-description content-content content-grow">
-                                Learn how to install NOMAD's Python package.
-                            </div>
-                            <div class="content-action">
-                                <button class="nomad-button nomad-button--filled">
-                                    <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Go to instructions</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content-description content-content content-grow">
+                    Take the schema from the schema tutorial and learn how
+                    to annotate it to create custom forms and create basic ELNs.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
 
-    <%= require('html-loader!./footer.html').default %>
-</body>
-
-</html>
+<!-- Development -->
+<div class="nomad-section">
+    <div class="section-subheading">Step-by-step</div>
+    <div class="section-title">Develop NOMAD</div>
+    <div class="section-description">
+        These step-by-step guides from our documentation will help you
+        to install a NOMAD Oasis and custom create schemas and ELNs.
+    </div>
+    <div>
+        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">terminal</i>
+                <div class="content-title">
+                    Getting started
+                </div>
+                <div class="content-description content-content content-grow">
+                    Learn how to clone our sources, install all the
+                    dependenceis, and necessary components to run NOMAD
+                    as a developer.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
+                </div>
+            </div>
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">extension</i>
+                <div class="content-title">
+                    Parsers
+                </div>
+                <div class="content-description content-content content-grow">
+                    Learn how to write and run a new parser for NOMAD.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
+                </div>
+            </div>
+            <div class="nomad-content">
+                <i class="material-icons nomad-icons--filled">code</i>
+                <div class="content-title">
+                    Python package
+                </div>
+                <div class="content-description content-content content-grow">
+                    Learn how to install NOMAD's Python package.
+                </div>
+                <div class="content-action">
+                    <button class="nomad-button nomad-button--filled">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Go to instructions</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

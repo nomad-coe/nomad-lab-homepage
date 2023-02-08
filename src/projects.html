@@ -1,145 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOMAD</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- don't forget to remove when deployed to production CMS -->
-    <meta name="robots" content="noindex">
-    <style>
-        .nomad-content img {
-            height: 6em; margin: auto; margin-bottom: 2em;
-        }
-    </style>
-</head>
-
-<body style="margin: 0;">
-    <%= require('html-loader!./header.html').default %>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
-        <div>
-            <!-- installations -->
-            <div class="nomad-section">
-                <div class="section-title" style="text-align: center;">Related Projects</div>
-                <div class="section-description" style="text-align: center;">
-                    NOMAD is developed and used by other project. These project share
-                    common goald and value. Many team-members are active in these related
-                    projects.
+<!-- installations -->
+<div class="nomad-section">
+    <div class="section-title" style="text-align: center;">Related Projects</div>
+    <div class="section-description" style="text-align: center;">
+        NOMAD is developed and used by other project. These project share
+        common goald and value. Many team-members are active in these related
+        projects.
+    </div>
+    <div class="section-content">
+        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
+            <div class="nomad-content">
+                <img src="assets/FAIRmat.png"/>
+                <div class="content-title">
+                    FAIRmat
                 </div>
-                <div class="section-content">
-                    <div class="nomad-gallery nomad-gallery--3 nomad-gallery--dense nomad-gallery--filled">
-                        <div class="nomad-content">
-                            <img src="assets/FAIRmat.png"/>
-                            <div class="content-title">
-                                FAIRmat
-                            </div>
-                            <div class="content-description">
-                                FAIRmat is a NFDI consortium
-                                that build a federated data infrastructure
-                                for solid state physics in Germany
-                                and beyond.
-                            </div>
-                            <div class="content-content content-grow">
-                                <ul>
-                                    <li>
-                                        Is the main NOMAD developer.
-                                    </li>
-                                    <li>
-                                        Extends NOMAD beyond theory.
-                                    </li>
-                                    <li>
-                                        A federated data infrastructure.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://www.fairmat-nfdi.eu/fairmat">
-                                    <button class="nomad-button nomad-button--filled">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">FAIRmat homepage</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <img src="assets/nomad.png"/>
-                            <div class="content-title">
-                                NOMAD CoE
-                            </div>
-                            <div class="content-description">
-                                The NOMAD Center of Excellence is an
-                                European Union Horizon 2020 project
-                                on using exa-scale computing for
-                                computational material science.
-                            </div>
-                            <div class="content-content content-grow">
-                                <ul>
-                                    <li>
-                                        Uses NOMAD to manage data.
-                                    </li>
-                                    <li>
-                                        Analytics on exascale hardware.
-                                    </li>
-                                    <li>
-                                        NOMAD for extreme scale data.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://www.nomad-coe.eu">
-                                    <button class="nomad-button nomad-button--filled">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">NOMAD CoE homepage</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="nomad-content">
-                            <img src="assets/FAIR-DI.png"/>
-                            <div class="content-title">
-                                FAIR-DI e.V.
-                            </div>
-                            <div class="content-description">
-                                A multi-national NGO to prolifirate FAIR data
-                                practices in physics, chemistry, materials science,
-                                and astronomy.
-                            </div>
-                            <div class="content-content content-grow">
-                                <ul>
-                                    <li>
-                                        Hosts many related events.
-                                    </li>
-                                    <li>
-                                        Joins related FAIR data projects.
-                                    </li>
-                                    <li>
-                                        Brings our ideas to other fields.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="content-action">
-                                <a href="https://www.fair-di.eu/fair-di/">
-                                    <button class="nomad-button nomad-button--filled">
-                                        <span class="mdc-button__ripple"></span>
-                                        <span class="mdc-button__label">FAIR-DI homepage</span>
-                                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content-description">
+                    FAIRmat is a NFDI consortium
+                    that build a federated data infrastructure
+                    for solid state physics in Germany
+                    and beyond.
+                </div>
+                <div class="content-content content-grow">
+                    <ul>
+                        <li>
+                            Is the main NOMAD developer.
+                        </li>
+                        <li>
+                            Extends NOMAD beyond theory.
+                        </li>
+                        <li>
+                            A federated data infrastructure.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://www.fairmat-nfdi.eu/fairmat">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">FAIRmat homepage</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="nomad-content">
+                <img src="assets/nomad.png"/>
+                <div class="content-title">
+                    NOMAD CoE
+                </div>
+                <div class="content-description">
+                    The NOMAD Center of Excellence is an
+                    European Union Horizon 2020 project
+                    on using exa-scale computing for
+                    computational material science.
+                </div>
+                <div class="content-content content-grow">
+                    <ul>
+                        <li>
+                            Uses NOMAD to manage data.
+                        </li>
+                        <li>
+                            Analytics on exascale hardware.
+                        </li>
+                        <li>
+                            NOMAD for extreme scale data.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://www.nomad-coe.eu">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">NOMAD CoE homepage</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="nomad-content">
+                <img src="assets/FAIR-DI.png"/>
+                <div class="content-title">
+                    FAIR-DI e.V.
+                </div>
+                <div class="content-description">
+                    A multi-national NGO to prolifirate FAIR data
+                    practices in physics, chemistry, materials science,
+                    and astronomy.
+                </div>
+                <div class="content-content content-grow">
+                    <ul>
+                        <li>
+                            Hosts many related events.
+                        </li>
+                        <li>
+                            Joins related FAIR data projects.
+                        </li>
+                        <li>
+                            Brings our ideas to other fields.
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-action">
+                    <a href="https://www.fair-di.eu/fair-di/">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">FAIR-DI homepage</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
-    </main>
-
-    <%= require('html-loader!./footer.html').default %>
-</body>
-
-</html>
+    </div>
+</div>

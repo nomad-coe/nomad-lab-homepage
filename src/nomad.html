@@ -1,199 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOMAD</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- don't forget to remove when deployed to production CMS -->
-    <meta name="robots" content="noindex">
-</head>
-
-<body style="margin: 0;">
-    <%= require('html-loader!./header.html').default %>
-
-    <main class="mdc-top-app-bar--fixed-adjust">
-        <div>
-            <!-- hero -->
-            <div class="nomad-hero" style="grid-template-columns: 430px 1fr; column-gap: 24px;">
-                <div>
-                    <div class="hero-title">
-                        <span class="brandname">NOMAD</span><br/>
-                        Share data, not files.
-                    </div>
-                    <div class="hero-description">
-                        NOMAD processes your files to extract and publish structured data
-                        with rich meta-data.
-                        We provide a unified way to find, access, interoperate with, and
-                        re-use (FAIR) millions of data from different codes and sources.
-                    </div>
-                    <div>
-                        <button>
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open NOMAD</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
-                    </div>
-                </div>
-                <img src="./assets/pea.png"/>
-            </div>
-
-             <!-- NOMAD features-->
-             <div class="nomad-section">
-                <div class="section-subheading">Features</div>
-                <div class="section-title">What is NOMAD?</div>
-                <div class="section-description">
-                    It is a free web-service that let's you share you data or use comprehensive data that others provide.
-                    You can use NOMAD to organise, analyse, share, and publish your materials science data, as well as explore, download,
-                    and analyse your colleagues data.
-                </div>
-                <div class="section-content nomad-gallery nomad-gallery--3">
-                    <div class="nomad-content">
-                        <i class="material-icons">link</i>
-                        <div class="content-title">Get a DOI</div>
-                        <div class="content-description">
-                            NOMAD allows you to publish and archive your data for free. Assign a DOI to uploaded datasets and reference
-                            your papers.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">code</i>
-                        <div class="content-title">All data at a glance</div>
-                        <div class="content-description">
-                            NOMAD extracts structured, machine-actionable data from over 50 of formats and codes. See all Your
-                            data at a glance and have it prepared for analysis.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">construction</i>
-                        <div class="content-title">Ready to use Tools</div>
-                        <div class="content-description">
-                            Run Jupyter notebooks and other tools directly on NOMAD.
-                            Directly access your data and publish your analysis code.
-                            No installation required.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">cloud_upload</i>
-                        <div class="content-title">Drap'n'Drop</div>
-                        <div class="content-description">
-                            NOMAD organises your files as you would on your hard-drive.
-                            Upload file-by-file or zip and upload whole directory structures.
-                        </div>
-                    </div>
-
-                    <div class="nomad-content">
-                        <i class="material-icons">shield</i>
-                        <div class="content-title">You Control Your Data</div>
-                        <div class="content-description">
-                            Not ready to publish? Organise data and collaborate in private first.
-                            Or, use your own NOMAD Oasis for even more privacy.
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <i class="material-icons">extension</i>
-                        <div class="content-title">Extendable</div>
-                        <div class="content-description">
-                            Add your own file formats.
-                            Create custom ELNs.
-                            Create exploration dashboards.
-                            Build and run more analysis tools.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <%= require('html-loader!./fairmat-banner.html').default %>
-
-            <div class="nomad-section">
-                <div class="section-subheading">
-                    FAIR data
-                </div>
-                <div class="section-title">
-                    Why is NOMAD different?
-                </div>
-                <div class="section-description">
-                    NOMAD is not about sharing files, it is about sharing data and
-                    making data FAIR.
-
-                    All data is organized in well-defined structures that are described
-                    by a formal schema. This is the basis for search (findable),
-                    APIs (accessible), converting data (interoperable), and
-                    running tools (re-usable).
-                </div>
-                <div class="nomad-gallery nomad-gallery--2" style="row-gap: 64px;">
-                    <div class="nomad-img-placeholder">
-                        <div>metainfo</div>
-                    </div>
-                    <div class="nomad-content">
-                        <div class="content-title">
-                            NOMAD Metainfo
-                        </div>
-                        <div class="description">
-                            All data in NOMAD follows a schema that defines how data
-                            is organized, linked, and defined. This schema is called
-                            the NOMAD Metainfo. It can define general
-                            domain independent data, but also highly detailed specialized
-                            data from specific methods, tools, and programs.
-                        </div>
-                        <div class="content-content">
-                            <ul>
-                                <li>
-                                    Use NOMAD's parsers to automatically structure your data.
-                                </li>
-                                <li>
-                                    Use and extend the existing NOMAD Schema.
-                                </li>
-                                <li>
-                                    All data hierarchically organized and connected.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="nomad-content">
-                        <div class="content-title">
-                            Analysis tools
-                        </div>
-                        <div class="description">
-                            Since all data is uniformly organized, you can use
-                            existing tools and build your own to analyse data from
-                            various sources. The NOMAD Remote Tools Hub (NORTH)
-                            allows you to run containerized tools and Jupyternotebooks
-                            directly on your data.
-                        </div>
-                        <div class="content-content">
-                            <ul>
-                                <li>
-                                    Run Jupyterlab to access and author your
-                                    uploads in NOMAD.
-                                </li>
-                                <li>
-                                    Predefined notebooks for machine learning in the AI Toolkit.
-                                </li>
-                                <li>
-                                    All data available via API. Analyse your
-                                    data from everywhere.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="nomad-img-placeholder">
-                        <div>NORTH/AI toolkit</div>
-                    </div>
-                </div>
-            </div>
-
-            <%= require('html-loader!./oasis-banner.html').default %>
-
-             <!-- Getting started -->
-             <%= require('html-loader!./video-tutorials.html').default %>
+<!-- hero -->
+<div class="nomad-hero" style="grid-template-columns: 430px 1fr; column-gap: 24px;">
+    <div>
+        <div class="hero-title">
+            <span class="brandname">NOMAD</span><br/>
+            Share data, not files.
         </div>
-    </main>
+        <div class="hero-description">
+            NOMAD processes your files to extract and publish structured data
+            with rich meta-data.
+            We provide a unified way to find, access, interoperate with, and
+            re-use (FAIR) millions of data from different codes and sources.
+        </div>
+        <div>
+            <button>
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Open NOMAD</span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+            </button>
+        </div>
+    </div>
+    <img src="./assets/pea.png"/>
+</div>
 
-    <%= require('html-loader!./footer.html').default %>
-</body>
+    <!-- NOMAD features-->
+    <div class="nomad-section">
+    <div class="section-subheading">Features</div>
+    <div class="section-title">What is NOMAD?</div>
+    <div class="section-description">
+        It is a free web-service that let's you share you data or use comprehensive data that others provide.
+        You can use NOMAD to organise, analyse, share, and publish your materials science data, as well as explore, download,
+        and analyse your colleagues data.
+    </div>
+    <div class="section-content nomad-gallery nomad-gallery--3">
+        <div class="nomad-content">
+            <i class="material-icons">link</i>
+            <div class="content-title">Get a DOI</div>
+            <div class="content-description">
+                NOMAD allows you to publish and archive your data for free. Assign a DOI to uploaded datasets and reference
+                your papers.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">code</i>
+            <div class="content-title">All data at a glance</div>
+            <div class="content-description">
+                NOMAD extracts structured, machine-actionable data from over 50 of formats and codes. See all Your
+                data at a glance and have it prepared for analysis.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">construction</i>
+            <div class="content-title">Ready to use Tools</div>
+            <div class="content-description">
+                Run Jupyter notebooks and other tools directly on NOMAD.
+                Directly access your data and publish your analysis code.
+                No installation required.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">cloud_upload</i>
+            <div class="content-title">Drap'n'Drop</div>
+            <div class="content-description">
+                NOMAD organises your files as you would on your hard-drive.
+                Upload file-by-file or zip and upload whole directory structures.
+            </div>
+        </div>
 
-</html>
+        <div class="nomad-content">
+            <i class="material-icons">shield</i>
+            <div class="content-title">You Control Your Data</div>
+            <div class="content-description">
+                Not ready to publish? Organise data and collaborate in private first.
+                Or, use your own NOMAD Oasis for even more privacy.
+            </div>
+        </div>
+        <div class="nomad-content">
+            <i class="material-icons">extension</i>
+            <div class="content-title">Extendable</div>
+            <div class="content-description">
+                Add your own file formats.
+                Create custom ELNs.
+                Create exploration dashboards.
+                Build and run more analysis tools.
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- fairmat_banner %>
+
+<div class="nomad-section">
+    <div class="section-subheading">
+        FAIR data
+    </div>
+    <div class="section-title">
+        Why is NOMAD different?
+    </div>
+    <div class="section-description">
+        NOMAD is not about sharing files, it is about sharing data and
+        making data FAIR.
+
+        All data is organized in well-defined structures that are described
+        by a formal schema. This is the basis for search (findable),
+        APIs (accessible), converting data (interoperable), and
+        running tools (re-usable).
+    </div>
+    <div class="nomad-gallery nomad-gallery--2" style="row-gap: 64px;">
+        <div class="nomad-img-placeholder">
+            <div>metainfo</div>
+        </div>
+        <div class="nomad-content">
+            <div class="content-title">
+                NOMAD Metainfo
+            </div>
+            <div class="description">
+                All data in NOMAD follows a schema that defines how data
+                is organized, linked, and defined. This schema is called
+                the NOMAD Metainfo. It can define general
+                domain independent data, but also highly detailed specialized
+                data from specific methods, tools, and programs.
+            </div>
+            <div class="content-content">
+                <ul>
+                    <li>
+                        Use NOMAD's parsers to automatically structure your data.
+                    </li>
+                    <li>
+                        Use and extend the existing NOMAD Schema.
+                    </li>
+                    <li>
+                        All data hierarchically organized and connected.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nomad-content">
+            <div class="content-title">
+                Analysis tools
+            </div>
+            <div class="description">
+                Since all data is uniformly organized, you can use
+                existing tools and build your own to analyse data from
+                various sources. The NOMAD Remote Tools Hub (NORTH)
+                allows you to run containerized tools and Jupyternotebooks
+                directly on your data.
+            </div>
+            <div class="content-content">
+                <ul>
+                    <li>
+                        Run Jupyterlab to access and author your
+                        uploads in NOMAD.
+                    </li>
+                    <li>
+                        Predefined notebooks for machine learning in the AI Toolkit.
+                    </li>
+                    <li>
+                        All data available via API. Analyse your
+                        data from everywhere.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nomad-img-placeholder">
+            <div>NORTH/AI toolkit</div>
+        </div>
+    </div>
+</div>
+
+<%- oasis_banner %>
+
+<!-- Getting started -->
+<%- video_tutorials %>
