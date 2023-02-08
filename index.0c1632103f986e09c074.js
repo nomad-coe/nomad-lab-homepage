@@ -8732,86 +8732,6 @@ var MDCTopAppBarFoundation = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/common.ts":
-/*!***********************!*\
-  !*** ./src/common.ts ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "registerComponents": () => (/* binding */ registerComponents)
-/* harmony export */ });
-/* harmony import */ var _material_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material/ripple */ "./node_modules/@material/ripple/component.js");
-/* harmony import */ var _material_top_app_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material/top-app-bar */ "./node_modules/@material/top-app-bar/component.js");
-/* harmony import */ var _material_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material/menu */ "./node_modules/@material/menu/component.js");
-/* harmony import */ var _material_drawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/drawer */ "./node_modules/@material/drawer/component.js");
-/* harmony import */ var _material_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material/list */ "./node_modules/@material/list/component.js");
-
-
-
-
-
-var registerMenuEvents = function (id) {
-    var element = document.querySelector('#' + id);
-    var menu = new _material_menu__WEBPACK_IMPORTED_MODULE_0__.MDCMenu(element.querySelector('.menu'));
-    document.querySelector('#' + id).addEventListener('mouseenter', function () {
-        menu.open = true;
-    });
-    document.querySelector('#' + id).addEventListener('mouseleave', function () {
-        menu.open = false;
-    });
-};
-var registerAccordions = function () {
-    document.querySelectorAll('.nomad-accordion .accordion-title').forEach(function (titleElement) {
-        titleElement.addEventListener("click", function () {
-            this.classList.toggle("accordion-title--active");
-            var contentElement = this.nextElementSibling;
-            if (contentElement.style.maxHeight) {
-                contentElement.style.maxHeight = null;
-            }
-            else {
-                contentElement.style.maxHeight = contentElement.scrollHeight + "px";
-            }
-        });
-    });
-};
-function registerComponents() {
-    document.querySelectorAll('button').forEach(function (button) {
-        new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
-    });
-    document.querySelectorAll('.mdc-icon-button').forEach(function (button) {
-        new _material_ripple__WEBPACK_IMPORTED_MODULE_1__.MDCRipple(button);
-    });
-    registerMenuEvents('services-menu');
-    registerMenuEvents('documentation-menu');
-    registerMenuEvents('support-menu');
-    registerMenuEvents('about-menu');
-    var listEl = document.querySelector('.mdc-drawer .mdc-list-item');
-    var mainContentEl = document.querySelector('main');
-    var drawer = _material_drawer__WEBPACK_IMPORTED_MODULE_2__.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
-    var navButton = document.querySelector('.nomad-nav-button');
-    navButton.addEventListener('click', function () {
-        drawer.open = true;
-    });
-    listEl.addEventListener('click', function () {
-        drawer.open = false;
-    });
-    document.querySelectorAll('.mdc-list').forEach(function (listElement) {
-        new _material_list__WEBPACK_IMPORTED_MODULE_3__.MDCList(listElement);
-    });
-    mainContentEl.addEventListener('click', function () {
-        drawer.open = false;
-    });
-    document.body.addEventListener('MDCDrawer:closed', function () {
-        mainContentEl.querySelector('input, button').focus();
-    });
-    new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_4__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
-    registerAccordions();
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/tslib/tslib.es6.js":
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
@@ -9126,17 +9046,79 @@ function __classPrivateFieldIn(state, receiver) {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!****************************!*\
-  !*** ./src/source-code.ts ***!
-  \****************************/
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ "./src/styles.scss");
-/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ "./src/common.ts");
+/* harmony import */ var _material_ripple__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material/ripple */ "./node_modules/@material/ripple/component.js");
+/* harmony import */ var _material_top_app_bar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material/top-app-bar */ "./node_modules/@material/top-app-bar/component.js");
+/* harmony import */ var _material_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material/menu */ "./node_modules/@material/menu/component.js");
+/* harmony import */ var _material_drawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material/drawer */ "./node_modules/@material/drawer/component.js");
+/* harmony import */ var _material_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material/list */ "./node_modules/@material/list/component.js");
 
 
-(0,_common__WEBPACK_IMPORTED_MODULE_1__.registerComponents)();
+
+
+
+
+var registerMenuEvents = function (id) {
+    var element = document.querySelector('#' + id);
+    var menu = new _material_menu__WEBPACK_IMPORTED_MODULE_1__.MDCMenu(element.querySelector('.menu'));
+    document.querySelector('#' + id).addEventListener('mouseenter', function () {
+        menu.open = true;
+    });
+    document.querySelector('#' + id).addEventListener('mouseleave', function () {
+        menu.open = false;
+    });
+};
+var registerAccordions = function () {
+    document.querySelectorAll('.nomad-accordion .accordion-title').forEach(function (titleElement) {
+        titleElement.addEventListener("click", function () {
+            this.classList.toggle("accordion-title--active");
+            var contentElement = this.nextElementSibling;
+            if (contentElement.style.maxHeight) {
+                contentElement.style.maxHeight = null;
+            }
+            else {
+                contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+            }
+        });
+    });
+};
+document.querySelectorAll('button').forEach(function (button) {
+    new _material_ripple__WEBPACK_IMPORTED_MODULE_2__.MDCRipple(button);
+});
+document.querySelectorAll('.mdc-icon-button').forEach(function (button) {
+    new _material_ripple__WEBPACK_IMPORTED_MODULE_2__.MDCRipple(button);
+});
+registerMenuEvents('services-menu');
+registerMenuEvents('documentation-menu');
+registerMenuEvents('support-menu');
+registerMenuEvents('about-menu');
+var listEl = document.querySelector('.mdc-drawer .mdc-list-item');
+var mainContentEl = document.querySelector('main');
+var drawer = _material_drawer__WEBPACK_IMPORTED_MODULE_3__.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+var navButton = document.querySelector('.nomad-nav-button');
+navButton.addEventListener('click', function () {
+    drawer.open = true;
+});
+listEl.addEventListener('click', function () {
+    drawer.open = false;
+});
+document.querySelectorAll('.mdc-list').forEach(function (listElement) {
+    new _material_list__WEBPACK_IMPORTED_MODULE_4__.MDCList(listElement);
+});
+mainContentEl.addEventListener('click', function () {
+    drawer.open = false;
+});
+document.body.addEventListener('MDCDrawer:closed', function () {
+    mainContentEl.querySelector('input, button').focus();
+});
+new _material_top_app_bar__WEBPACK_IMPORTED_MODULE_5__.MDCTopAppBar(document.querySelector('.nomad-app-bar'));
+registerAccordions();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=source-code.3b2ffe596095559d9748.js.map
+//# sourceMappingURL=index.0c1632103f986e09c074.js.map

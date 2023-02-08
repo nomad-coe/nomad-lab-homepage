@@ -10537,6 +10537,11 @@ a:hover {
   display: flex;
   flex-direction: column;
 }
+.nomad-content img {
+  height: 6em;
+  margin: auto;
+  margin-bottom: 2em;
+}
 .nomad-content .content-title {
   margin-bottom: 8px;
   font-weight: bold;
@@ -10871,4 +10876,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=tutorials.dc813d60c3625738e8b2.css.map*/
+/*# sourceMappingURL=index.0c11323dcbe3ada01ecf.css.map*/
