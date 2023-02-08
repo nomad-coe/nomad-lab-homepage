@@ -42,6 +42,13 @@ body {
   @extend .mdc-typography;
   font-size: 16px;
   line-height: 26px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  footer {
+    flex-grow: 1;
+  }
 }
 
 aside {
@@ -258,10 +265,6 @@ a:hover {
     @media (min-width: $media-phone) {
       margin-bottom: 8px;
     }
-  }
-
-  .content-content {
-    margin-top: 24px;
   }
 
   .content-grow {
@@ -531,7 +534,7 @@ main {
 
   grid-template-columns: 530px 1fr;
   @media (max-width: $media-tablet) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   > div {
@@ -652,13 +655,11 @@ main {
 }
 
 footer {
-  margin-top: 128px;
   padding: 0 32px;
 
   background-color: $primary-shade; color: $white;
 
   > div {
-    margin-top: 128px;
     padding: 32px 0 64px 0;
     @extend .nomad-fixed-width;
 
