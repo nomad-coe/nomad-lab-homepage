@@ -10366,6 +10366,12 @@ header > div .menu-bar .menu-bar-item .menu > ul > li:not(.mdc-list-item--disabl
 body {
   font-size: 16px;
   line-height: 26px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body footer {
+  flex-grow: 1;
 }
 
 @media (min-width: 768px) {
@@ -10544,9 +10550,6 @@ a:hover {
   .nomad-content .content-description {
     margin-bottom: 8px;
   }
-}
-.nomad-content .content-content {
-  margin-top: 24px;
 }
 .nomad-content .content-grow {
   flex-grow: 1;
@@ -10756,7 +10759,7 @@ header > div button .mdc-button__ripple {
 }
 @media (max-width: 1024px) {
   .nomad-hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 .nomad-hero > div {
@@ -10848,13 +10851,11 @@ header > div button .mdc-button__ripple {
 }
 
 footer {
-  margin-top: 128px;
   padding: 0 32px;
   background-color: #005779;
   color: #FDFEFF;
 }
 footer > div {
-  margin-top: 128px;
   padding: 32px 0 64px 0;
 }
 footer > div > div {
@@ -10870,4 +10871,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=installations.f866c8ffa1c418e8eaf1.css.map*/
+/*# sourceMappingURL=tutorials.dc813d60c3625738e8b2.css.map*/
