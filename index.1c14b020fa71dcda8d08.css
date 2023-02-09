@@ -10447,14 +10447,12 @@ a:hover {
     margin-top: 1em;
   }
 }
-@media (min-width: 768px) {
-  .nomad-faqs > div:nth-child(even) {
-    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
-  }
-}
 .nomad-faqs > div:nth-child(odd) {
   font-weight: bold;
   margin-top: 0.75em;
+}
+.nomad-faqs > div:nth-child(even) {
+  margin-bottom: 2em;
 }
 .nomad-faqs .nomad-accordion {
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
@@ -10467,6 +10465,18 @@ a:hover {
   cursor: pointer;
   width: 100%;
   padding: 0.75em 0em;
+  color: #007CAD;
+  font-weight: bold;
+  position: relative;
+}
+.nomad-accordion .accordion-title > .material-icons {
+  position: absolute;
+  right: 1em;
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+.nomad-accordion .accordion-title.accordion-title--active > .material-icons {
+  transform: rotate(-180deg);
 }
 .nomad-accordion .accordion-title--active {
   font-weight: bold;
@@ -10478,6 +10488,9 @@ a:hover {
 }
 .nomad-accordion .accordion-content > div {
   padding-bottom: 1em;
+}
+.nomad-accordion .accordion-content > div p:last-child {
+  margin-block-end: 0;
 }
 
 .nomad-fixed-width, footer > div, main > div, header > div {
@@ -10876,4 +10889,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.0c11323dcbe3ada01ecf.css.map*/
+/*# sourceMappingURL=index.1c14b020fa71dcda8d08.css.map*/
