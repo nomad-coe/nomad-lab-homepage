@@ -330,6 +330,10 @@ a:hover {
   }
 }
 
+.nomad-content--left-justified .content-title {
+  text-align: left;
+}
+
 .nomad-content--filled {
   @extend .nomad-filled;
 }
@@ -346,8 +350,9 @@ a:hover {
 
 .nomad-gallery {
   display: grid;
-  column-gap: 64px;
-  row-gap: 24px;
+  margin-top: 3em;
+  column-gap: 4em;
+  row-gap: 4em;
 
   @media (max-width: $media-phone) {
     row-gap: 48px;
@@ -576,7 +581,8 @@ main {
 
   .hero-description {
     margin-top: 1em;
-    // font-size: 1.5rem;
+    font-size: 1.25em;
+    line-height: 1.6em;
   }
 
   img {
@@ -670,12 +676,20 @@ main {
 
 .nomad-banner--fairmat {
   --mdc-theme-primary: #FD331D;
+  background-image: url(assets/fairmat-banner.png);
+  background-size: cover;
+  background-size: 100% 100%;
+  padding: 3em;
+
+  img {
+    width: 100px;
+  }
 }
 
 footer {
   padding: 0 32px;
 
-  background-color: $primary-shade; color: $white;
+  background-color: $secondary; color: $white;
 
   > div {
     padding: 32px 0 64px 0;
