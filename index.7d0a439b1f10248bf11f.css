@@ -10603,6 +10603,10 @@ a:hover {
   background-size: 1em;
 }
 
+.nomad-content--left-justified .content-title {
+  text-align: left;
+}
+
 .nomad-content--inset {
   display: flex;
   justify-content: center;
@@ -10614,8 +10618,9 @@ a:hover {
 
 .nomad-gallery, .nomad-hero {
   display: grid;
-  column-gap: 64px;
-  row-gap: 24px;
+  margin-top: 3em;
+  column-gap: 4em;
+  row-gap: 4em;
 }
 @media (max-width: 768px) {
   .nomad-gallery, .nomad-hero {
@@ -10797,6 +10802,8 @@ header > div button .mdc-button__ripple {
 }
 .nomad-hero .hero-description {
   margin-top: 1em;
+  font-size: 1.25em;
+  line-height: 1.6em;
 }
 .nomad-hero img {
   width: 100%;
@@ -10866,11 +10873,18 @@ header > div button .mdc-button__ripple {
 
 .nomad-banner--fairmat {
   --mdc-theme-primary: #FD331D;
+  background-image: url(7aac0af15e6d0f70e55e.png);
+  background-size: cover;
+  background-size: 100% 100%;
+  padding: 3em;
+}
+.nomad-banner--fairmat img {
+  width: 100px;
 }
 
 footer {
   padding: 0 32px;
-  background-color: #005779;
+  background-color: #384955;
   color: #FDFEFF;
 }
 footer > div {
@@ -10889,4 +10903,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.1c14b020fa71dcda8d08.css.map*/
+/*# sourceMappingURL=index.7d0a439b1f10248bf11f.css.map*/
