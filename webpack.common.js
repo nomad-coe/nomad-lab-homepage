@@ -19,6 +19,84 @@ const partialsDict = partials.reduce((result, partial) => {
   return result;
 }, {})
 
+const mainMenus = [
+  {
+    title: 'Solutions',
+    id: 'services-menu',
+    items: {
+      'NOMAD': 'nomad.html',
+      'NOMAD Oasis': 'nomad-oasis.html',
+      'Encyclopedia': '#',
+      'AI Toolkit': '#'
+    }
+  },
+  {
+    title: 'Learn',
+    id: 'documentation-menu',
+    items: {
+      'Tutorials': 'tutorials.html',
+      'Documentation': 'https://nomad-lab.eu/prod/v1/docs/',
+      'Get help': 'help.html'
+    }
+  },
+  {
+    title: 'Get involved',
+    id: 'support-menu',
+    items: {
+      'Try the latest features': 'installations.html',
+      'Source code': 'source-code.html',
+      'Work with us': '#'
+    }
+  },
+  {
+    title: 'About',
+    id: 'about-menu',
+    items: {
+      'Home': 'index.html',
+      'Related Projects': 'projects.html',
+      'News': '#',
+      'Events': '#',
+      'Press materials': '#',
+      'Terms of use': '#'
+    }
+  }
+]
+
+const footerMenus = {
+  'Solutions': {
+    'NOMAD': 'nomad.html',
+    'NOMAD Oasis': 'nomad-oasis.html',
+    'Encyclopedia': '#',
+    'AI Toolkit': '#'
+  },
+  'Learn': {
+    'Tutorials': 'tutorials.html',
+    'Documentation': 'https://nomad-lab.eu/prod/v1/docs/',
+    'FAQ': 'help.html#faq',
+    'Forum': 'https://matsci.org/c/nomad/32',
+    'Open an issue': 'https://github.com/nomad-coe/nomad/issues'
+  },
+  'Get involved': {
+    'NOMAD at GitHub': 'https://github.com/nomad-coe/nomad',
+    'NOMAD at MPCDF GitLab': 'https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR',
+    'Work with us': '#'
+  },
+  'NOMAD installations': {
+    'Official': 'https://nomad-lab.eu/prod/v1/gui',
+    'Beta/staging': 'https://nomad-lab.eu/prod/v1/staging/gui',
+    'Test': 'https://nomad-lab.eu/prod/v1/test/gui',
+    'Legacy': 'https://nomad-lab.eu/rae/gui'
+  },
+  'About': {
+    'Home': 'index.html',
+    'Related Projects': 'projects.html',
+    'News': '#',
+    'Events': '#',
+    'Press materials': '#',
+    'Terms of use': '#'
+  }
+}
+
 module.exports = {
   entry: {
     index: './src/index.ts'
@@ -93,6 +171,10 @@ module.exports = {
           variables: {
             ...partialsDict,
             lorem: loremIpsum
+          },
+          menus: {
+            main: mainMenus,
+            footer: footerMenus
           },
           filename: `${page}.html`,
           chunks: ['index']
