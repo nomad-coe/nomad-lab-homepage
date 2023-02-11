@@ -10521,6 +10521,8 @@ a:hover {
   letter-spacing: 0.8px;
 }
 .nomad-section .section-description, .nomad-hero .section-description {
+  font-size: 1.25em;
+  line-height: 1.6em;
   text-align: left;
   margin-bottom: 2em;
 }
@@ -10618,7 +10620,6 @@ a:hover {
 
 .nomad-gallery, .nomad-hero {
   display: grid;
-  margin-top: 3em;
   column-gap: 4em;
   row-gap: 4em;
 }
@@ -10887,6 +10888,13 @@ footer {
   background-color: #384955;
   color: #FDFEFF;
 }
+footer a {
+  color: #FDFEFF;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #E1F6FA;
+}
 footer > div {
   padding: 32px 0 64px 0;
 }
@@ -10903,4 +10911,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.7d0a439b1f10248bf11f.css.map*/
+/*# sourceMappingURL=index.252a478a1114c7536c05.css.map*/
