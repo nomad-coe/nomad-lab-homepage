@@ -51,19 +51,41 @@ body {
   }
 }
 
+main, footer {
+  a {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+main {
+  ul {
+    margin-block: 0;
+    padding-left: 0;
+    list-style-type: disc;
+    list-style-position: outside;
+    line-height: 1.6;
+
+    li {
+      margin: 0;
+      margin-top: 1em;
+      padding: 0 0 0 2em;
+      list-style: none;
+      background-image: url("assets/li-cube.svg");
+      background-repeat: no-repeat;
+      background-position: left 6px;
+      background-size: 1em;
+    }
+  }
+}
+
 aside {
   @media (min-width: $media-phone) {
     display: none;
   }
-}
-
-a {
-  color: $mdc-theme-primary;
-  text-decoration: none;
-}
-
-a:hover {
-  color: $mdc-theme-secondary;
 }
 
 @mixin button() {
@@ -144,7 +166,7 @@ a:hover {
   > div:nth-child(odd) {
     @extend .mdc-typography--headline5;
     font-weight: bold;
-    margin-top: 0.75em;
+    margin-top: 0.75rem;
   }
 
   > div:nth-child(even) {
@@ -303,25 +325,6 @@ a:hover {
 
   .nomad-icons--filled {
     margin-bottom: 16px;
-  }
-
-  ul {
-    margin-block: 0;
-    padding-left: 0;
-    list-style-type: disc;
-    list-style-position: outside;
-    line-height: 1.6;
-
-    li {
-      margin: 0;
-      margin-top: 1em;
-      padding: 0 0 0 2em;
-      list-style: none;
-      background-image: url("assets/li-cube.svg");
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 1em;
-    }
   }
 }
 
@@ -687,10 +690,6 @@ footer {
 
   a {
     color: $white;
-    text-decoration: none;
-    &:hover {
-      color: $primary-bg;
-    }
   }
 
   > div {

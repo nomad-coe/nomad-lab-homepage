@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
+const yaml = require('js-yaml');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -18,6 +19,8 @@ const partialsDict = partials.reduce((result, partial) => {
   result[partial] = fs.readFileSync(`./src/${partial}.part.html`, { encoding: 'utf-8' })
   return result;
 }, {})
+
+const faqData = yaml.load(fs.readFileSync('src/faqs.yaml', 'utf8'));
 
 const mainMenus = [
   {
@@ -170,6 +173,7 @@ module.exports = {
           template: `./src/_template.html`,
           variables: {
             ...partialsDict,
+            faqData,
             lorem: loremIpsum
           },
           menus: {
