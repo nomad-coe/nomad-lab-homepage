@@ -10374,19 +10374,36 @@ body footer {
   flex-grow: 1;
 }
 
+main a, footer a {
+  color: #007CAD;
+  text-decoration: none;
+}
+main a:hover, footer a:hover {
+  text-decoration: underline;
+}
+
+main ul {
+  margin-block: 0;
+  padding-left: 0;
+  list-style-type: disc;
+  list-style-position: outside;
+  line-height: 1.6;
+}
+main ul li {
+  margin: 0;
+  margin-top: 1em;
+  padding: 0 0 0 2em;
+  list-style: none;
+  background-image: url(e6fe647aa18a24a35391.svg);
+  background-repeat: no-repeat;
+  background-position: left 6px;
+  background-size: 1em;
+}
+
 @media (min-width: 768px) {
   aside {
     display: none;
   }
-}
-
-a {
-  color: #6200ee;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #018786;
 }
 
 .nomad-filled, .nomad-banner, .nomad-gallery--filled > div, .nomad-content--filled {
@@ -10449,7 +10466,7 @@ a:hover {
 }
 .nomad-faqs > div:nth-child(odd) {
   font-weight: bold;
-  margin-top: 0.75em;
+  margin-top: 0.75rem;
 }
 .nomad-faqs > div:nth-child(even) {
   margin-bottom: 2em;
@@ -10586,23 +10603,6 @@ a:hover {
 }
 .nomad-content .nomad-icons--filled {
   margin-bottom: 16px;
-}
-.nomad-content ul {
-  margin-block: 0;
-  padding-left: 0;
-  list-style-type: disc;
-  list-style-position: outside;
-  line-height: 1.6;
-}
-.nomad-content ul li {
-  margin: 0;
-  margin-top: 1em;
-  padding: 0 0 0 2em;
-  list-style: none;
-  background-image: url(e6fe647aa18a24a35391.svg);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 1em;
 }
 
 .nomad-content--left-justified .content-title {
@@ -10890,10 +10890,6 @@ footer {
 }
 footer a {
   color: #FDFEFF;
-  text-decoration: none;
-}
-footer a:hover {
-  color: #E1F6FA;
 }
 footer > div {
   padding: 32px 0 64px 0;
@@ -10911,4 +10907,4 @@ footer ul {
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.252a478a1114c7536c05.css.map*/
+/*# sourceMappingURL=index.14cf00f21bcecba181d6.css.map*/
