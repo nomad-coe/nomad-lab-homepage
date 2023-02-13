@@ -1,5 +1,5 @@
 <!-- hero -->
-<div class="nomad-hero" style="grid-template-columns: 500px 1fr; column-gap: 0px;">
+<div class="nomad-hero" style="grid-template-columns: 500px 1fr; column-gap: 32px;">
     <div>
         <div class="hero-title">
             <span class="brandname">NOMAD Oasis</span><br/>
@@ -12,11 +12,13 @@
             research data management plans with ease.
         </div>
         <div>
-            <button>
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">Got to the installation documentation</span>
-                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-            </button>
+            <a href="<%= urls.documentation %>/oasis.html">
+                <button>
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Got to the installation documentation</span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                </button>
+            </a>
         </div>
     </div>
     <img src="assets/oasis.png"/>
@@ -208,10 +210,12 @@
         </div>
     </div>
     <div class="section-action">
-        <button class="nomad-button nomad-button--filled">
-            <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label">Got to the installation documentation</span>
-            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-        </button>
+        <a href="<%= urls.documentation %>/oasis.html">
+            <button class="nomad-button nomad-button--filled">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Got to the installation documentation</span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+            </button>
+        </a>
     </div>
 </div>

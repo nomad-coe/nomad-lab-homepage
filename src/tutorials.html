@@ -2,34 +2,28 @@
 <%- video_tutorials %>
 
 <!-- More video -->
-<div class="nomad-section nomad-inset">
-    <div class="nomad-banner">
+<div class="nomad-section">
+    <div class="nomad-banner nomad-banner--fairmat">
         <div>
             <div class="banner-title">
-                Tutorials and Events
+                FAIRmat tutorial events
             </div>
             <div class="banner-description">
-                We conduct regular a regular online tutorial series and
-                more events in FAIRmat. Watch longer form videos from
+                FAIRmat conducts a regular online tutorial series and
+                more events. Watch longer form videos from
                 past event or register for up-coming events.
             </div>
-            <div class="action">
-                <a href="https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat">
+            <div class="action action--filled">
+                <a href="<%= urls.fairmat_tutorials %>">
                     <button>
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to the tutorial series</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                    </button>
-                </a>
-                <a href="https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=NOMAD-LAB">
-                    <button>
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Look at the upcoming events</span>
+                        <span class="mdc-button__label">FAIRmat tutorial series</span>
                         <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                     </button>
                 </a>
             </div>
         </div>
+        <img src="./assets/FAIRmat.png"/>
     </div>
 </div>
 
@@ -55,11 +49,13 @@
                     basic installation to first customization options.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/oasis.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="nomad-content">
@@ -72,11 +68,13 @@
                     NOMAD's schema format based on a simple example.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/schema/basics.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="nomad-content">
@@ -89,11 +87,13 @@
                     to annotate it to create custom forms and create basic ELNs.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/schema/elns.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
     <div class="section-title">Develop NOMAD</div>
     <div class="section-description">
         These step-by-step guides from our documentation will help you
-        to install a NOMAD Oasis and custom create schemas and ELNs.
+        to develop NOMAD and NOMAD parsers.
     </div>
     <div>
         <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
@@ -121,11 +121,13 @@
                     as a developer.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/develop/setup.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="nomad-content">
@@ -137,11 +139,13 @@
                     Learn how to write and run a new parser for NOMAD.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/develop/parser.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="nomad-content">
@@ -153,11 +157,13 @@
                     Learn how to install NOMAD's Python package.
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Go to instructions</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                    </button>
+                    <a href="<%= urls.documentation %>/pythonlib.html">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Go to instructions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

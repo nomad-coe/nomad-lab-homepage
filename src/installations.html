@@ -33,7 +33,7 @@
                     </ul>
                 </div>
                 <div class="content-action">
-                    <a href="https://nomad-lab.eu/prod/v1/staging/">
+                    <a href="<%= urls.beta_installation %>">
                         <button class="nomad-button nomad-button--filled">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Open NOMAD <i>beta</i></span>
@@ -65,7 +65,7 @@
                     </ul>
                 </div>
                 <div class="content-action">
-                    <a href="https://nomad-lab.eu/prod/v1/test/gui/">
+                    <a href="<%= urls.test_installation %>">
                         <button class="nomad-button nomad-button--filled">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Open NOMAD <i>test</i></span>
@@ -97,11 +97,13 @@
                     </ul>
                 </div>
                 <div class="content-action">
-                    <button class="nomad-button nomad-button--filled" href="https://nomad-lab.eu/prod/rae/gui/">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Open NOMAD v0</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                    </button>
+                    <a href="<%= urls.legacy_installation %>">
+                        <button class="nomad-button nomad-button--filled">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Open NOMAD v0</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

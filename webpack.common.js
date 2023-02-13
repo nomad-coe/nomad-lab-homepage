@@ -9,6 +9,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const { url } = require('inspector');
 const loremIpsum = require("lorem-ipsum").loremIpsum;
 
 const files = glob.sync('./src/!(_)*.html')
@@ -22,6 +23,27 @@ const partialsDict = partials.reduce((result, partial) => {
 
 const faqData = yaml.load(fs.readFileSync('src/faqs.yaml', 'utf8'));
 
+const urls = {
+  forum: 'https://matsci.org/c/nomad/32',
+  gitlab: 'https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR',
+  github: 'https://github.com/nomad-coe/nomad',
+  github_organisation: 'https://github.com/nomad-coe',
+  documentation: 'https://nomad-lab.eu/prod/v1/staging/docs',
+  production_installation: 'https://nomad-lab.eu/prod/v1',
+  beta_installation: 'https://nomad-lab.eu/prod/v1/staging',
+  test_installation: 'https://nomad-lab.eu/prod/v1/test',
+  legacy_installation: 'https://nomad-lab.eu/prod/rae',
+  fairmat: 'https://www.fairmat-nfdi.eu/fairmat',
+  fairmat_events: 'https://www.fairmat-nfdi.eu/fairmat/events-fairmat?ctx=ALL',
+  fairmat_news: 'https://www.fairmat-nfdi.eu/fairmat/news-fairmat?ctx=ALL',
+  fairmat_tutorials: 'https://www.fairmat-nfdi.eu/fairmat/outreach-fairmat/tutorials-fairmat',
+  support_email: 'mailto:support@nomad-lab.eu',
+  fairdi: 'https://www.fair-di.eu/fair-di/',
+  nomad_coe: 'https://nomad-coe.eu',
+  aitoolkit: 'https://nomad-lab.eu/aitoolkit'
+}
+
+
 const mainMenus = [
   {
     title: 'Solutions',
@@ -30,7 +52,7 @@ const mainMenus = [
       'NOMAD': 'nomad.html',
       'NOMAD Oasis': 'nomad-oasis.html',
       'Encyclopedia': '#',
-      'AI Toolkit': '#'
+      'AI Toolkit': urls.aitoolkit
     }
   },
   {
@@ -48,55 +70,54 @@ const mainMenus = [
     items: {
       'Try the latest features': 'installations.html',
       'Source code': 'source-code.html',
-      'Work with us': '#'
+      'Work with us': 'https://www.fairmat-nfdi.eu/jobs/jobs-fairmat?ctx=NOMAD-LAB'
     }
   },
   {
     title: 'About',
     id: 'about-menu',
     items: {
-      'Home': 'index.html',
       'Related Projects': 'projects.html',
-      'News': '#',
-      'Events': '#',
+      'News': urls.fairmat_news,
+      'Events': urls.fairmat_events,
       'Press materials': '#',
+      'Team': '#',
       'Terms of use': '#'
     }
   }
 ]
 
 const footerMenus = {
-  'Solutions': {
-    'NOMAD': 'nomad.html',
-    'NOMAD Oasis': 'nomad-oasis.html',
-    'Encyclopedia': '#',
-    'AI Toolkit': '#'
-  },
-  'Learn': {
-    'Tutorials': 'tutorials.html',
-    'Documentation': 'https://nomad-lab.eu/prod/v1/docs/',
-    'FAQ': 'help.html#faq',
-    'Forum': 'https://matsci.org/c/nomad/32',
-    'Open an issue': 'https://github.com/nomad-coe/nomad/issues'
-  },
-  'Get involved': {
-    'NOMAD at GitHub': 'https://github.com/nomad-coe/nomad',
-    'NOMAD at MPCDF GitLab': 'https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR',
-    'Work with us': '#'
-  },
-  'NOMAD installations': {
-    'Official': 'https://nomad-lab.eu/prod/v1/gui',
-    'Beta/staging': 'https://nomad-lab.eu/prod/v1/staging/gui',
-    'Test': 'https://nomad-lab.eu/prod/v1/test/gui',
-    'Legacy': 'https://nomad-lab.eu/rae/gui'
-  },
   'About': {
     'Home': 'index.html',
-    'Related Projects': 'projects.html',
-    'News': '#',
-    'Events': '#',
+    'Team': '#',
+    'FAIRmat': urls.fairmat,
     'Press materials': '#',
-    'Terms of use': '#'
+    'Terms of use': '#',
+    'Impressum': '#'
+  },
+  'Meet us': {
+    'Contact': 'support@nomad-lab.eu',
+    'News': urls.fairmat_news,
+    'Events': urls.fairmat_events,
+    'Twitter': 'https://twitter.com/FAIRmat_NFDI',
+    'YouTube': 'https://www.youtube.com/@TheNOMADLaboratory'
+  },
+  'Support': {
+    'FAQ': 'help.html#faq',
+    'Forum': urls.forum,
+    'Documentation': urls.documentation
+  },
+  'Code': {
+    'GitLab@MPCDF': urls.gitlab,
+    'GitHub':  urls.github,
+    'Create issue': `${urls.github}/issues`
+  },
+  'Installations': {
+    'Official': url.production_installation,
+    'Beta/staging': url.beta_installation,
+    'Test': url.test_installation,
+    'Legacy': url.legacy_installation
   }
 }
 
@@ -174,7 +195,8 @@ module.exports = {
           variables: {
             ...partialsDict,
             faqData,
-            lorem: loremIpsum
+            lorem: loremIpsum,
+            urls
           },
           menus: {
             main: mainMenus,

@@ -78,11 +78,13 @@
                         </div>
                     </div>
                 <% } %>
-                <button>
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">open nomad</span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                </button>
+                <a href="<%= htmlWebpackPlugin.options.variables.urls.production_installation%>">
+                    <button>
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">open nomad</span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                    </button>
+                </a>
             </section>
         </div>
     </header>

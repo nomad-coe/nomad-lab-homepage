@@ -59,6 +59,12 @@ main, footer {
       text-decoration: underline;
     }
   }
+
+  a:has(button) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 main {
@@ -234,11 +240,7 @@ aside {
 
   .section-title {
     @extend .mdc-typography--headline4;
-    // font-size: 2.5rem;
-    // letter-spacing: -0.65px;
-    // line-height: 1.2;
     font-weight: 700;
-    // text-align: left;
     margin-bottom: 0.25em;
     color: $black;
   }
@@ -248,7 +250,6 @@ aside {
     font-size: 1.25rem;
     font-weight: 600;
     color: $primary;
-    // margin-bottom: 0.75rem;
     letter-spacing: 0.8px;
   }
 
@@ -316,7 +317,7 @@ aside {
     text-align: center;
   }
 
-  .material-icons {
+  .material-icons:first-child {
     font-size: 1.8em;
     margin-bottom: 8px;
     margin-left: auto;
@@ -348,6 +349,7 @@ aside {
 
 .nomad-gallery {
   display: grid;
+  margin-top: 3em;
   column-gap: 4em;
   row-gap: 4em;
 
@@ -429,13 +431,17 @@ header {
   background-color: $white;
   @extend .mdc-top-app-bar;
 
+  a {
+    text-decoration: none
+  }
+
   .mdc-list-item {
     padding-top: 8px;
     padding-bottom: 8px;
   }
 
   .mdc-elevation--z2 {
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !important;
   }
 
   > div {
@@ -633,8 +639,9 @@ main {
   }
 
   .banner-description {
-    // font-size: 1.15em;
-    margin-top: 16px;
+    margin-top: 1em;
+    font-size: 1.25em;
+    line-height: 1.6em;
   }
 
   .action {
@@ -668,18 +675,28 @@ main {
     > div:not(:first-child) {
       order: 1;
     }
+
+    > img {
+      display: none;
+    }
   }
 }
 
 .nomad-banner--fairmat {
+  margin-top: 8em;
+  margin-bottom: 8em;
   --mdc-theme-primary: #FD331D;
+  align-items: center;
   background-image: url(assets/fairmat-banner.png);
   background-size: cover;
   background-size: 100% 100%;
   padding: 3em;
 
   img {
-    width: 100px;
+    width: 8em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 66px;
   }
 }
 
@@ -703,6 +720,10 @@ footer {
       row-gap: 24px;
       margin-top: 16px;
       flex-wrap: wrap;
+
+      > div:nth-child(2) {
+        flex-grow: 1;
+      }
     }
   }
 

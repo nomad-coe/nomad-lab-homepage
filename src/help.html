@@ -19,11 +19,13 @@
                         and users will be able to help you here.
                     </div>
                     <div class="content-action">
-                        <button class="nomad-button" href="https://matsci.org/c/nomad/32">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Visit our forum</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
+                        <a href="<%= urls.forum %>">
+                            <button class="nomad-button nomad-button--filled">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">Visit our forum</span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="nomad-content">
@@ -37,11 +39,13 @@
                         a solution.
                     </div>
                     <div class="content-action">
-                        <button class="nomad-button" href="https://github.com/nomad-coe/nomad/issues">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">GitHub issues</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
+                        <a href="<%= urls.github %>/issues">
+                            <button class="nomad-button nomad-button--filled">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">GitHub issues</span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="nomad-content">
@@ -55,11 +59,13 @@
                         valuable how tos on advanced topics.
                     </div>
                     <div class="content-action">
-                        <button class="nomad-button" href="https://nomad-lab.eu/prod/v1/docs/index.html">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open the docs</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
+                        <a href="<%= urls.documentation %>">
+                            <button class="nomad-button  nomad-button--filled">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">Open the docs</span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -110,8 +116,8 @@
                 not approriate for your problem, feel free to contact us
                 via email. We will resond as soon as possible.
             </div>
-            <div class="action">
-                <a href="mailto:support@nomad-lab.eu">
+            <div class="action action--filled">
+                <a href="<%= urls.support_email %>">
                     <button>
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Email support&nbsp;</span>
