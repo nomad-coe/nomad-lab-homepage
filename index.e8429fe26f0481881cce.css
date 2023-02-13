@@ -10381,6 +10381,9 @@ main a, footer a {
 main a:hover, footer a:hover {
   text-decoration: underline;
 }
+main a:has(button):hover, footer a:has(button):hover {
+  text-decoration: none;
+}
 
 main ul {
   margin-block: 0;
@@ -10595,7 +10598,7 @@ main ul li {
   margin-top: 24px;
   text-align: center;
 }
-.nomad-content .material-icons {
+.nomad-content .material-icons:first-child {
   font-size: 1.8em;
   margin-bottom: 8px;
   margin-left: auto;
@@ -10620,6 +10623,7 @@ main ul li {
 
 .nomad-gallery, .nomad-hero {
   display: grid;
+  margin-top: 3em;
   column-gap: 4em;
   row-gap: 4em;
 }
@@ -10692,6 +10696,9 @@ aside .mdc-list-group__subheader {
 
 header {
   background-color: #FDFEFF;
+}
+header a {
+  text-decoration: none;
 }
 header .mdc-list-item, header > div .menu-bar .menu-bar-item .menu > ul > li {
   padding-top: 8px;
@@ -10846,7 +10853,9 @@ header > div button .mdc-button__ripple {
   line-height: 1.15em;
 }
 .nomad-banner .banner-description {
-  margin-top: 16px;
+  margin-top: 1em;
+  font-size: 1.25em;
+  line-height: 1.6em;
 }
 .nomad-banner .action {
   margin-top: 24px;
@@ -10870,17 +10879,26 @@ header > div button .mdc-button__ripple {
   .nomad-banner > div:not(:first-child) {
     order: 1;
   }
+  .nomad-banner > img {
+    display: none;
+  }
 }
 
 .nomad-banner--fairmat {
+  margin-top: 8em;
+  margin-bottom: 8em;
   --mdc-theme-primary: #FD331D;
+  align-items: center;
   background-image: url(7aac0af15e6d0f70e55e.png);
   background-size: cover;
   background-size: 100% 100%;
   padding: 3em;
 }
 .nomad-banner--fairmat img {
-  width: 100px;
+  width: 8em;
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-bottom: 66px;
 }
 
 footer {
@@ -10902,9 +10920,12 @@ footer > div > div {
   margin-top: 16px;
   flex-wrap: wrap;
 }
+footer > div > div > div:nth-child(2) {
+  flex-grow: 1;
+}
 footer ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-/*# sourceMappingURL=index.14cf00f21bcecba181d6.css.map*/
+/*# sourceMappingURL=index.e8429fe26f0481881cce.css.map*/
