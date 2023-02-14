@@ -40,7 +40,8 @@ const urls = {
   support_email: 'mailto:support@nomad-lab.eu',
   fairdi: 'https://www.fair-di.eu/fair-di/',
   nomad_coe: 'https://nomad-coe.eu',
-  aitoolkit: 'https://nomad-lab.eu/aitoolkit'
+  aitoolkit: 'https://nomad-lab.eu/aitoolkit',
+  encyclopedia: 'https://nomad-lab.eu/prod/rae/encyclopedia/#/search'
 }
 
 
@@ -51,7 +52,7 @@ const mainMenus = [
     items: {
       'NOMAD': 'nomad.html',
       'NOMAD Oasis': 'nomad-oasis.html',
-      'Encyclopedia': '#',
+      'Encyclopedia': 'encyclopedia.html',
       'AI Toolkit': urls.aitoolkit
     }
   },
