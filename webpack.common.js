@@ -81,9 +81,9 @@ const mainMenus = [
       'Related Projects': 'projects.html',
       'News': urls.fairmat_news,
       'Events': urls.fairmat_events,
-      'Press materials': '#',
-      'Team': '#',
-      'Terms of use': '#'
+      'How to cite': '#',
+      'Team': 'team.html',
+      'Terms of use': 'terms.html'
     }
   }
 ]
@@ -93,12 +93,12 @@ const footerMenus = {
     'Home': 'index.html',
     'Team': '#',
     'FAIRmat': urls.fairmat,
-    'Press materials': '#',
-    'Terms of use': '#',
-    'Impressum': '#'
+    'How to cite': '#',
+    'Terms of use': 'terms.html',
+    'Impressum': 'https://www.fairmat-nfdi.eu/fairmat/about-fairmat/contact-fairmat'
   },
   'Meet us': {
-    'Contact': 'support@nomad-lab.eu',
+    'Contact': 'https://www.fairmat-nfdi.eu/fairmat/about-fairmat/contact-fairmat',
     'News': urls.fairmat_news,
     'Events': urls.fairmat_events,
     'Twitter': 'https://twitter.com/FAIRmat_NFDI',
@@ -115,10 +115,10 @@ const footerMenus = {
     'Create issue': `${urls.github}/issues`
   },
   'Installations': {
-    'Official': url.production_installation,
-    'Beta/staging': url.beta_installation,
-    'Test': url.test_installation,
-    'Legacy': url.legacy_installation
+    'Official': urls.production_installation,
+    'Beta/staging': urls.beta_installation,
+    'Test': urls.test_installation,
+    'Legacy': urls.legacy_installation
   }
 }
 
