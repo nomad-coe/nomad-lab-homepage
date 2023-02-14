@@ -142,8 +142,8 @@ Upload data, datasets, embargo, and DOIs:
       <p>
         If you published your data without embargo, everybody will be able to see your data through our search,
         e.g. with "authors=Markus Scheidgen":
-        <a href="https://nomad-lab.eu/prod/rae/gui/search?authors=Markus%20Scheidgen">https://nomad-lab.eu/prod/rae/gui/search?authors=Markus%20Scheidgen</a><
-      /p>
+        <a href="https://nomad-lab.eu/prod/rae/gui/search?authors=Markus%20Scheidgen">https://nomad-lab.eu/prod/rae/gui/search?authors=Markus%20Scheidgen</a>
+      </p>
       <p>
         If you published your data with embargo, you need to set your co-authors also to "Shared with" in the
         edit dialog. Data is not shared with co-authors by default. Anybody in "Shared with" can access your

@@ -3,6 +3,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: 'development',  // change to production to minify css, js, html
+  mode: 'production',
   devtool: 'source-map'
 });

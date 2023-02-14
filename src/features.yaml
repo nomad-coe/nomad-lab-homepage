@@ -1,0 +1,42 @@
+backlog:
+  - title: Plug-ins
+    description: |
+      Add schemas, ELNs, parsers, and normalizers to an Oasis installation without
+      build your own Oasis image.
+  - title: Oasis data transfer
+    description: |
+      Allows to move uploads from one installation to another. E.g. publish data from
+      your Oasis to the public NOMAD service.
+
+develop:
+  - title: ElabFTW integration
+    description: |
+      Import elabftw experiments into NOMAD via the .eln file format.
+  - title: Hierarchical structures
+    description: |
+      Certain complex systems (interfaces, metal organic frameworks) are broken
+      down into sub-sections that can be visualized and accessed independently.
+
+beta:
+  - title: NORTH
+    description: |
+      The NOMAD Remote Tools Hub allows to run containarized tools directly on your uploaded data.
+  - title: Custom workflows and visualizer
+    description: |
+      A new workflow model that allows you to create custom workflows via archive files,
+      custom schema and ELNs, your own parsers.
+  - title: Labfolder integration
+    description: |
+      Import labfolder projects into NOAMD.
+
+released:
+  - title: Electronic Lab Notebooks
+    description: |
+      Define structured data entry with schema's and NOMAD's ELN functionality.
+  - title: Nexus support
+    description: |
+      Allows you to upload nexus files and preview contents with H5Web.
+  - title: Search apps
+    description: |
+      Allows you to define custom search interfaces for your Oasis. Also includes
+      curated apps on the public NOMAD service.

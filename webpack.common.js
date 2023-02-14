@@ -22,6 +22,7 @@ const partialsDict = partials.reduce((result, partial) => {
 }, {})
 
 const faqData = yaml.load(fs.readFileSync('src/faqs.yaml', 'utf8'));
+const featureData = yaml.load(fs.readFileSync('src/features.yaml', 'utf8'));
 
 const urls = {
   forum: 'https://matsci.org/c/nomad/32',
@@ -69,7 +70,7 @@ const mainMenus = [
     title: 'Get involved',
     id: 'support-menu',
     items: {
-      'Try the latest features': 'installations.html',
+      'Try the latest features': 'features.html',
       'Source code': 'source-code.html',
       'Work with us': 'https://www.fairmat-nfdi.eu/jobs/jobs-fairmat?ctx=NOMAD-LAB'
     }
@@ -81,7 +82,7 @@ const mainMenus = [
       'Related Projects': 'projects.html',
       'News': urls.fairmat_news,
       'Events': urls.fairmat_events,
-      'How to cite': '#',
+      'How to cite NOMAD': 'materials.html',
       'Team': 'team.html',
       'Terms of use': 'terms.html'
     }
@@ -93,7 +94,7 @@ const footerMenus = {
     'Home': 'index.html',
     'Team': '#',
     'FAIRmat': urls.fairmat,
-    'How to cite': '#',
+    'How to cite NOMAD': 'materials.html',
     'Terms of use': 'terms.html',
     'Impressum': 'https://www.fairmat-nfdi.eu/fairmat/about-fairmat/contact-fairmat'
   },
@@ -196,6 +197,7 @@ module.exports = {
           variables: {
             ...partialsDict,
             faqData,
+            features: featureData,
             lorem: loremIpsum,
             urls
           },
