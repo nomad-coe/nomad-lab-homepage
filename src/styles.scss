@@ -5,6 +5,7 @@ $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 $primary: #007CAD;
 $primary-bg: #E1F6FA;
 $primary-shade: #005779;
+$primary-tint: #b3d8e6;
 
 $secondary: #384955;
 $secondary-bg: #EAF0F5;
@@ -114,6 +115,17 @@ aside {
     border-radius: 32px;
   }
 }
+
+.nomad-inset {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  > div {
+    max-width: $inset-width;
+  }
+}
+
 
 .nomad-filled {
   @extend .mdc-card;
@@ -246,6 +258,26 @@ aside {
   margin: auto;
 }
 
+.nomad-title {
+  margin-top: 6rem;
+  margin-bottom: 8rem;
+
+  .title-title {
+    @extend .mdc-typography--headline3;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 0.25em;
+    color: $black;
+  }
+
+  .title-description {
+    text-align: center;
+    font-size: 1.25em;
+    line-height: 1.6em;
+    margin-bottom: 3em;
+  }
+}
+
 .nomad-section {
   margin-top: 96px;
   margin-bottom: 96px;
@@ -284,16 +316,6 @@ aside {
 
   .section-action {
     margin-top: 24px;
-  }
-}
-
-.nomad-inset {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-
-  > div {
-    max-width: $inset-width;
   }
 }
 
@@ -724,8 +746,18 @@ main {
   display: grid;
   grid-template-columns: 1fr 2fr;
 
-  &:not(:first-child) {
-    margin-top: 2em;
+  border-top: 1px solid $primary-tint;
+  &:last-child {
+    border-bottom: 1px solid $primary-tint;
+  }
+
+  > div {
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    &:first-child {
+      border-right: 1px solid $primary-tint;
+    }
   }
 
   > {
@@ -734,10 +766,10 @@ main {
 
   @media (max-width: $media-phone) {
     grid-template-columns: 1fr;
+  }
 
-    &:not(:first-child) {
-      margin-top: 4em;
-    }
+  .content-action {
+    margin-top: 1rem;
   }
 }
 
@@ -852,6 +884,20 @@ main {
         padding: 0;
       }
     }
+  }
+}
+
+.nomad-logo-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  column-gap: 2em;
+  row-gap: 2em;
+  img {
+    display: block;
+    height: 5em;
   }
 }
 
