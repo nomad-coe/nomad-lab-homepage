@@ -10,6 +10,7 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "build-cms": "NODE_ENV=production webpack --config webpack.cms.js",
     "test": "npx jest"
   },
   "keywords": [],

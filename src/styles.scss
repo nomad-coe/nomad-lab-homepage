@@ -776,10 +776,19 @@ main {
 .nomad-team {
   $img_width: 100px;
 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 3rem;
+
+  @media (max-width: $media-tablet) {
+    grid-template-columns: 1fr;
+  }
+
   img {
     position: relative;
     width: $img_width;
-    min-height: $img_width;
+    line-height: 50px;
     display: inline-block;
     vertical-align: text-bottom;
 
@@ -796,7 +805,6 @@ main {
       border-radius: 2px;
       display: block;
       width: $img_width;
-      height: $img_width;
       overflow: hidden;
     }
   }
@@ -805,7 +813,6 @@ main {
     @extend .nomad-filled;
     @extend .nomad-filled--highlight;
     background-color: $white;
-    margin-bottom: 2em;
 
     .item-properties {
       display: flex;

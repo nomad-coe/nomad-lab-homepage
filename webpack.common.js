@@ -83,7 +83,7 @@ const mainMenus = [
       'News': urls.fairmat_news,
       'Events': urls.fairmat_events,
       'How to cite NOMAD': 'materials.html',
-      'Team': 'team.html',
+      'Team': 'https://cms.nomad-lab.eu/nomad-lab-team',
       'Terms of use': 'terms.html'
     }
   }
