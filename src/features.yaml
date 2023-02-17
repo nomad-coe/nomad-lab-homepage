@@ -2,41 +2,49 @@ backlog:
   - title: Plug-ins
     description: |
       Add schemas, ELNs, parsers, and normalizers to an Oasis installation without
-      build your own Oasis image.
+      building your own Oasis image.
   - title: Oasis data transfer
     description: |
       Allows to move uploads from one installation to another. E.g. publish data from
       your Oasis to the public NOMAD service.
+  - title: ELN and upload UI/UX
+    description: |
+      We added a lot of features (incremental uploads, custom schemas, ELNs, Nexus)
+      without re-thinking the UI. We are now working on a better user experience.
 
 develop:
   - title: ElabFTW integration
     description: |
-      Import elabftw experiments into NOMAD via the .eln file format.
-  - title: Hierarchical structures
+      Import experiments from the popular eLabFTW via the official
+      <a href="https://github.com/TheELNConsortium/TheELNFileFormat">.eln file format</a>.
+  - title: Hierarchical systems
     description: |
-      Certain complex systems (interfaces, metal organic frameworks) are broken
-      down into sub-sections that can be visualized and accessed independently.
+      Complex systems and large systems (e.g. solutions, interfaces, metal organic frameworks)
+      are broken down into sub-systems that can be visualized and accessed independently.
 
 beta:
   - title: NORTH
     description: |
-      The NOMAD Remote Tools Hub allows to run containarized tools directly on your uploaded data.
+      The NOMAD Remote Tools Hub allows to run containarized tools like Jupyter directly on
+      your uploaded data.
   - title: Custom workflows and visualizer
     description: |
       A new workflow model that allows you to create custom workflows via archive files,
-      custom schema and ELNs, your own parsers.
+      custom schema, ELNs, and your own parsers.
   - title: Labfolder integration
     description: |
-      Import labfolder projects into NOAMD.
+      Import labfolder ELN projects into NOAMD.2
 
 released:
-  - title: Electronic Lab Notebooks
+  - title: Electronic Lab Notebook functionality
     description: |
-      Define structured data entry with schema's and NOMAD's ELN functionality.
+      Create and edit structured data based on custom schemas and NOMAD's ELN functionality.
   - title: Nexus support
     description: |
-      Allows you to upload nexus files and preview contents with H5Web.
+      Allows you to upload and parse Nexus files. You can preview HDF5 directly in
+      the browser via H5Web.
   - title: Search apps
     description: |
-      Allows you to define custom search interfaces for your Oasis. Also includes
-      curated apps on the public NOMAD service.
+      Allows you to define custom search interfaces for your Oasis. This also includes
+      a solar-cell search app based on The Perovskite Database Project on the public NOMAD
+      service.
