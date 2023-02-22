@@ -70,20 +70,19 @@ const mainMenus = [
     title: 'Get involved',
     id: 'support-menu',
     items: {
-      'Try the latest features': 'features.html',
-      'Source code': 'source-code.html',
-      'Work with us': 'https://www.fairmat-nfdi.eu/jobs/jobs-fairmat?ctx=NOMAD-LAB'
+      'Latest features': 'features.html',
+      'Contribute': 'source-code.html',
+      'Open positions': 'https://www.fairmat-nfdi.eu/jobs/jobs-fairmat?ctx=NOMAD-LAB'
     }
   },
   {
     title: 'About',
     id: 'about-menu',
     items: {
+      'NOMAD Lab': 'nomad-lab.html',
       'Related Projects': 'projects.html',
       'News': urls.fairmat_news,
-      'Events': urls.fairmat_events,
       'How to cite NOMAD': 'materials.html',
-      'Team': 'https://cms.nomad-lab.eu/nomad-lab-team',
       'Terms of use': 'terms.html'
     }
   }

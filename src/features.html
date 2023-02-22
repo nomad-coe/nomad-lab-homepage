@@ -17,7 +17,7 @@
                     </div>
                     <div class="content-action">
                         <a href="<%= urls.github %>/issues">
-                            <button class="nomad-button">
+                            <button class="nomad-button  nomad-button--filled">
                                 <span class="mdc-button__ripple"></span>
                                 <span class="mdc-button__label">Request a feature</span>
                                 <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
@@ -25,17 +25,13 @@
                         </a>
                     </div>
                 </div>
-                <div>
-                    <ul class="nomad-content-list">
-                        <% for (feature of features.backlog) { %>
-                            <li>
-                                <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
-                                    <div class="content-title"><%= feature.title %></div>
-                                    <div class="content-description"><%- feature.description %></div>
-                                </div>
-                            </li>
-                        <% } %>
-                    </ul>
+                <div class="nomad-content-list">
+                    <% for (feature of features.backlog) { %>
+                        <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
+                            <div class="content-title"><%= feature.title %></div>
+                            <div class="content-description"><%- feature.description %></div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
             <div class="nomad-header-box">
@@ -50,7 +46,7 @@
                     </div>
                     <div class="content-action">
                         <a href="<%= urls.documentation %>/develop/setup.html">
-                            <button class="nomad-button">
+                            <button class="nomad-button nomad-button--filled">
                                 <span class="mdc-button__ripple"></span>
                                 <span class="mdc-button__label">Setup for developers</span>
                                 <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
@@ -58,17 +54,13 @@
                         </a>
                     </div>
                 </div>
-                <div>
-                    <ul class="nomad-content-list">
-                        <% for (feature of features.develop) { %>
-                            <li>
-                                <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
-                                    <div class="content-title"><%= feature.title %></div>
-                                    <div class="content-description"><%- feature.description %></div>
-                                </div>
-                            </li>
-                        <% } %>
-                    </ul>
+                <div class="nomad-content-list">
+                    <% for (feature of features.develop) { %>
+                            <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
+                                <div class="content-title"><%= feature.title %></div>
+                                <div class="content-description"><%- feature.description %></div>
+                            </div>
+                    <% } %>
                 </div>
             </div>
             <div class="nomad-header-box">
@@ -81,7 +73,7 @@
                     </div>
                     <div class="content-action">
                         <a href="<%= urls.beta_installation %>">
-                            <button class="nomad-button">
+                            <button class="nomad-button nomad-button--filled">
                                 <span class="mdc-button__ripple"></span>
                                 <span class="mdc-button__label">Open NOMAD beta</span>
                                 <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
@@ -89,17 +81,13 @@
                         </a>
                     </div>
                 </div>
-                <div>
-                    <ul class="nomad-content-list">
-                        <% for (feature of features.beta) { %>
-                            <li>
-                                <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
-                                    <div class="content-title"><%= feature.title %></div>
-                                    <div class="content-description"><%- feature.description %></div>
-                                </div>
-                            </li>
-                        <% } %>
-                    </ul>
+                <div class="nomad-content-list">
+                    <% for (feature of features.beta) { %>
+                        <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
+                            <div class="content-title"><%= feature.title %></div>
+                            <div class="content-description"><%- feature.description %></div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -115,18 +103,14 @@
     </div>
     <div class="section-content">
         <div class="nomad-inset">
-            <div>
+            <div class="nomad-content-list">
                 <div class="nomad-filled">
-                    <ul class="nomad-content-list">
-                        <% for (feature of features.released) { %>
-                            <li>
-                                <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
-                                    <div class="content-title"><%= feature.title %></div>
-                                    <div class="content-description"><%- feature.description %></div>
-                                </div>
-                            </li>
-                        <% } %>
-                    </ul>
+                    <% for (feature of features.released) { %>
+                        <div class="nomad-content nomad-content--secondary nomad-content--left-justified">
+                            <div class="content-title"><%= feature.title %></div>
+                            <div class="content-description"><%- feature.description %></div>
+                        </div>
+                    <% } %>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="<%= urls.production_installation %>">
