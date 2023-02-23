@@ -151,6 +151,11 @@ aside {
   background-color: $secondary-bg;
 }
 
+.nomad-filled--primary {
+  background-color: $primary;
+  color: $white;
+}
+
 .nomad-button {
   @include button;
   letter-spacing: normal;
@@ -165,6 +170,10 @@ aside {
   .material-icons {
     color: $white !important;
   }
+}
+
+.nomad-button--secondary {
+  --mdc-theme-primary: #008A67;
 }
 
 .nomad-icons--filled {

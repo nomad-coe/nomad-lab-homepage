@@ -101,6 +101,7 @@
     <div>
         <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled">
             <div class="nomad-content">
+                <i class="material-icons">lock</i>
                 <div class="content-title">
                     Privacy
                 </div>
@@ -118,6 +119,7 @@
                 </div>
             </div>
             <div class="nomad-content">
+                <i class="material-icons">inventory</i>
                 <div class="content-title">
                     Many data
                 </div>
@@ -135,6 +137,7 @@
                 </div>
             </div>
             <div class="nomad-content">
+                <i class="material-icons">tune</i>
                 <div class="content-title">
                     Custom needs
                 </div>
@@ -157,19 +160,27 @@
 
 <%- fairmat_banner %>
 
-<div class="nomad-section">
-    <div class="section-subheading">
-        Installation
+<div class="nomad-section nomad-gallery nomad-gallery--2" style="grid-template-columns: 1fr 2fr;">
+    <div>
+        <div class="section-title">
+            How to run NOMAD Oasis?
+        </div>
+        <div class="section-description">
+            NOMAD is containerized. You can run it on a single computer
+            with docker compose or on a large cluster with kubernetes. It
+            can work for a small group as well as a large research institute.
+        </div>
+        <div class="section-action">
+            <a href="<%= urls.documentation %>/oasis.html">
+                <button class="nomad-button nomad-button--filled nomad-button--secondary">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Installation documentation</span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                </button>
+            </a>
+        </div>
     </div>
-    <div class="section-title">
-        How to run NOMAD Oasis?
-    </div>
-    <div class="section-description">
-        NOMAD is containerized. You can run it on a single computer
-        with docker compose or on a large cluster with kubernetes. It
-        can work for a small group as well as a large research institute.
-    </div>
-    <div class="nomad-inset">
+    <div class="nomad-filled  nomad-filled--primary">
         <div style="display: flex; flex-direction: column; gap: 2em;">
             <div class="nomad-content nomad-content--left-justified">
                 <div class="content-title">
@@ -207,14 +218,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section-action">
-        <a href="<%= urls.documentation %>/oasis.html">
-            <button class="nomad-button nomad-button--filled">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">Installation documentation</span>
-                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-            </button>
-        </a>
     </div>
 </div>
