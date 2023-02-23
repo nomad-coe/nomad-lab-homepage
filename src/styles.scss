@@ -3,8 +3,9 @@ $media-phone: 768px;
 $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
 $primary: #2A4CDF;
-$primary-bg: rgba(234,220,192, 0.7); // #EBDBC0;
-$primary-tint: rgba(234,220,192, 0.7); // #EBDBC0;
+$primary-on-bg: #192E86;
+$primary-bg: rgba(234,220,192, 1); // #EBDBC0;
+$primary-tint: rgba(234,220,192, 1); // #EBDBC0;
 
 $secondary: #008A67;
 $secondary-bg: #cce8e1;
@@ -75,7 +76,6 @@ main {
     line-height: 1.6;
 
     li::before {
-      font-family: sans-serif;
       content: "⏺";
       color: $primary;
       font-weight: bold;
@@ -134,6 +134,16 @@ aside {
   // @extend .mdc-card--outlined;
 
   background-color: $primary-bg;
+
+  .material-icons {
+    color: $primary-on-bg !important
+  }
+
+  --mdc-theme-primary: #192E86;
+
+  li::before {
+    color: $primary-on-bg;
+  }
 }
 
 .nomad-filled--highlight {
@@ -152,6 +162,9 @@ aside {
 
 .nomad-button--filled {
   @extend .mdc-button--unelevated;
+  .material-icons {
+    color: $white !important;
+  }
 }
 
 .nomad-icons--filled {
@@ -909,6 +922,50 @@ main {
   img {
     display: block;
     height: 5em;
+  }
+}
+
+.nomad-timeline {
+  margin: 0 auto;
+  position: relative;
+
+  &:before {
+    background-color: $primary;
+    content: '';
+    margin-left: -1px;
+    position: absolute;
+    top: 0;
+    left: 2em;
+    width: 2px;
+    height: 100%;
+  }
+
+  > div {
+    position: relative;
+
+    > div {
+      padding: 2em 0 2em 3em;
+      position: relative;
+      top: -2em;
+      left: 2em;
+
+      &:last-child {
+        padding: 2em 0 0 3em;
+      }
+    }
+
+    > label {
+      background-color: $primary;
+      outline: 10px solid $white;
+      border-radius: 50%;
+      display: block;
+      margin: 0.5em 0.5em 0.5em -0.5em;
+      position: absolute;
+      top: 0;
+      left: 2em;
+      width: 1em;
+      height: 1em;
+    }
   }
 }
 
