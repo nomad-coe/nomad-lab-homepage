@@ -1,43 +1,86 @@
 <style>
-    .section-content .heading {
-        font-weight: bold;
-        margin-top: 2em;
+    .nomad-paper {
+        font-size: 1.25em;
+        line-height: 1.6em;
     }
-    .section-content .sub-heading {
+    .nomad-paper .paper-title {
         font-weight: bold;
-        margin-top: 1.5em;
+    }
+
+    .nomad-paper .paper-publication {
+        margin-top: 1em;
+    }
+
+    .nomad-material {
+        font-size: 1.25em;
+        line-height: 1.6em;
+    }
+    .nomad-material:not(:first-child) {
+        margin-top: 1em;
+    }
+    .nomad-material .material-title {
+        font-weight: bold;
     }
 </style>
-<div class="nomad-inset">
-    <div class="nomad-title">
-        <div class="title-title">How to cite NOMAD</div>
-        <div class="title-description">
-            If you want to mention NOMAD, e.g. in presentations, you can refer to this web-page
-            and use the NOMAD logo.
-            If you publish research that used NOMAD software, services, or tools
-            cite the NOMAD JOSS paper.
+
+<div class="nomad-title">
+    <div class="title-title">How to cite NOMAD</div>
+    <div class="title-description">
+        You can choose from the main NOMAD publications to cite the work behind the NOMAD
+        services, refer to this web-page, or use the NOMAD logo.
+    </div>
+    <div class="nomad-gallery nomad-gallery--2 nomad-gallery--filled">
+        <div class="nomad-content nomad-paper">
+            <div class="content-content">
+                <div class="paper-title">The NOMAD Laboratory: From Data Sharing to Artificial Intelligence</div>
+                <div class="paper-authors">C. Draxl and M. Scheffler</div>
+                <div class="paper-publication">
+                    J. Phys. Mater. 2, 036001 (2019). <a href="https://iopscience.iop.org/article/10.1088/2515-7639/ab13bb">DOI</a>
+                </div>
+            </div>
         </div>
-        <div class="nomad-inset">
-            <div class="title-content nomad-filled" style="max-width: 700px;">
-                <ul>
-                    <li>
-                        <b>NOMAD web-page:</b> https://nomad-lab.eu
-                    </li>
-                    <li>
-                        <b>NOMAD Oasis web-page:</b> https://nomad-lab.eu/nomad-lab/nomad-oasis.html
-                    </li>
-                    <li>
-                        <b>Cite the NOMAD software (JOSS):</b> coming soon
-                    </li>
-                    <li>
-                        <b>Download the NOMAD logo:</b> <a href="assets/nomad.png">nomad.png</a>, <a href="assets/nomad.svg">nomad.svg</a>
-                    </li>
-                    <li>
-                        <b>Cite data published with NOMAD:</b>
-                        To cite your uploaded data, please create a dataset and assign a
-                        NOMAD DOI. Refer also to our <a href="tutorials.html">tutorial</a> video on publishing data.
-                    </li>
-                </ul>
+        <div class="nomad-content nomad-paper">
+            <div class="content-content">
+                <div class="paper-title">NOMAD: The FAIR Concept for Big-Data-Driven Materials Science</div>
+                <div class="paper-authors">C. Draxl and M. Scheffler</div>
+                <div class="paper-publication">
+                    MRS Bulletin 43, 676 (2018). <a href="https://doi.org/10.1557/mrs.2018.208">DOI</a> <a href="http://arxiv.org/abs/1805.05039">arXiv</a>
+                </div>
+            </div>
+        </div>
+        <div class="nomad-content nomad-paper">
+            <div class="content-content">
+                <div class="paper-title">FAIR data enabling new horizons for materials research</div>
+                <div class="paper-authors">M. Scheffler, M. Aeschlimann, M. Albrecht, T. Bereau, H.-J. Bungartz, C. Felser, M. Greiner, A. Groß, C. Koch, K. Kremer, W. E. Nagel, M. Scheidgen, C. Wöll, and C. Draxl</div>
+                <div class="paper-publication">
+                    Nature 604, 635 (2022). <a href="https://www.nature.com/articles/s41586-022-04501-x">DOI</a>
+                </div>
+            </div>
+        </div>
+        <div class="nomad-content">
+            <div class="nomad-material">
+                <div class="material-title">
+                    NOMAD web-page
+                </div>
+                <div class="material-content">
+                    https://nomad-lab.eu
+                </div>
+            </div>
+            <div class="nomad-material">
+                <div class="material-title">
+                    NOMAD Oasis web-page
+                </div>
+                <div class="material-content">
+                    https://nomad-lab.eu/nomad-lab/nomad-oasis.html
+                </div>
+            </div>
+            <div class="nomad-material">
+                <div class="material-title">
+                    NOMAD logo
+                </div>
+                <div class="material-content">
+                    <a href="assets/nomad.png">nomad.png</a>, <a href="assets/nomad.svg">nomad.svg</a>
+                </div>
             </div>
         </div>
     </div>

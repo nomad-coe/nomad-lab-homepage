@@ -76,11 +76,11 @@ main {
     line-height: 1.6;
 
     li::before {
-      content: "⏺";
+      content: "●";
       color: $primary;
       font-weight: bold;
       display: inline-block;
-      width: 1.5em;
+      width: 1.25em;
       margin-left: -2em;
     }
 
