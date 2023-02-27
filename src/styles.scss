@@ -4,8 +4,8 @@ $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
 $primary: #2A4CDF;
 $primary-on-bg: #192E86;
-$primary-bg: rgba(234,220,192, 1); // #EBDBC0;
-$primary-tint: rgba(234,220,192, 1); // #EBDBC0;
+$primary-bg: #EBDBC0;
+$primary-tint: #EBDBC0;
 
 $secondary: #008A67;
 $secondary-bg: #cce8e1;
@@ -455,10 +455,9 @@ aside {
 
 aside {
   img {
-    width: 50%;
+    width: 75%;
     padding-top: 1em;
     padding-bottom: 2em;
-    margin-left: -16px;
   }
   .mdc-list {
     font-size: 1.25em;
@@ -533,7 +532,8 @@ header {
           display: none;
         }
         img {
-          height: 72px;
+          height: 48px;
+          margin-top: 6px;
         }
       }
 
@@ -642,6 +642,13 @@ main {
     .brandname {
       font-weight: 600;
       color: $primary;
+    }
+
+    .brand-subheading {
+      font-size: 0.33em;
+      font-weight: 600;
+      color: $primary-on-bg;
+      display: none;
     }
   }
 
@@ -926,11 +933,11 @@ main {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  column-gap: 2em;
-  row-gap: 2em;
+  column-gap: 1.25em;
+  row-gap: 1.25em;
   img {
     display: block;
-    height: 5em;
+    height: 3.4em;
   }
 }
 

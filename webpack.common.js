@@ -82,7 +82,7 @@ const mainMenus = [
       'NOMAD Lab': 'nomad-lab.html',
       'Related Projects': 'projects.html',
       'News': urls.fairmat_news,
-      'How to cite NOMAD': 'materials.html',
+      'How to cite NOMAD': 'how-to-cite.html',
       'Terms of use': 'terms.html'
     }
   }
@@ -93,7 +93,7 @@ const footerMenus = {
     'Home': 'index.html',
     'Team': '#',
     'FAIRmat': urls.fairmat,
-    'How to cite NOMAD': 'materials.html',
+    'How to cite NOMAD': 'how-to-cite.html',
     'Terms of use': 'terms.html',
     'Impressum': 'https://www.fairmat-nfdi.eu/fairmat/about-fairmat/contact-fairmat'
   },
