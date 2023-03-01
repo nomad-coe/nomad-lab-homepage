@@ -7,14 +7,25 @@ import { MDCDrawer } from "@material/drawer";
 import { MDCList } from "@material/list";
 
 const registerMenuEvents = (id: string) => {
-    const element = document.querySelector('#' + id)
+    const element = document.querySelector(`#${id}`)
     const menu = new MDCMenu(element.querySelector('.menu'))
 
-    document.querySelector('#' + id).addEventListener('mouseenter', () => {
-        menu.open = true;
+    // Something else seem to modify the menu.open state.
+    // We keep our own state as a workarround.
+    let open = false;
+
+    element.addEventListener('click', () => {
+        open = !open;
+        menu.open = open;
     })
-    document.querySelector('#' + id).addEventListener('mouseleave', () => {
-        menu.open = false;
+
+    element.addEventListener('mouseenter', () => {
+        open = true;
+        menu.open = open;
+    })
+    element.addEventListener('mouseleave', () => {
+        open = false;
+        menu.open = open;
     })
 }
 

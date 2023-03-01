@@ -554,6 +554,7 @@ header {
       @extend .mdc-top-app-bar__section--align-end;
 
       column-gap: 8px;
+      margin-right: -32px;
 
       .menu-bar-item {
         > button {
@@ -597,8 +598,6 @@ header {
 
       @extend .mdc-button;
 
-      margin-left: 32px;
-      margin-right: -32px;
       padding-left: 16px;
       padding-right: 16px;
     }
