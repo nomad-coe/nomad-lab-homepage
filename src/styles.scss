@@ -773,28 +773,39 @@ main {
   }
 }
 
-.nomad-header-box {
+.nomad-table {
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 2fr;
 
   border-top: 1px solid $primary-tint;
   &:last-child {
     border-bottom: 1px solid $primary-tint;
   }
 
+  .table-title {
+    @extend .mdc-typography--headline5;
+    font-weight: bold;
+    text-align: center;
+  }
+
   > div {
     justify-content: center;
     align-items: center;
-    padding: 2em;
+    padding: 2rem;
     &:first-child {
-      border-right: 1px solid $primary-tint;
+      @media (min-width: $media-phone) {
+        border-right: 1px solid $primary-tint;
+      }
+      @media (max-width: $media-phone) {
+        padding-bottom: 0;
+      }
     }
   }
+}
 
-  > {
-    height: 100%;
-  }
+.nomad-feature-box {
+  @extend .nomad-table;
+  grid-template-columns: 1fr 2fr;
 
   @media (max-width: $media-phone) {
     grid-template-columns: 1fr;
