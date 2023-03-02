@@ -23,6 +23,7 @@ const partialsDict = partials.reduce((result, partial) => {
 
 const faqData = yaml.load(fs.readFileSync('src/faqs.yaml', 'utf8'));
 const featureData = yaml.load(fs.readFileSync('src/features.yaml', 'utf8'));
+const docsData = yaml.load(fs.readFileSync('src/docs.yaml', 'utf8'));
 
 const urls = {
   forum: 'https://matsci.org/c/nomad/32',
@@ -82,7 +83,7 @@ const mainMenus = [
       'NOMAD Lab': 'nomad-lab.html',
       'Related Projects': 'projects.html',
       'News': urls.fairmat_news,
-      'How to cite NOMAD': 'how-to-cite.html',
+      'Cite NOMAD': 'how-to-cite.html',
       'Terms of use': 'terms.html'
     }
   }
@@ -93,7 +94,7 @@ const footerMenus = {
     'Home': 'index.html',
     'Team': '#',
     'FAIRmat': urls.fairmat,
-    'How to cite NOMAD': 'how-to-cite.html',
+    'Cite NOMAD': 'how-to-cite.html',
     'Terms of use': 'terms.html',
     'Impressum': 'https://www.fairmat-nfdi.eu/fairmat/about-fairmat/contact-fairmat'
   },
@@ -196,9 +197,10 @@ module.exports = {
           variables: {
             ...partialsDict,
             faqData,
+            docsData,
             features: featureData,
             lorem: loremIpsum,
-            urls
+            urls,
           },
           menus: {
             main: mainMenus,

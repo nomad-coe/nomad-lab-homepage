@@ -57,7 +57,7 @@
                     <div class="mdc-icon-button__ripple"></div>
                     menu
                 </button>
-                <span class="mdc-top-app-bar__title">NOMAD Lab</span>
+                <span class="mdc-top-app-bar__title">NOMAD</span>
             </section>
             <section class="menu-bar" role="toolbar">
                 <% for (menu of htmlWebpackPlugin.options.menus.main) { %>
@@ -82,10 +82,9 @@
                     </div>
                 <% } %>
                 <a href="<%= htmlWebpackPlugin.options.variables.urls.production_installation%>">
-                    <button>
+                    <button class="mdc-button--unelevated">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">open nomad</span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                     </button>
                 </a>
             </section>

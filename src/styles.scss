@@ -4,8 +4,8 @@ $mdc-typography-font-family: unquote("Titillium Web, sans-serif");
 
 $primary: #2A4CDF;
 $primary-on-bg: #192E86;
-$primary-bg: #EBDBC0;
-$primary-tint: #EBDBC0;
+$primary-bg: #B3D8E6;
+$accent-bg: #F3E9D9;
 
 $secondary: #008A67;
 $secondary-bg: #cce8e1;
@@ -133,7 +133,7 @@ aside {
   // background-color: $white;
   // @extend .mdc-card--outlined;
 
-  background-color: $primary-bg;
+  background-color: $accent-bg;
 
   .material-icons {
     color: $primary-on-bg !important
@@ -465,6 +465,7 @@ aside {
   }
   a {
     color: $black;
+    margin-left: -2px;
   }
   .mdc-list-group__subheader {
     font-weight: bold;
@@ -532,8 +533,8 @@ header {
           display: none;
         }
         img {
-          height: 48px;
-          margin-top: 6px;
+          height: 28px;
+          margin-top: 4px;
         }
       }
 
@@ -557,13 +558,14 @@ header {
       margin-right: -32px;
 
       .menu-bar-item {
+        white-space: nowrap;
+        margin-right: 1.5em;
         > button {
           --mdc-theme-primary: #000000;
           @extend .mdc-button;
 
           pointer-events: none;
 
-          padding-left: 12px;
           .mdc-button__icon {
             margin-right: 0;
           }
@@ -574,7 +576,7 @@ header {
           @extend .mdc-menu;
 
           margin-top: 32px;
-          width: 200px;
+          width: 150px;
 
           > ul {
             > li {
@@ -641,6 +643,10 @@ main {
     .brandname {
       font-weight: 600;
       color: $primary;
+    }
+
+    .brandname--secondary {
+      color: $secondary
     }
 
     .brand-subheading {
@@ -753,6 +759,16 @@ main {
 
 .nomad-banner--oasis {
   --mdc-theme-primary: #008A67;
+
+  > div {
+    column-gap: 96px;
+    align-items: center;
+  }
+
+  img {
+    height: 200px;
+    margin-right: 32px;
+  }
 }
 
 .nomad-banner--fairmat {
@@ -777,9 +793,13 @@ main {
   padding: 0;
   display: grid;
 
-  border-top: 1px solid $primary-tint;
+  @media (max-width: $media-phone) {
+    grid-template-columns: 1fr !important;
+  }
+
+  border-top: 1px solid $primary-bg;
   &:last-child {
-    border-bottom: 1px solid $primary-tint;
+    border-bottom: 1px solid $primary-bg;
   }
 
   .table-title {
@@ -794,11 +814,41 @@ main {
     padding: 2rem;
     &:first-child {
       @media (min-width: $media-phone) {
-        border-right: 1px solid $primary-tint;
+        border-right: 1px solid $primary-bg;
       }
       @media (max-width: $media-phone) {
         padding-bottom: 0;
       }
+    }
+  }
+
+  .table-action {
+    display: flex;
+    flex-direction: row;
+    @media (min-width: $media-phone) {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.nomad-table--tutorial {
+  grid-template-columns: 1fr 3fr;
+  > div {
+    @media (max-width: $media-phone) {
+      text-align: center;
+    }
+
+    padding: 1rem;
+
+    .mdc-button__label {
+      font-size: 16px;
+    }
+
+    @media (min-width: $media-phone) {
+      align-self: stretch;
+    }
+    &:not(:first-child) {
+      align-self: center;
     }
   }
 }
@@ -806,10 +856,6 @@ main {
 .nomad-feature-box {
   @extend .nomad-table;
   grid-template-columns: 1fr 2fr;
-
-  @media (max-width: $media-phone) {
-    grid-template-columns: 1fr;
-  }
 
   .content-action {
     margin-top: 1rem;
@@ -1040,7 +1086,7 @@ footer {
 }
 
 .bg-primary {
-  background-color: $primary-bg;
+  background-color: $accent-bg;
 }
 
 .bg-primary-inverted {

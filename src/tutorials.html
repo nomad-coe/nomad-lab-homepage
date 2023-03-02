@@ -35,145 +35,36 @@
     </div>
 </div>
 
-<!-- Oasis -->
 <div class="nomad-section">
-    <div class="section-subheading">Step-by-step</div>
-    <div class="section-title">Oasis</div>
+    <div class="section-subheading">Instructions</div>
+    <div class="section-title">More advanced topics</div>
     <div class="section-description">
-        These step-by-step instructions guide you from installing an Oasis
-        to the first customizations. Learn how to create custom schemas
-        that are the basis for your specific data and learn how to create
-        ELNs.
+        These step-by-step instructions guide you through more advanced topics
+        of using, installing, customizing, and developing NOMAD.
     </div>
     <div>
-        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">install_desktop</i>
-                <div class="content-title">
-                    Installation
-                </div>
-                <div class="content-description content-content content-grow">
-                    Instructions to install NOMAD Oasis. From the most
-                    basic installation to first customization options.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/oasis.html">
+        <% for (doc of docsData) { %>
+            <div class="nomad-table nomad-table--tutorial">
+                <div class="table-action">
+                    <a href="<%= urls.documentation %>/<%= doc.url %>">
                         <button class="nomad-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
+                            <span class="mdc-button__label"><%= doc.title %></span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                         </button>
                     </a>
                 </div>
+                <div><%= doc.description %></div>
             </div>
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">tune</i>
-                <div class="content-title">
-                    Custom schema
-                </div>
-                <div class="content-description content-content content-grow">
-                    Learn what schemas are and how to write custom schemas in
-                    NOMAD's schema format based on a simple example.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/schema/basics.html">
-                        <button class="nomad-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">edit</i>
-                <div class="content-title">
-                    ELNs
-                </div>
-                <div class="content-description content-content content-grow">
-                    Take the schema from the schema tutorial and learn how
-                    to annotate it to create custom forms and create basic ELNs.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/schema/elns.html">
-                        <button class="nomad-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <% } %>
     </div>
-</div>
-
-<!-- Development -->
-<div class="nomad-section">
-    <div class="section-subheading">Step-by-step</div>
-    <div class="section-title">Develop NOMAD</div>
-    <div class="section-description">
-        These step-by-step guides from our documentation will help you
-        to develop NOMAD and NOMAD parsers.
-    </div>
-    <div>
-        <div class="nomad-gallery nomad-gallery--3 nomad-gallery--filled" style="column-gap: 64px;">
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">terminal</i>
-                <div class="content-title">
-                    Getting started
-                </div>
-                <div class="content-description content-content content-grow">
-                    Learn how to clone our sources, install all the
-                    dependenceis, and necessary components to run NOMAD
-                    as a developer.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/develop/setup.html">
-                        <button class="nomad-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">extension</i>
-                <div class="content-title">
-                    Parsers
-                </div>
-                <div class="content-description content-content content-grow">
-                    Learn how to write and run a new parser for NOMAD.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/develop/parser.html">
-                        <button class="nomad-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="nomad-content">
-                <i class="material-icons nomad-icons--filled">code</i>
-                <div class="content-title">
-                    Python package
-                </div>
-                <div class="content-description content-content content-grow">
-                    Learn how to install NOMAD's Python package.
-                </div>
-                <div class="content-action">
-                    <a href="<%= urls.documentation %>/pythonlib.html">
-                        <button class="nomad-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Open instructions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">assignment</i>
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="section-action" style="margin-top: 3em; text-align: center;">
+        <a href="<%= urls.documentation %>">
+            <button class="nomad-button nomad-button--filled">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Open the documentation</span>
+                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+            </button>
+        </a>
     </div>
 </div>
