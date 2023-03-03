@@ -10,7 +10,7 @@ General:
       The NOMAD user management allows you to edit (click on your name after login) your name, email address,
       and affiliation. The email address and affiliation associated with your data might not change right away,
       but it will be updated eventually.
-  - title: I'd like to install NOMAD on my local computers to be only used by my group!
+  - title: I'd like to install NOMAD on my local computers to be only used by my group.
     description:
       We offer <a href="nomad-oasis.html">NOMAD Oasis</a>. Oasis is a distribution of the NOMAD software
       that can be easily installed in local environment. It is designed to let you manage your
@@ -27,7 +27,7 @@ General:
       </p>
 
 Upload data, datasets, embargo, and DOIs:
-  - title: What steps are necessary to publish data and reference it in a paper or share it otherwise?
+  - title: What steps are necessary to publish data and reference it in a paper or otherwise share it?
     description: |
       <ol>
         <li>upload your data</li>
@@ -42,7 +42,7 @@ Upload data, datasets, embargo, and DOIs:
       different code runs are in separate sub-directories. Otherwise, you can use any directory structure
       you want and also include additional files for each code run, including notes or other related
       artifacts
-  - title: Only some of my files are shown by NOMAD, where is the rest?
+  - title: Only some of my files are shown by NOMAD, where are the others?
     description: |
       NOMAD scans the whole upload for files that it recognizes as main code output files (mainfile) of
       the supported codes. For each recognized mainfile NOMAD will create and show exactly one entry.
@@ -90,9 +90,9 @@ Upload data, datasets, embargo, and DOIs:
       a unique string that can be resolved to a URL that brings your readers to NOMAD where they can inspect
       and download your data. A DOI can be assigned after the dataset was created via the dataset tab on
       the Your data page.
-  - title: How can I create a Dataset and assign a DOI?
+  - title: How can I create a dataset and assign a DOI?
     description: |
-      You need to have data uploaded and published. To create a Dataset and add entries to it, you have to
+      You need to have data uploaded and published. To create a dataset and add entries to it, you have to
       edit the entries. On the
       <a href="https://nomad-lab.eu/prod/rae/gui/uploads" target="_blank" rel="noopener">uploads page</a>
       you can select individual entries or all entries from an upload, and use the edit button. On the
@@ -109,7 +109,7 @@ Upload data, datasets, embargo, and DOIs:
       A DOI is a persistent identifier that is supposed to always reference the same data. Therefore,
       you cannot remove data (or whole datasets) after a DOI has been created. We only assign DOIs to
       datasets that exclusively contain published (but potentially embargoed) data.
-  - title: How can I share data that has an embargo?
+  - title: How can I share data that is under embargo?
     description: |
       When you edit entries, you can mark other NOMAD users as shared with. Those users will see you embargoed
       data like any other data in NOMAD. For example, you could create a dataset, edit all entries in the
@@ -119,7 +119,7 @@ Upload data, datasets, embargo, and DOIs:
     description: |
       When you edit entries, you can mark other NOMAD users as co-authors. You (the uploader) and the co-authors
        will comprise the respective authors list displayed for each entry.
-  - title: I want to upload data from a code that is not yet supported?
+  - title: I want to upload data from a code that is not yet supported.
     description: |
       If you are familiar with the input and output format of other relevant codes, write us an Email
       (support@nomad-coe.eu) and we will figure out if and how to support this code in the future.
@@ -133,7 +133,7 @@ Upload data, datasets, embargo, and DOIs:
       entry and the vasp.run.xml will be the mainfile of that entry. All files in the same directory as
       the mainfile, we be listed as auxiliary files to this entry. Users can download all files of that
       entry, or the whole upload, including all files that you provide.
-  - title: How can I share my data via web-links?
+  - title: How can I share my data via links or URLs?
     description: |
       <p>
         You can copy links from your browsers URL-field and send it to others. But, not all users might see
@@ -165,7 +165,7 @@ Upload data, datasets, embargo, and DOIs:
         The upload page, is only for you to manage your uploads and not visible by others. In contrast to the
         entries (i.e. calculations) that can be shared, the upload its self, only belongs to you.
       </p>
-  - title: My co-authors can't see my embargoed or unpublished data?
+  - title: My co-authors can't see my embargoed or unpublished data.
     description: |
       This is normal. Co-authors are not set to "Shared with" by default. You have to explicitly mention
       your co-authors in the "Shared with" field of the edit dialog.
@@ -186,7 +186,7 @@ API:
           There is also simple semantic-web API based on the W3C DCAT vocabulary.
         </li>
       </ul>
-  - title: What options exist to crawl through large amounts of NOMAD data?
+  - title: What options exist to access large amounts of NOMAD data?
     description: |
       <p>
         NOMAD offers several <a href="https://nomad-lab.eu/prod/rae/api/" target="_blank" rel="noopener">REST API
@@ -224,7 +224,7 @@ API:
         for you to determine after values (e.g. upload ids) in advance and therefore parallelize request
         based on <em>after value</em> pagination.
       </p>
-  - title: I get a 503 "temporarily not available" errors
+  - title: I get an 503 "temporarily not available" error.
     description: |
       <p>
         Besides unforeseen issue with our services, this most likely means that you exceeded a rate-limit.

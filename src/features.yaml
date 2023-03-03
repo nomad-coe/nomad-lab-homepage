@@ -5,7 +5,7 @@ backlog:
       building your own Oasis image.
   - title: Oasis data transfer
     description: |
-      Allows to move uploads from one installation to another. E.g. publish data from
+      Allows you to move uploads from one installation to another, e.g. publish data from
       your Oasis to the public NOMAD service.
   - title: ELN and upload UI/UX
     description: |
@@ -19,13 +19,13 @@ develop:
       <a href="https://github.com/TheELNConsortium/TheELNFileFormat">.eln file format</a>.
   - title: Hierarchical systems
     description: |
-      Complex systems and large systems (e.g. solutions, interfaces, metal organic frameworks)
-      are broken down into sub-systems that can be visualized and accessed independently.
+      Complex or large systems (e.g. solutions, interfaces, metal organic frameworks)
+      are broken down into subsystems that can be visualized and accessed independently.
 
 beta:
   - title: NORTH
     description: |
-      The NOMAD Remote Tools Hub allows to run containarized tools like Jupyter directly on
+      The NOMAD Remote Tools Hub allows you to run containerized tools like Jupyter directly on
       your uploaded data.
   - title: Custom workflows and visualizer
     description: |
@@ -33,7 +33,7 @@ beta:
       custom schema, ELNs, and your own parsers.
   - title: Labfolder integration
     description: |
-      Import labfolder ELN projects into NOAMD.2
+      Import labfolder ELN projects into NOMAD.
 
 released:
   - title: Electronic Lab Notebook functionality
@@ -46,5 +46,5 @@ released:
   - title: Search apps
     description: |
       Allows you to define custom search interfaces for your Oasis. This also includes
-      a solar-cell search app based on The Perovskite Database Project on the public NOMAD
+      a solar-cell search app based on the Perovskite Database Project on the public NOMAD
       service.

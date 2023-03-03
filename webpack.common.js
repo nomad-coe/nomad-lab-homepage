@@ -64,7 +64,7 @@ const mainMenus = [
     items: {
       'Tutorials': 'tutorials.html',
       'Documentation': 'https://nomad-lab.eu/prod/v1/docs/',
-      'Get help': 'help.html'
+      'Support': 'help.html'
     }
   },
   {

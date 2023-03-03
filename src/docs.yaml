@@ -1,29 +1,26 @@
 - title: Installation
   url: oasis.html
   description: |
-    Instructions to install NOMAD Oasis. From the most
+    Setup NOMAD Oasis from the most
     basic installation to first customization options.
 - title: Custom schema
   url: schema/basics.html
   description: |
     Learn what schemas are and how to write custom schemas in
-    NOMAD's schema format based on a simple example.
+    NOMAD's format based on a simple example.
 - title: ELNs
   url: schema/elns.html
   description: |
-    Take the schema from the schema tutorial and learn how
-    to annotate it to create custom forms and create basic ELNs.
+    Learn how to annotate schemas and create custom forms and basic ELNs.
 - title: Developing
   url: develop/setup.html
   description: |
-    Learn how to clone our sources, install all the
-    dependencies, and necessary components to run NOMAD
-    as a developer.
-- title: Parsers
-  url: develop/parser.html
-  description: |
-    Learn how to write and run a new parser for NOMAD.
+    Learn how to clone our sources and to install all the necessary dependencies to run NOMAD as a developer.
 - title: Python package
   url: pythonlib.html
   description: |
     Learn how to install NOMAD's Python package.
+- title: Parsers
+  url: develop/parser.html
+  description: |
+    Learn how to write and run a new parser for NOMAD.
