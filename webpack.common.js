@@ -30,8 +30,8 @@ const urls = {
   gitlab: 'https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR',
   github: 'https://github.com/nomad-coe/nomad',
   github_organisation: 'https://github.com/nomad-coe',
-  documentation: 'https://nomad-lab.eu/prod/v1/staging/docs',
-  production_installation: 'https://nomad-lab.eu/prod/v1',
+  documentation: 'https://nomad-lab.eu/prod/v1/docs',
+  production_installation: 'https://nomad-lab.eu/prod/v1/gui/search/entries',
   beta_installation: 'https://nomad-lab.eu/prod/v1/staging',
   test_installation: 'https://nomad-lab.eu/prod/v1/test',
   legacy_installation: 'https://nomad-lab.eu/prod/rae',
@@ -92,7 +92,7 @@ const mainMenus = [
 const footerMenus = {
   'About': {
     'Home': 'index.html',
-    'Team': '#',
+    'NOMAD Lab': 'nomad-lab.html',
     'FAIRmat': urls.fairmat,
     'Cite NOMAD': 'how-to-cite.html',
     'Terms of use': 'terms.html',
@@ -106,11 +106,12 @@ const footerMenus = {
     'YouTube': 'https://www.youtube.com/@TheNOMADLaboratory'
   },
   'Support': {
-    'FAQ': 'help.html#faq',
     'Forum': urls.forum,
-    'Documentation': urls.documentation
+    'FAQ': 'help.html#faq',
+    'Documentation': urls.documentation,
+    'Tutorials': 'tutorials.html',
   },
-  'Code': {
+  'Contribute': {
     'GitLab@MPCDF': urls.gitlab,
     'GitHub':  urls.github,
     'Create issue': `${urls.github}/issues`
