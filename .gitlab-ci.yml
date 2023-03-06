@@ -1,0 +1,31 @@
+image: gitlab-registry.mpcdf.mpg.de/nomad-lab/nomad-fair/ci-runner:latest
+
+variables:
+  DOCKER_TAG: latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  before_script:
+    - echo "${CI_REGISTRY_PASSWORD}" | docker login ${CI_REGISTRY} --username ${CI_REGISTRY_USER} --password-stdin
+  script:
+    - docker build -t ${CI_REGISTRY_IMAGE}:${DOCKER_TAG} .
+    - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+deploy:
+  stage: deploy
+  before_script:
+    - mkdir ~/.kube/
+    - echo ${CI_K8S_PROD_CONFIG} | base64 -d > ~/.kube/config
+  script:
+    - kubectl apply -f deployment.yaml
+    - kubectl --namespace nomad-lab-homepage rollout restart deployment nomad-lab-homepage
+  needs:
+    - job: build
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

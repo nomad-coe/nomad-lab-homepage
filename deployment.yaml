@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nomad-lab-homepage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nomad-lab-homepage
+  namespace: nomad-lab-homepage
+  labels:
+    role: nomad-lab-homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: nomad-lab-homepage
+  template:
+    metadata:
+      labels:
+        role: nomad-lab-homepage
+    spec:
+      nodeSelector:
+        nomadtype: public 
+      containers:
+      - name: nomad-lab-homepage
+        image: gitlab-registry.mpcdf.mpg.de/nomad-lab/nomad-lab-homepage:latest
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /nomad-lab/index.html
+            port: 80
+      imagePullSecrets:
+      - name: gitlab-mpcdf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nomad-lab-homepage
+  namespace: nomad-lab-homepage
+  labels:
+    role: nomad-lab-homepage
+spec:
+  ports:
+  - name: http
+    port: 80
+  selector:
+    role: nomad-lab-homepage
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nomad-lab-homepage
+  namespace: nomad-lab-homepage
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /nomad-lab
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: nomad-lab-homepage
+            port:
+              number: 80
