@@ -421,6 +421,10 @@ aside {
   }
 }
 
+.nomad-gallery--2--1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+
 .nomad-gallery--2 {
   grid-template-columns: 1fr 1fr;
 
