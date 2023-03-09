@@ -12,6 +12,7 @@ build:
   before_script:
     - echo "${CI_REGISTRY_PASSWORD}" | docker login ${CI_REGISTRY} --username ${CI_REGISTRY_USER} --password-stdin
   script:
+    - python nomad_statistics.py src/statistics.json
     - docker build -t ${CI_REGISTRY_IMAGE}:${DOCKER_TAG} .
     - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
   rules:
