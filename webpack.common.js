@@ -24,6 +24,7 @@ const partialsDict = partials.reduce((result, partial) => {
 const faqData = yaml.load(fs.readFileSync('src/faqs.yaml', 'utf8'));
 const featureData = yaml.load(fs.readFileSync('src/features.yaml', 'utf8'));
 const docsData = yaml.load(fs.readFileSync('src/docs.yaml', 'utf8'));
+const statistics = JSON.parse(fs.readFileSync('src/statistics.json', 'utf8'));
 
 const urls = {
   forum: 'https://matsci.org/c/nomad/32',
@@ -199,6 +200,7 @@ module.exports = {
             ...partialsDict,
             faqData,
             docsData,
+            statistics,
             features: featureData,
             lorem: loremIpsum,
             urls,
