@@ -11,22 +11,23 @@ backlog:
     description: |
       We added a lot of features (incremental uploads, custom schemas, ELNs, Nexus)
       without re-thinking the UI. We are now working on a better user experience.
-
-develop:
   - title: ElabFTW integration
     description: |
       Import experiments from the popular eLabFTW via the official
       <a href="https://github.com/TheELNConsortium/TheELNFileFormat">.eln file format</a>.
+
+develop:
+  - title: Related resources
+    description: |
+      On each entry that represents a formal systems, users can initiate a search
+      in sources similar to NOMAD to identify entries on similar materials within other
+      community databases.
   - title: Hierarchical systems
     description: |
       Complex or large systems (e.g. solutions, interfaces, metal organic frameworks)
       are broken down into subsystems that can be visualized and accessed independently.
 
 beta:
-  - title: NORTH
-    description: |
-      The NOMAD Remote Tools Hub allows you to run containerized tools like Jupyter directly on
-      your uploaded data.
   - title: Custom workflows and visualizer
     description: |
       A new workflow model that allows you to create custom workflows via archive files,
@@ -43,6 +44,10 @@ released:
     description: |
       Allows you to upload and parse Nexus files. You can preview HDF5 directly in
       the browser via H5Web.
+  - title: NORTH
+    description: |
+      The NOMAD Remote Tools Hub allows you to run containerized tools like Jupyter directly on
+      your uploaded data.
   - title: Search apps
     description: |
       Allows you to define custom search interfaces for your Oasis. This also includes
